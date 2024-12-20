@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Machine.X64.Component</RootNamespace>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <AssemblyTitle>Machine.X64.Component.Memory.dll</AssemblyTitle>
+    <Company>winscripter</Company>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Shared\Machine.Utility\Machine.Utility.csproj" />
+  </ItemGroup>
+
+</Project>

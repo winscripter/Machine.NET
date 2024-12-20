@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyTitle>Machine.X64.Runtime.dll</AssemblyTitle>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Company>winscripter</Company>
+    <Copyright>Copyright (c) winscripter, 2024</Copyright>
+
+    <!--
+      Disable the 'IDE1006' (Naming Rule Violation) warning because it is
+      appropriate to use lowercase names for methods that simulate instructions.
+    -->
+    <NoWarn>IDE1006</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Hashing" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Machine.Utility\Machine.Utility.csproj" />
+    <ProjectReference Include="..\Component\Machine.X64.Component.FloatingPoint\Machine.X64.Component.FloatingPoint.csproj" />
+    <ProjectReference Include="..\Component\Machine.X64.Component.Memory\Machine.X64.Component.Memory.csproj" />
+    <ProjectReference Include="..\Component\Machine.X64.Component.Registers.Iced\Machine.X64.Component.Registers.Iced.csproj" />
+    <ProjectReference Include="..\Component\Machine.X64.Component.Registers\Machine.X64.Component.Registers.csproj" />
+  </ItemGroup>
+
+</Project>

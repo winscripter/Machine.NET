@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Registers Namespace="Machine.X64.Component" TypeName="ProcessorRegisters" AllowRegisterInterface="true">
+  <GeneralPurpose>
+    <RegisterDefinition Name="RAX" MetadataName="Rax" Bitness="64" />
+    <RegisterDefinition Name="RBX" MetadataName="Rbx" Bitness="64" />
+    <RegisterDefinition Name="RCX" MetadataName="Rcx" Bitness="64" />
+    <RegisterDefinition Name="RDX" MetadataName="Rdx" Bitness="64" />
+    <RegisterDefinition Name="RSI" MetadataName="Rsi" Bitness="64" />
+    <RegisterDefinition Name="RDI" MetadataName="Rdi" Bitness="64" />
+    <RegisterDefinition Name="RSP" MetadataName="Rsp" Bitness="64" />
+    <RegisterDefinition Name="RIP" MetadataName="Rip" Bitness="64" />
+    <RegisterDefinition Name="RBP" MetadataName="Rbp" Bitness="64" />
+    <RegisterDefinition Name="RFLAGS" MetadataName="RFlags" Bitness="64" />
+
+    <!-- 32-bit GPRs bound to 64-bit -->
+    <BoundRegister Name="EAX" MetadataName="Eax">
+      <Binding TargetName="RAX" TargetMetadataName="Rax" TargetBitness="64" />
+    </BoundRegister>
+    <BoundRegister Name="EBX" MetadataName="Ebx">
+      <Binding TargetName="RBX" TargetMetadataName="Rbx" TargetBitness="64" />
+    </BoundRegister>
+    <BoundRegister Name="ECX" MetadataName="Ecx">
+      <Binding TargetName="RCX" TargetMetadataName="Rcx" TargetBitness="64" />
+    </BoundRegister>
+    <BoundRegister Name="EDX" MetadataName="Edx">
+      <Binding TargetName="RDX" TargetMetadataName="Rdx" TargetBitness="64" />
+    </BoundRegister>
+    <BoundRegister Name="ESI" MetadataName="Esi">
+      <Binding TargetName="RSI" TargetMetadataName="Rsi" TargetBitness="64" />
+    </BoundRegister>
+    <BoundRegister Name="EDI" MetadataName="Edi">
+      <Binding TargetName="RDI" TargetMetadataName="Rdi" TargetBitness="64" />
+    </BoundRegister>
+    <BoundRegister Name="ESP" MetadataName="Esp">
+      <Binding TargetName="RSP" TargetMetadataName="Rsp" TargetBitness="64" />
+    </BoundRegister>
+    <BoundRegister Name="EIP" MetadataName="Eip">
+      <Binding TargetName="RIP" TargetMetadataName="Rip" TargetBitness="64" />
+    </BoundRegister>
+    <BoundRegister Name="EBP" MetadataName="Ebp">
+      <Binding TargetName="RBP" TargetMetadataName="Rbp" TargetBitness="64" />
+    </BoundRegister>
+    <BoundRegister Name="EFLAGS" MetadataName="EFlags">
+      <Binding TargetName="RFLAGS" TargetMetadataName="RFlags" TargetBitness="64" />
+    </BoundRegister>
+
+    <!-- 16-bit GPRs bound to 32-bit -->
+    <BoundRegister Name="AX" MetadataName="Ax">
+      <Binding TargetName="EAX" TargetMetadataName="Eax" TargetBitness="32" />
+    </BoundRegister>
+    <BoundRegister Name="BX" MetadataName="Bx">
+      <Binding TargetName="EBX" TargetMetadataName="Ebx" TargetBitness="32" />
+    </BoundRegister>
+    <BoundRegister Name="CX" MetadataName="Cx">
+      <Binding TargetName="ECX" TargetMetadataName="Ecx" TargetBitness="32" />
+    </BoundRegister>
+    <BoundRegister Name="DX" MetadataName="Dx">
+      <Binding TargetName="EDX" TargetMetadataName="Edx" TargetBitness="32" />
+    </BoundRegister>
+    <BoundRegister Name="SI" MetadataName="Si">
+      <Binding TargetName="ESI" TargetMetadataName="Esi" TargetBitness="32" />
+    </BoundRegister>
+    <BoundRegister Name="DI" MetadataName="Di">
+      <Binding TargetName="EDI" TargetMetadataName="Edi" TargetBitness="32" />
+    </BoundRegister>
+    <BoundRegister Name="SP" MetadataName="Sp">
+      <Binding TargetName="ESP" TargetMetadataName="Esp" TargetBitness="32" />
+    </BoundRegister>
+    <BoundRegister Name="IP" MetadataName="Ip">
+      <Binding TargetName="EIP" TargetMetadataName="Eip" TargetBitness="32" />
+    </BoundRegister>
+    <BoundRegister Name="BP" MetadataName="Bp">
+      <Binding TargetName="EBP" TargetMetadataName="Ebp" TargetBitness="32" />
+    </BoundRegister>
+    <BoundRegister Name="FLAGS" MetadataName="Flags">
+      <Binding TargetName="EFLAGS" TargetMetadataName="EFlags" TargetBitness="32" />
+    </BoundRegister>
+  </GeneralPurpose>
+  <Segment>
+    <RegisterDefinition Name="CS" MetadataName="Cs" Bitness="16" />
+    <RegisterDefinition Name="SS" MetadataName="Ss" Bitness="16" />
+    <RegisterDefinition Name="DS" MetadataName="Ds" Bitness="16" />
+    <RegisterDefinition Name="ES" MetadataName="Es" Bitness="16" />
+    <RegisterDefinition Name="FS" MetadataName="Fs" Bitness="64" />
+    <RegisterDefinition Name="GS" MetadataName="Gs" Bitness="64" />
+  </Segment>
+  <VectorRegisters>
+    <BaseVectorRegister Name="ZMM0" MetadataName="Zmm0" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM1" MetadataName="Zmm1" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM2" MetadataName="Zmm2" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM3" MetadataName="Zmm3" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM4" MetadataName="Zmm4" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM5" MetadataName="Zmm5" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM6" MetadataName="Zmm6" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM7" MetadataName="Zmm7" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM8" MetadataName="Zmm8" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM9" MetadataName="Zmm9" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM10" MetadataName="Zmm10" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM11" MetadataName="Zmm11" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM12" MetadataName="Zmm12" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM13" MetadataName="Zmm13" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM14" MetadataName="Zmm14" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM15" MetadataName="Zmm15" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM16" MetadataName="Zmm16" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM17" MetadataName="Zmm17" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM18" MetadataName="Zmm18" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM19" MetadataName="Zmm19" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM20" MetadataName="Zmm20" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM21" MetadataName="Zmm21" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM22" MetadataName="Zmm22" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM23" MetadataName="Zmm23" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM24" MetadataName="Zmm24" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM25" MetadataName="Zmm25" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM26" MetadataName="Zmm26" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM27" MetadataName="Zmm27" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM28" MetadataName="Zmm28" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM29" MetadataName="Zmm29" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM30" MetadataName="Zmm30" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+    <BaseVectorRegister Name="ZMM31" MetadataName="Zmm31" Bitness="512" AlsoCreateXmm="true" AlsoCreateYmm="true" />
+  </VectorRegisters>
+  <K>
+    <RegisterDefinition Name="K0" MetadataName="K0" Bitness="64" />
+    <RegisterDefinition Name="K1" MetadataName="K1" Bitness="64" />
+    <RegisterDefinition Name="K2" MetadataName="K2" Bitness="64" />
+    <RegisterDefinition Name="K3" MetadataName="K3" Bitness="64" />
+    <RegisterDefinition Name="K4" MetadataName="K4" Bitness="64" />
+    <RegisterDefinition Name="K5" MetadataName="K5" Bitness="64" />
+    <RegisterDefinition Name="K6" MetadataName="K6" Bitness="64" />
+    <RegisterDefinition Name="K7" MetadataName="K7" Bitness="64" />
+  </K>
+  <Other>
+    <!-- Control registers -->
+    <RegisterDefinition Name="CR0" MetadataName="CR0" Bitness="64" />
+    <RegisterDefinition Name="CR1" MetadataName="CR1" Bitness="64" />
+    <RegisterDefinition Name="CR2" MetadataName="CR2" Bitness="64" />
+    <RegisterDefinition Name="CR3" MetadataName="CR3" Bitness="64" />
+    <RegisterDefinition Name="CR4" MetadataName="CR4" Bitness="64" />
+    <RegisterDefinition Name="CR5" MetadataName="CR5" Bitness="64" />
+    <RegisterDefinition Name="CR6" MetadataName="CR6" Bitness="64" />
+    <RegisterDefinition Name="CR7" MetadataName="CR7" Bitness="64" />
+
+    <!-- Test registers -->
+    <RegisterDefinition Name="TR0" MetadataName="TR0" Bitness="64" />
+    <RegisterDefinition Name="TR1" MetadataName="TR1" Bitness="64" />
+    <RegisterDefinition Name="TR2" MetadataName="TR2" Bitness="64" />
+    <RegisterDefinition Name="TR3" MetadataName="TR3" Bitness="64" />
+    <RegisterDefinition Name="TR4" MetadataName="TR4" Bitness="64" />
+    <RegisterDefinition Name="TR5" MetadataName="TR5" Bitness="64" />
+    <RegisterDefinition Name="TR6" MetadataName="TR6" Bitness="64" />
+    <RegisterDefinition Name="TR7" MetadataName="TR7" Bitness="64" />
+
+    <!-- Debug registers -->
+    <RegisterDefinition Name="DR0" MetadataName="DR0" Bitness="64" />
+    <RegisterDefinition Name="DR1" MetadataName="DR1" Bitness="64" />
+    <RegisterDefinition Name="DR2" MetadataName="DR2" Bitness="64" />
+    <RegisterDefinition Name="DR3" MetadataName="DR3" Bitness="64" />
+    <RegisterDefinition Name="DR4" MetadataName="DR4" Bitness="64" />
+    <RegisterDefinition Name="DR5" MetadataName="DR5" Bitness="64" />
+    <RegisterDefinition Name="DR6" MetadataName="DR6" Bitness="64" />
+    <RegisterDefinition Name="DR7" MetadataName="DR7" Bitness="64" />
+    
+    <!-- MMX registers -->
+    <RegisterDefinition Name="MM0" MetadataName="MM0" Bitness="64" />
+    <RegisterDefinition Name="MM1" MetadataName="MM1" Bitness="64" />
+    <RegisterDefinition Name="MM2" MetadataName="MM2" Bitness="64" />
+    <RegisterDefinition Name="MM3" MetadataName="MM3" Bitness="64" />
+    <RegisterDefinition Name="MM4" MetadataName="MM4" Bitness="64" />
+    <RegisterDefinition Name="MM5" MetadataName="MM5" Bitness="64" />
+    <RegisterDefinition Name="MM6" MetadataName="MM6" Bitness="64" />
+    <RegisterDefinition Name="MM7" MetadataName="MM7" Bitness="64" />
+
+    <!-- PKRU register, part of the PKU extension -->
+    <RegisterDefinition Name="PKRU" MetadataName="Pkru" Bitness="64" />
+
+    <!-- Model Specific Register -->
+    <RegisterDefinition Name="MSR" MetadataName="Msr" Bitness="64" />
+  </Other>
+  <CpuFlags>
+    <BoundFlag Bit="0" Name="CF" AlsoKnownAs="Carry Flag" />
+    <BoundFlag Bit="2" Name="PF" AlsoKnownAs="Parity Flag" />
+    <BoundFlag Bit="4" Name="AF" AlsoKnownAs="Auxiliary Flag" />
+    <BoundFlag Bit="6" Name="ZF" AlsoKnownAs="Zero Flag" />
+    <BoundFlag Bit="7" Name="SF" AlsoKnownAs="Sign Flag" />
+    <BoundFlag Bit="8" Name="TF" AlsoKnownAs="Trap Flag" />
+    <BoundFlag Bit="9" Name="IF" AlsoKnownAs="Interrupt Enable Flag" />
+    <BoundFlag Bit="10" Name="DF" AlsoKnownAs="Direction Flag" />
+    <BoundFlag Bit="11" Name="OF" AlsoKnownAs="Overflow Flag" />
+    <BoundFlag Bit="12" Name="IOPL" AlsoKnownAs="I/O Privilege Level Flag" />
+    <BoundFlag Bit="13" Name="IOPL2" AlsoKnownAs="I/O Privilege Level Flag (2)" />
+    <BoundFlag Bit="14" Name="NT" AlsoKnownAs="Nested Task Flag" />
+    <BoundFlag Bit="16" Name="RF" AlsoKnownAs="Resume Flag" />
+    <BoundFlag Bit="17" Name="VM" AlsoKnownAs="Virtual-8086 Mode Flag" />
+    <BoundFlag Bit="18" Name="AC" AlsoKnownAs="Alignment Check Flag" />
+    <BoundFlag Bit="19" Name="VIF" AlsoKnownAs="Virtual Interrupt Flag" />
+    <BoundFlag Bit="20" Name="VIP" AlsoKnownAs="Virtual Interrupt Pending Flag" />
+    <BoundFlag Bit="21" Name="ID" AlsoKnownAs="ID Flag" />
+  </CpuFlags>
+  <CRFlags>
+    <CRFlagDefinitions CRIndex="0">
+      <CRFlag Bit="0" Name="PE" AlsoKnownAs="Protection Enable" />
+      <CRFlag Bit="1" Name="MP" AlsoKnownAs="Monitor Coprocessor" />
+      <CRFlag Bit="2" Name="EM" AlsoKnownAs="Emulation" />
+      <CRFlag Bit="3" Name="TS" AlsoKnownAs="Task Switched" />
+      <CRFlag Bit="4" Name="ET" AlsoKnownAs="Extension Type" />
+      <CRFlag Bit="5" Name="NE" AlsoKnownAs="Numeric Error" />
+      <CRFlag Bit="16" Name="WP" AlsoKnownAs="Write Protect" />
+      <CRFlag Bit="18" Name="AM" AlsoKnownAs="Alignment Mask" />
+      <CRFlag Bit="29" Name="NW" AlsoKnownAs="Not Write-through" />
+      <CRFlag Bit="30" Name="CD" AlsoKnownAs="Cache Disable" />
+      <CRFlag Bit="31" Name="PG" AlsoKnownAs="Paging" />
+    </CRFlagDefinitions>
+    <CRFlagDefinitions CRIndex="4">
+      <CRFlag Bit="0" Name="VME" AlsoKnownAs="Virtual 8086 Mode Extensions" />
+      <CRFlag Bit="1" Name="PVI" AlsoKnownAs="Protected-mode Virtual Interrupts" />
+      <CRFlag Bit="2" Name="TSD" AlsoKnownAs="Time Stamp Disable" />
+      <CRFlag Bit="3" Name="DE" AlsoKnownAs="Debugging Extensions" />
+      <CRFlag Bit="4" Name="PSE" AlsoKnownAs="Page Size Extension" />
+      <CRFlag Bit="5" Name="PAE" AlsoKnownAs="Physical Address Extension" />
+      <CRFlag Bit="6" Name="MCE" AlsoKnownAs="Machine Check Extension" />
+      <CRFlag Bit="7" Name="PGE" AlsoKnownAs="Page Global Enabled" />
+      <CRFlag Bit="8" Name="PCE" AlsoKnownAs="Performance-Monitoring Counter enable" />
+      <CRFlag Bit="9" Name="OSFXSR" AlsoKnownAs="Operating system support for FXSAVE and FXRSTOR instructions" />
+      <CRFlag Bit="10" Name="OSXMMEXCPT" AlsoKnownAs="Operating System Support for Unmasked SIMD Floating-Point Exceptions" />
+      <CRFlag Bit="11" Name="UMIP" AlsoKnownAs="User-mode Instruction Prevention" />
+      <CRFlag Bit="12" Name="LA57" AlsoKnownAs="57-bit linear addresses" />
+      <CRFlag Bit="13" Name="VMXE" AlsoKnownAs="Virtual Machine Extensions Enable" />
+      <CRFlag Bit="14" Name="SMXE" AlsoKnownAs="Safer Mode Extensions Enable" />
+      <CRFlag Bit="16" Name="FSGSBASE" AlsoKnownAs="Enable RDFSBASE, RDGSBASE, WRFSBASE, and WRGSBASE instructions" />
+      <CRFlag Bit="17" Name="PCIDE" AlsoKnownAs="Process-Context Identifiers Enable" />
+      <CRFlag Bit="18" Name="OSXSAVE" AlsoKnownAs="XSAVE and Processor Extended States Enable" />
+      <CRFlag Bit="20" Name="SMEP" AlsoKnownAs="Supervisor Mode Execution Protection" />
+      <CRFlag Bit="21" Name="SMAP" AlsoKnownAs="Supervisor Mode Access Prevention" />
+      <CRFlag Bit="22" Name="PKE" AlsoKnownAs="Protection Key Enable" />
+    </CRFlagDefinitions>
+  </CRFlags>
+  <GeneralPurposePart>
+    <GeneralPurposeRegisterPart TargetName="AX" TargetMetadataName="Ax" BitSplit="8" Direction="Top" Name="AH" MetadataName="Ah" />
+    <GeneralPurposeRegisterPart TargetName="BX" TargetMetadataName="Bx" BitSplit="8" Direction="Top" Name="BH" MetadataName="Bh" />
+    <GeneralPurposeRegisterPart TargetName="CX" TargetMetadataName="Cx" BitSplit="8" Direction="Top" Name="CH" MetadataName="Ch" />
+    <GeneralPurposeRegisterPart TargetName="DX" TargetMetadataName="Dx" BitSplit="8" Direction="Top" Name="DH" MetadataName="Dh" />
+    <GeneralPurposeRegisterPart TargetName="AX" TargetMetadataName="Ax" BitSplit="8" Direction="Bottom" Name="AL" MetadataName="Al" />
+    <GeneralPurposeRegisterPart TargetName="BX" TargetMetadataName="Bx" BitSplit="8" Direction="Bottom" Name="BL" MetadataName="Bl" />
+    <GeneralPurposeRegisterPart TargetName="CX" TargetMetadataName="Cx" BitSplit="8" Direction="Bottom" Name="CL" MetadataName="Cl" />
+    <GeneralPurposeRegisterPart TargetName="DX" TargetMetadataName="Dx" BitSplit="8" Direction="Bottom" Name="DL" MetadataName="Dl" />
+  </GeneralPurposePart>
+</Registers>

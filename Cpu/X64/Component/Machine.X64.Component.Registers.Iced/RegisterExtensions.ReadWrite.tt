@@ -1,0 +1,383 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+
+using Iced.Intel;
+using System.Runtime.Intrinsics;
+
+namespace Machine.X64.Component
+{
+    public static partial class RegisterExtensions
+    {
+        /// <summary>
+        /// Evaluates value of the ZMM register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <returns>
+        /// Value of the ZMM register specified by <paramref name="reg" />.
+        /// </returns>
+        public static Vector512<float> EvaluateZmm(this ProcessorRegisters processorRegisters, Register reg)
+        {
+            return reg switch
+            {
+<#
+    for (int i = 0; i < 32; i++)
+    {
+#>
+                Register.ZMM<#= i #> => processorRegisters.Zmm<#= i #>,
+<# } #>
+                _ => throw new ArgumentException("Input register is not a valid ZMM register", nameof(reg))
+            };
+        }
+
+        /// <summary>
+        /// Evaluates value of the YMM register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <returns>
+        /// Value of the YMM register specified by <paramref name="reg" />.
+        /// </returns>
+        public static Vector256<float> EvaluateYmm(this ProcessorRegisters processorRegisters, Register reg)
+        {
+            return reg switch
+            {
+<#
+    for (int i = 0; i < 32; i++)
+    {
+#>
+                Register.YMM<#= i #> => processorRegisters.Ymm<#= i #>,
+<# } #>
+                _ => throw new ArgumentException("Input register is not a valid YMM register", nameof(reg))
+            };
+        }
+
+        /// <summary>
+        /// Evaluates value of the XMM register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <returns>
+        /// Value of the XMM register specified by <paramref name="reg" />.
+        /// </returns>
+        public static Vector128<float> EvaluateXmm(this ProcessorRegisters processorRegisters, Register reg)
+        {
+            return reg switch
+            {
+<#
+    for (int i = 0; i < 32; i++)
+    {
+#>
+                Register.XMM<#= i #> => processorRegisters.Xmm<#= i #>,
+<# } #>
+                _ => throw new ArgumentException("Input register is not a valid XMM register", nameof(reg))
+            };
+        }
+
+        /// <summary>
+        /// Alters the value of the ZMM register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <param name="value">Value</param>
+        public static void SetZmm(this ProcessorRegisters processorRegisters, Register reg, Vector512<float> value)
+        {
+            switch (reg)
+            {
+<#
+    for (int i = 0; i < 32; i++)
+    {
+#>
+                case Register.ZMM<#= i #>:
+                    processorRegisters.Zmm<#= i #> = value;
+                    break;
+
+<# } #>
+                default:
+                    throw new ArgumentException("Input register is not a valid ZMM register", nameof(reg));
+            }
+        }
+
+        /// <summary>
+        /// Alters the value of the YMM register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <param name="value">Value</param>
+        public static void SetYmm(this ProcessorRegisters processorRegisters, Register reg, Vector256<float> value)
+        {
+            switch (reg)
+            {
+<#
+    for (int i = 0; i < 32; i++)
+    {
+#>
+                case Register.YMM<#= i #>:
+                    processorRegisters.Ymm<#= i #> = value;
+                    break;
+
+<# } #>
+                default:
+                    throw new ArgumentException("Input register is not a valid YMM register", nameof(reg));
+            }
+        }
+
+        /// <summary>
+        /// Alters the value of the XMM register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <param name="value">Value</param>
+        public static void SetXmm(this ProcessorRegisters processorRegisters, Register reg, Vector128<float> value)
+        {
+            switch (reg)
+            {
+<#
+    for (int i = 0; i < 32; i++)
+    {
+#>
+                case Register.XMM<#= i #>:
+                    processorRegisters.Xmm<#= i #> = value;
+                    break;
+
+<# } #>
+                default:
+                    throw new ArgumentException("Input register is not a valid XMM register", nameof(reg));
+            }
+        }
+
+        /// <summary>
+        /// Evaluates value of the CR register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <returns>
+        /// Value of the CR register specified by <paramref name="reg" />.
+        /// </returns>
+        public static ulong EvaluateCR(this ProcessorRegisters processorRegisters, Register reg)
+        {
+            return reg switch
+            {
+<#
+    for (int i = 0; i < 8; i++)
+    {
+#>
+                Register.CR<#= i #> => processorRegisters.CR<#= i #>,
+<# } #>
+                _ => throw new ArgumentException("Input register is not a valid CR register", nameof(reg))
+            };
+        }
+
+        /// <summary>
+        /// Evaluates value of the MM register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <returns>
+        /// Value of the MM register specified by <paramref name="reg" />.
+        /// </returns>
+        public static ulong EvaluateMM(this ProcessorRegisters processorRegisters, Register reg)
+        {
+            return reg switch
+            {
+<#
+    for (int i = 0; i < 8; i++)
+    {
+#>
+                Register.MM<#= i #> => processorRegisters.MM<#= i #>,
+<# } #>
+                _ => throw new ArgumentException("Input register is not a valid MM register", nameof(reg))
+            };
+        }
+
+        /// <summary>
+        /// Evaluates value of the DR register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <returns>
+        /// Value of the DR register specified by <paramref name="reg" />.
+        /// </returns>
+        public static ulong EvaluateDR(this ProcessorRegisters processorRegisters, Register reg)
+        {
+            return reg switch
+            {
+<#
+    for (int i = 0; i < 8; i++)
+    {
+#>
+                Register.DR<#= i #> => processorRegisters.DR<#= i #>,
+<# } #>
+                _ => throw new ArgumentException("Input register is not a valid DR register", nameof(reg))
+            };
+        }
+
+        /// <summary>
+        /// Evaluates value of the TR register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <returns>
+        /// Value of the TR register specified by <paramref name="reg" />.
+        /// </returns>
+        public static ulong EvaluateTR(this ProcessorRegisters processorRegisters, Register reg)
+        {
+            return reg switch
+            {
+<#
+    for (int i = 0; i < 8; i++)
+    {
+#>
+                Register.TR<#= i #> => processorRegisters.TR<#= i #>,
+<# } #>
+                _ => throw new ArgumentException("Input register is not a valid TR register", nameof(reg))
+            };
+        }
+
+        /// <summary>
+        /// Alters the value of the CR register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <param name="value">Value</param>
+        public static void SetCR(this ProcessorRegisters processorRegisters, Register reg, ulong value)
+        {
+            switch (reg)
+            {
+<#
+    for (int i = 0; i < 8; i++)
+    {
+#>
+                case Register.CR<#= i #>:
+                    processorRegisters.CR<#= i #> = value;
+                    break;
+
+<# } #>
+                default:
+                    throw new ArgumentException("Input register is not a valid CR register", nameof(reg));
+            }
+        }
+
+        /// <summary>
+        /// Alters the value of the MM register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <param name="value">Value</param>
+        public static void SetMM(this ProcessorRegisters processorRegisters, Register reg, ulong value)
+        {
+            switch (reg)
+            {
+<#
+    for (int i = 0; i < 8; i++)
+    {
+#>
+                case Register.MM<#= i #>:
+                    processorRegisters.MM<#= i #> = value;
+                    break;
+
+<# } #>
+                default:
+                    throw new ArgumentException("Input register is not a valid MM register", nameof(reg));
+            }
+        }
+
+        /// <summary>
+        /// Alters the value of the DR register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <param name="value">Value</param>
+        public static void SetDR(this ProcessorRegisters processorRegisters, Register reg, ulong value)
+        {
+            switch (reg)
+            {
+<#
+    for (int i = 0; i < 8; i++)
+    {
+#>
+                case Register.DR<#= i #>:
+                    processorRegisters.DR<#= i #> = value;
+                    break;
+
+<# } #>
+                default:
+                    throw new ArgumentException("Input register is not a valid DR register", nameof(reg));
+            }
+        }
+
+        /// <summary>
+        /// Alters the value of the TR register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <param name="value">Value</param>
+        public static void SetTR(this ProcessorRegisters processorRegisters, Register reg, ulong value)
+        {
+            switch (reg)
+            {
+<#
+    for (int i = 0; i < 8; i++)
+    {
+#>
+                case Register.TR<#= i #>:
+                    processorRegisters.TR<#= i #> = value;
+                    break;
+
+<# } #>
+                default:
+                    throw new ArgumentException("Input register is not a valid TR register", nameof(reg));
+            }
+        }
+
+        /// <summary>
+        /// Alters the value of the K register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <param name="value">Value</param>
+        public static void SetK(this ProcessorRegisters processorRegisters, Register reg, ulong value)
+        {
+            switch (reg)
+            {
+<#
+    for (int i = 0; i < 8; i++)
+    {
+#>
+                case Register.K<#= i #>:
+                    processorRegisters.K<#= i #> = value;
+                    break;
+
+<# } #>
+                default:
+                    throw new ArgumentException("Input register is not a valid K register", nameof(reg));
+            }
+        }
+
+        /// <summary>
+        /// Evaluates value of the K register.
+        /// </summary>
+        /// <param name="processorRegisters">Processor registers</param>
+        /// <param name="reg">Register</param>
+        /// <returns>
+        /// Value of the K register specified by <paramref name="reg" />.
+        /// </returns>
+        public static ulong EvaluateK(this ProcessorRegisters processorRegisters, Register reg)
+        {
+            return reg switch
+            {
+<#
+    for (int i = 0; i < 8; i++)
+    {
+#>
+                Register.K<#= i #> => processorRegisters.K<#= i #>,
+<# } #>
+                _ => throw new ArgumentException("Input register is not a valid K register", nameof(reg))
+            };
+        }
+    }
+}

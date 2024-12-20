@@ -1,0 +1,23 @@
+﻿using Iced.Intel;
+using Machine.X64.Component;
+
+namespace Machine.X64.Runtime;
+
+public partial class CpuRuntime
+{
+    private void lddqu(in Instruction instruction)
+    {
+        switch (instruction.Code)
+        {
+            case Code.Lddqu_xmm_m128:
+                {
+                    this.ProcessorRegisters.SetXmm(instruction.GetOpRegister(0), this.Memory.ReadBinaryVector128(GetMemOperand64(instruction)));
+                    break;
+                }
+
+            default:
+                ReportInvalidCodeUnderMnemonic(instruction.Code, instruction.Mnemonic);
+                break;
+        }
+    }
+}
