@@ -13,7 +13,7 @@ client-side browser environment. This project aims to solve that problem, by str
 the CPU and devices - X64, ARM, RISC-V, etc.
 
 Right now, only X64 is supported, as well as the Intel 8253, 8259 chipset and HPET. Currently I'm focusing on solving
-existing problems with X64 rather than adding more possibilities. New features will be added once the X64 emulator begins to show success
+existing problems with the X64 emulator rather than adding more possibilities. New features will be added once the X64 emulator begins to show success
 
 # Supported features
 ### X64
