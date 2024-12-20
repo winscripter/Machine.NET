@@ -2,7 +2,7 @@
 
 internal sealed class DeviceNotAvailable : IErrorRecord
 {
-    public string? DisplayName => "The device vital to the executability of this instruction is unavailable.";
+    public string? DisplayName => "The device vital to the execution of this instruction is unavailable.";
 
     public ulong ErrorCode => 0;
 
