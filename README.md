@@ -8,7 +8,7 @@ be more bugs than unfinished features. If you find any bugs, please report them 
 will be botched without your help.
 
 An example where this might actually be useful is Blazor WebAssembly. It's quite limiting but
-for a reason. It's impossible to run unmanaged apps, like Chrome or Visual Studio, in a
+for a reason. It's impossible to run unmanaged apps or operating systems (like apps written in C/C++) in a
 client-side browser environment. This project aims to solve that problem, by straight up emulating
 the CPU and devices - X64, ARM, RISC-V, etc.
 
