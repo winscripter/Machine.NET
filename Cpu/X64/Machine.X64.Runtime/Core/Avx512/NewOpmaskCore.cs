@@ -60,7 +60,7 @@ internal static class NewOpmaskCore
         );
     }
 
-    private static void ImplementKRegisterOR(ProcessorRegisters registers, ulong k2, ulong k3, int bitness, Register output)
+    private static void ImplementKRegisterOr(ProcessorRegisters registers, ulong k2, ulong k3, int bitness, Register output)
     {
         ulong result = 0;
         for (int i = 0; i < bitness; i++)
@@ -70,13 +70,13 @@ internal static class NewOpmaskCore
         registers.SetK(output, result);
     }
 
-    public static void KORInstructionMain(ProcessorRegisters registers, in Instruction instruction, Code code, int bitness)
+    public static void KorInstructionMain(ProcessorRegisters registers, in Instruction instruction, Code code, int bitness)
     {
         if (instruction.Code != code)
         {
             throw new CpuException($"Invalid or unrecognized code {instruction.Code} under mnemonic {instruction.Mnemonic}");
         }
-        ImplementKRegisterOR(
+        ImplementKRegisterOr(
             registers,
             k2: registers.EvaluateK(instruction.GetOpRegister(1)),
             k3: registers.EvaluateK(instruction.GetOpRegister(2)),
@@ -85,7 +85,7 @@ internal static class NewOpmaskCore
         );
     }
 
-    private static void ImplementKRegisterADD(ProcessorRegisters registers, ulong k2, ulong k3, int bitness, Register output)
+    private static void ImplementKRegisterAdd(ProcessorRegisters registers, ulong k2, ulong k3, int bitness, Register output)
     {
         ulong result = BitUtilities.AddFirstNBits(k2, k3, bitness);
         registers.SetK(output, result);
@@ -97,7 +97,7 @@ internal static class NewOpmaskCore
         {
             throw new CpuException($"Invalid or unrecognized code {instruction.Code} under mnemonic {instruction.Mnemonic}");
         }
-        ImplementKRegisterADD(
+        ImplementKRegisterAdd(
             registers,
             k2: registers.EvaluateK(instruction.GetOpRegister(1)),
             k3: registers.EvaluateK(instruction.GetOpRegister(2)),
@@ -106,7 +106,7 @@ internal static class NewOpmaskCore
         );
     }
 
-    private static void ImplementKRegisterXOR(ProcessorRegisters registers, ulong k2, ulong k3, int bitness, Register output)
+    private static void ImplementKRegisterXor(ProcessorRegisters registers, ulong k2, ulong k3, int bitness, Register output)
     {
         ulong result = 0;
         for (int i = 0; i < bitness; i++)
@@ -122,7 +122,7 @@ internal static class NewOpmaskCore
         {
             throw new CpuException($"Invalid or unrecognized code {instruction.Code} under mnemonic {instruction.Mnemonic}");
         }
-        ImplementKRegisterXOR(
+        ImplementKRegisterXor(
             registers,
             k2: registers.EvaluateK(instruction.GetOpRegister(1)),
             k3: registers.EvaluateK(instruction.GetOpRegister(2)),
@@ -131,7 +131,7 @@ internal static class NewOpmaskCore
         );
     }
 
-    private static void ImplementKRegisterXNOR(ProcessorRegisters registers, ulong k2, ulong k3, int bitness, Register output)
+    private static void ImplementKRegisterXnor(ProcessorRegisters registers, ulong k2, ulong k3, int bitness, Register output)
     {
         ulong result = 0;
         for (int i = 0; i < bitness; i++)
@@ -147,7 +147,7 @@ internal static class NewOpmaskCore
         {
             throw new CpuException($"Invalid or unrecognized code {instruction.Code} under mnemonic {instruction.Mnemonic}");
         }
-        ImplementKRegisterXNOR(
+        ImplementKRegisterXnor(
             registers,
             k2: registers.EvaluateK(instruction.GetOpRegister(1)),
             k3: registers.EvaluateK(instruction.GetOpRegister(2)),
@@ -156,7 +156,7 @@ internal static class NewOpmaskCore
         );
     }
 
-    private static void ImplementKRegisterAND(ProcessorRegisters registers, ulong k2, ulong k3, int bitness, Register output)
+    private static void ImplementKRegisterAnd(ProcessorRegisters registers, ulong k2, ulong k3, int bitness, Register output)
     {
         ulong result = 0;
         for (int i = 0; i < bitness; i++)
@@ -172,7 +172,7 @@ internal static class NewOpmaskCore
         {
             throw new CpuException($"Invalid or unrecognized code {instruction.Code} under mnemonic {instruction.Mnemonic}");
         }
-        ImplementKRegisterAND(
+        ImplementKRegisterAnd(
             registers,
             k2: registers.EvaluateK(instruction.GetOpRegister(1)),
             k3: registers.EvaluateK(instruction.GetOpRegister(2)),
@@ -181,7 +181,7 @@ internal static class NewOpmaskCore
         );
     }
 
-    private static void ImplementKRegisterANDN(ProcessorRegisters registers, ulong k2, ulong k3, int bitness, Register output)
+    private static void ImplementKRegisterAndn(ProcessorRegisters registers, ulong k2, ulong k3, int bitness, Register output)
     {
         ulong result = 0;
         for (int i = 0; i < bitness; i++)
@@ -197,7 +197,7 @@ internal static class NewOpmaskCore
         {
             throw new CpuException($"Invalid or unrecognized code {instruction.Code} under mnemonic {instruction.Mnemonic}");
         }
-        ImplementKRegisterANDN(
+        ImplementKRegisterAndn(
             registers,
             k2: registers.EvaluateK(instruction.GetOpRegister(1)),
             k3: registers.EvaluateK(instruction.GetOpRegister(2)),

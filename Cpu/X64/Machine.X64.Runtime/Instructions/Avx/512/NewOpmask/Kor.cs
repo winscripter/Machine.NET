@@ -11,19 +11,19 @@ public partial class CpuRuntime
         switch (code)
         {
             case Code.VEX_Korb_kr_kr_kr:
-                NewOpmaskCore.KORInstructionMain(ProcessorRegisters, in instruction, code, 8);
+                NewOpmaskCore.KorInstructionMain(ProcessorRegisters, in instruction, code, 8);
                 break;
 
             case Code.VEX_Kxorw_kr_kr_kr:
-                NewOpmaskCore.KORInstructionMain(ProcessorRegisters, in instruction, code, 16);
+                NewOpmaskCore.KorInstructionMain(ProcessorRegisters, in instruction, code, 16);
                 break;
 
             case Code.VEX_Kxord_kr_kr_kr:
-                NewOpmaskCore.KORInstructionMain(ProcessorRegisters, in instruction, code, 32);
+                NewOpmaskCore.KorInstructionMain(ProcessorRegisters, in instruction, code, 32);
                 break;
 
             case Code.VEX_Kxorq_kr_kr_kr:
-                NewOpmaskCore.KORInstructionMain(ProcessorRegisters, in instruction, code, 64);
+                NewOpmaskCore.KorInstructionMain(ProcessorRegisters, in instruction, code, 64);
                 break;
 
             default:
