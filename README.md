@@ -17,7 +17,7 @@ existing problems with X64 rather than adding more possibilities. New features w
 
 # Supported features
 ### X64
-- 696 instructions are supported, as of December 20, 2024.
+- 720 instructions are supported, as of December 20, 2024.
 - 64-bit mode
 - Many 8086, 80186, 80386 and 80486 instructions
 - Partially working protected mode

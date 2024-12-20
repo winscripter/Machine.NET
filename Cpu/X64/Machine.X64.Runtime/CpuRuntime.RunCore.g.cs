@@ -4,18 +4,10 @@ namespace Machine.X64.Runtime;
 
 public partial class CpuRuntime
 {
-    // Internal Run function
     private void RunCore(in Instruction instruction)
     {
         switch (instruction.Mnemonic)
         {
-            case Mnemonic.Ud0: ud0(in instruction); break;
-            case Mnemonic.Ud1: ud1(in instruction); break;
-            case Mnemonic.Ud2: ud2(in instruction); break;
-            case Mnemonic.Nop: nop(in instruction); break;
-            case Mnemonic.Not: not(in instruction); break;
-            case Mnemonic.Jmp: jmp(in instruction); break;
-            case Mnemonic.Jcxz: jcxz(in instruction); break;
             case Mnemonic.Aaa: aaa(in instruction); break;
             case Mnemonic.Aad: aad(in instruction); break;
             case Mnemonic.Aam: aam(in instruction); break;
@@ -135,12 +127,14 @@ public partial class CpuRuntime
             case Mnemonic.Jae: jae(in instruction); break;
             case Mnemonic.Jb: jb(in instruction); break;
             case Mnemonic.Jbe: jbe(in instruction); break;
+            case Mnemonic.Jcxz: jcxz(in instruction); break;
             case Mnemonic.Je: je(in instruction); break;
             case Mnemonic.Jecxz: jecxz(in instruction); break;
             case Mnemonic.Jg: jg(in instruction); break;
             case Mnemonic.Jge: jge(in instruction); break;
             case Mnemonic.Jl: jl(in instruction); break;
             case Mnemonic.Jle: jle(in instruction); break;
+            case Mnemonic.Jmp: jmp(in instruction); break;
             case Mnemonic.Jne: jne(in instruction); break;
             case Mnemonic.Jno: jno(in instruction); break;
             case Mnemonic.Jnp: jnp(in instruction); break;
@@ -148,11 +142,38 @@ public partial class CpuRuntime
             case Mnemonic.Jo: jo(in instruction); break;
             case Mnemonic.Jp: jp(in instruction); break;
             case Mnemonic.Js: js(in instruction); break;
-            case Mnemonic.Kand: kand(in instruction); break;
-            case Mnemonic.Kandn: kandn(in instruction); break;
-            case Mnemonic.Kor: kor(in instruction); break;
-            case Mnemonic.Kxnor: kxnor(in instruction); break;
-            case Mnemonic.Kxor: kxor(in instruction); break;
+            case Mnemonic.Kaddb: kaddb(in instruction); break;
+            case Mnemonic.Kaddd: kaddd(in instruction); break;
+            case Mnemonic.Kaddq: kaddq(in instruction); break;
+            case Mnemonic.Kaddw: kaddw(in instruction); break;
+            case Mnemonic.Kandb: kandb(in instruction); break;
+            case Mnemonic.Kandd: kandd(in instruction); break;
+            case Mnemonic.Kandnb: kandnb(in instruction); break;
+            case Mnemonic.Kandnd: kandnd(in instruction); break;
+            case Mnemonic.Kandnq: kandnq(in instruction); break;
+            case Mnemonic.Kandnw: kandnw(in instruction); break;
+            case Mnemonic.Kandq: kandq(in instruction); break;
+            case Mnemonic.Kandw: kandw(in instruction); break;
+            case Mnemonic.Korb: korb(in instruction); break;
+            case Mnemonic.Kord: kord(in instruction); break;
+            case Mnemonic.Korq: korq(in instruction); break;
+            case Mnemonic.Korw: korw(in instruction); break;
+            case Mnemonic.Kshiftlb: kshiftlb(in instruction); break;
+            case Mnemonic.Kshiftld: kshiftld(in instruction); break;
+            case Mnemonic.Kshiftlq: kshiftlq(in instruction); break;
+            case Mnemonic.Kshiftlw: kshiftlw(in instruction); break;
+            case Mnemonic.Kshiftrb: kshiftrb(in instruction); break;
+            case Mnemonic.Kshiftrd: kshiftrd(in instruction); break;
+            case Mnemonic.Kshiftrq: kshiftrq(in instruction); break;
+            case Mnemonic.Kshiftrw: kshiftrw(in instruction); break;
+            case Mnemonic.Kxnorb: kxnorb(in instruction); break;
+            case Mnemonic.Kxnord: kxnord(in instruction); break;
+            case Mnemonic.Kxnorq: kxnorq(in instruction); break;
+            case Mnemonic.Kxnorw: kxnorw(in instruction); break;
+            case Mnemonic.Kxorb: kxorb(in instruction); break;
+            case Mnemonic.Kxord: kxord(in instruction); break;
+            case Mnemonic.Kxorq: kxorq(in instruction); break;
+            case Mnemonic.Kxorw: kxorw(in instruction); break;
             case Mnemonic.Lahf: lahf(in instruction); break;
             case Mnemonic.Lddqu: lddqu(in instruction); break;
             case Mnemonic.Ldmxcsr: ldmxcsr(in instruction); break;
@@ -206,6 +227,8 @@ public partial class CpuRuntime
             case Mnemonic.Mulsd: mulsd(in instruction); break;
             case Mnemonic.Mulss: mulss(in instruction); break;
             case Mnemonic.Neg: neg(in instruction); break;
+            case Mnemonic.Nop: nop(in instruction); break;
+            case Mnemonic.Not: not(in instruction); break;
             case Mnemonic.Or: or(in instruction); break;
             case Mnemonic.Orpd: orpd(in instruction); break;
             case Mnemonic.Orps: orps(in instruction); break;
@@ -371,6 +394,9 @@ public partial class CpuRuntime
             case Mnemonic.Tzcnt: tzcnt(in instruction); break;
             case Mnemonic.Ucomisd: ucomisd(in instruction); break;
             case Mnemonic.Ucomiss: ucomiss(in instruction); break;
+            case Mnemonic.Ud0: ud0(in instruction); break;
+            case Mnemonic.Ud1: ud1(in instruction); break;
+            case Mnemonic.Ud2: ud2(in instruction); break;
             case Mnemonic.Unpckhps: unpckhps(in instruction); break;
             case Mnemonic.Unpcklps: unpcklps(in instruction); break;
             case Mnemonic.V4fmaddps: v4fmaddps(in instruction); break;
