@@ -59,6 +59,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "X64Examples", "Examples\X64
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Machine.Device.Chipsets", "Device\Machine.Device.Chipsets\Machine.Device.Chipsets.csproj", "{2DA11EE3-11D4-4EEB-AACA-16AC8B8A9AA8}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Images", "Images\Images.shproj", "{CF7E95DA-D369-4F39-AC5C-CB7781EF1990}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,5 +147,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {05F3C161-AA03-43F5-997C-491754D6F437}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Images\Images.projitems*{cf7e95da-d369-4f39-ac5c-cb7781ef1990}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
