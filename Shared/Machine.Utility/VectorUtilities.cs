@@ -311,7 +311,10 @@ public static class VectorUtilities
     {
         Vector128<byte> result = Vector128<byte>.Zero;
         for (int i = 0; i < Vector128<byte>.Count; i++)
+        {
             result = result.WithElement(i, (byte)~vector[i]);
+        }
+
         return result;
     }
 
@@ -319,7 +322,10 @@ public static class VectorUtilities
     {
         Vector256<byte> result = Vector256<byte>.Zero;
         for (int i = 0; i < Vector256<byte>.Count; i++)
+        {
             result = result.WithElement(i, (byte)~vector[i]);
+        }
+
         return result;
     }
 
@@ -327,7 +333,10 @@ public static class VectorUtilities
     {
         Vector512<byte> result = Vector512<byte>.Zero;
         for (int i = 0; i < Vector512<byte>.Count; i++)
+        {
             result = result.WithElement(i, (byte)~vector[i]);
+        }
+
         return result;
     }
 
@@ -335,7 +344,10 @@ public static class VectorUtilities
     {
         Vector128<float> result = Vector128<float>.Zero;
         for (int i = 0; i < Vector128<float>.Count; i++)
+        {
             result = result.WithElement(i, MathF.Sqrt(vector[i]));
+        }
+
         return result;
     }
 
@@ -343,7 +355,10 @@ public static class VectorUtilities
     {
         Vector256<float> result = Vector256<float>.Zero;
         for (int i = 0; i < Vector256<float>.Count; i++)
+        {
             result = result.WithElement(i, MathF.Sqrt(vector[i]));
+        }
+
         return result;
     }
 
@@ -351,7 +366,10 @@ public static class VectorUtilities
     {
         Vector512<float> result = Vector512<float>.Zero;
         for (int i = 0; i < Vector512<float>.Count; i++)
+        {
             result = result.WithElement(i, MathF.Sqrt(vector[i]));
+        }
+
         return result;
     }
 
@@ -359,7 +377,10 @@ public static class VectorUtilities
     {
         Vector128<double> result = Vector128<double>.Zero;
         for (int i = 0; i < Vector128<double>.Count; i++)
+        {
             result = result.WithElement(i, Math.Sqrt(vector[i]));
+        }
+
         return result;
     }
 
@@ -367,7 +388,10 @@ public static class VectorUtilities
     {
         Vector256<double> result = Vector256<double>.Zero;
         for (int i = 0; i < Vector256<double>.Count; i++)
+        {
             result = result.WithElement(i, Math.Sqrt(vector[i]));
+        }
+
         return result;
     }
 
@@ -375,7 +399,10 @@ public static class VectorUtilities
     {
         Vector512<double> result = Vector512<double>.Zero;
         for (int i = 0; i < Vector512<double>.Count; i++)
+        {
             result = result.WithElement(i, Math.Sqrt(vector[i]));
+        }
+
         return result;
     }
 }
