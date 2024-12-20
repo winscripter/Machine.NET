@@ -46,7 +46,7 @@ public partial class CpuRuntime
                 {
                     ulong value = 0;
                     ulong rm64 = RMEvaluate64(in instruction, 1);
-                    for (int i = 31; i >= 0; i--)
+                    for (int i = 63; i >= 0; i--)
                     {
                         if (BitUtilities.IsBitSet(rm64, i))
                         {
