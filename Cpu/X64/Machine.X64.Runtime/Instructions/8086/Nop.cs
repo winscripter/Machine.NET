@@ -1,5 +1,5 @@
 ﻿using Iced.Intel;
- 
+
 namespace Machine.X64.Runtime;
 
 public partial class CpuRuntime
