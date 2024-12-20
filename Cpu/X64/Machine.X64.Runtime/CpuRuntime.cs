@@ -744,4 +744,12 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
             _ => Vector64<float>.Zero
         };
     }
+
+    /// <summary>
+    /// Raises the Undefined OpCode error (UD#), with interrupt vector 5.
+    /// </summary>
+    public void RaiseUndefinedOpCode()
+    {
+        this.RaiseException(StaticErrors.UndefinedOpCode);
+    }
 }
