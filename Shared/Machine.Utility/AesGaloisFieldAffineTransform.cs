@@ -46,7 +46,9 @@ public static class AesGaloisFieldAffineTransform
             for (int j = 0; j < 8; j++)
             {
                 if ((x & (1 << j)) != 0 && (A[i] & (1 << j)) != 0)
+                {
                     bit ^= 1;
+                }
             }
 
             result |= (byte)(bit << i);
@@ -69,7 +71,9 @@ public static class AesGaloisFieldAffineTransform
             for (int j = 0; j < 8; j++)
             {
                 if ((y & (1 << j)) != 0 && (AInverse[i] & (1 << j)) != 0)
+                {
                     bit ^= 1;
+                }
             }
 
             result |= (byte)(bit << i);

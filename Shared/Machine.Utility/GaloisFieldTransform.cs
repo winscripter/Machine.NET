@@ -14,7 +14,6 @@ public static class GaloisFieldTransform
     /// </summary>
     /// <param name="a">Left value</param>
     /// <param name="b">Right value</param>
-    /// <param name="irreduciblePolynomial">Irreducible polynomial</param>
     /// <returns>
     /// <paramref name="a"/> and <paramref name="b"/>, multiplied according to the Galois Field
     /// Multiplication algorithm with default irreducible polynomial, which is equal to 0x11B.
