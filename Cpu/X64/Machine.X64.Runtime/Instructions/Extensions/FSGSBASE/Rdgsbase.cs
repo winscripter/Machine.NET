@@ -7,6 +7,7 @@ public partial class CpuRuntime
 {
     private void rdgsbase(in Instruction instruction)
     {
+        this.EnsureFsGsBaseIsAllowed();
         switch (instruction.Code)
         {
             case Code.Rdgsbase_r32:
