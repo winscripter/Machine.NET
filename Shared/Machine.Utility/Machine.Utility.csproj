@@ -4,6 +4,10 @@
     <TargetFrameworks>net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyTitle>Machine.NET Code Tools</AssemblyTitle>
+    <Company>winscripter</Company>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Copyright>Copyright (c) winscripter, 2023-2024</Copyright>
   </PropertyGroup>
 
 </Project>

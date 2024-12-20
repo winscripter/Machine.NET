@@ -7,7 +7,7 @@
     <AssemblyTitle>Machine.X64.Runtime.dll</AssemblyTitle>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <Company>winscripter</Company>
-    <Copyright>Copyright (c) winscripter, 2024</Copyright>
+    <Copyright>Copyright (c) winscripter, 2023-2024</Copyright>
 
     <!--
       Disable the 'IDE1006' (Naming Rule Violation) warning because it is

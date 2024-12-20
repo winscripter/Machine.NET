@@ -6,9 +6,10 @@
     <Nullable>enable</Nullable>
     <RootNamespace>Machine.X64.Component</RootNamespace>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <AssemblyTitle>Machine.X64.Component.Memory.dll</AssemblyTitle>
+    <AssemblyTitle>Machine.X64.Component.Registers.dll</AssemblyTitle>
     <Company>winscripter</Company>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Copyright>Copyright (c) winscripter, 2023-2024</Copyright>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
