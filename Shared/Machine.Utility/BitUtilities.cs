@@ -442,6 +442,18 @@ public static class BitUtilities
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static void SetLower8Bits(ref ushort value, byte by)
+    {
+        value = (ushort)((value & 0xFF00) | by);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static uint SetLower8Bits(ushort value, byte by)
+    {
+        return (ushort)((value & 0xFF00) | by);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void SetLower8Bits(ref ulong value, byte by)
     {
         value = (value & 0xFFFFFFFFFFFFFF00) | by;

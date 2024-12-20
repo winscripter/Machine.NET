@@ -1,4 +1,5 @@
 ﻿using Iced.Intel;
+using Machine.Utility;
 
 namespace Machine.X64.Runtime;
 
@@ -10,7 +11,9 @@ public partial class CpuRuntime
         {
             case Code.Sahf:
                 {
-                    this.ProcessorRegisters.Flags = (ushort)this.ProcessorRegisters.Ah;
+                    ushort flags = this.ProcessorRegisters.Flags;
+                    BitUtilities.SetLower8Bits(ref flags, this.ProcessorRegisters.Ah);
+                    this.ProcessorRegisters.Flags = flags;
                     break;
                 }
 
