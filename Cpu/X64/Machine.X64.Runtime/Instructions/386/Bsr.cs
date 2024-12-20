@@ -14,7 +14,7 @@ public partial class CpuRuntime
                 {
                     ushort value = 0;
                     ushort rm16 = RMEvaluate16(in instruction, 1);
-                    for (int i = 15; i >= 0; i++)
+                    for (int i = 15; i >= 0; i--)
                     {
                         if (BitUtilities.IsBitSet(rm16, i))
                         {
@@ -30,7 +30,7 @@ public partial class CpuRuntime
                 {
                     uint value = 0;
                     uint rm32 = RMEvaluate32(in instruction, 1);
-                    for (int i = 31; i >= 0; i++)
+                    for (int i = 31; i >= 0; i--)
                     {
                         if (BitUtilities.IsBitSet(rm32, i))
                         {
@@ -46,7 +46,7 @@ public partial class CpuRuntime
                 {
                     ulong value = 0;
                     ulong rm64 = RMEvaluate64(in instruction, 1);
-                    for (int i = 31; i >= 0; i++)
+                    for (int i = 31; i >= 0; i--)
                     {
                         if (BitUtilities.IsBitSet(rm64, i))
                         {
