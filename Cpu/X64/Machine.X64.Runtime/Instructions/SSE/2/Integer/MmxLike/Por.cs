@@ -12,12 +12,7 @@ public partial class CpuRuntime
         {
             case Code.Por_mm_mmm64:
                 {
-                    Vector64<float> inputVector = instruction.GetOpKind(1) switch
-                    {
-                        OpKind.Memory => Vector64.Create(this.Memory.ReadUInt64(GetMemOperand64(instruction))).As<ulong, float>(),
-                        OpKind.Register => Vector64.Create(this.ProcessorRegisters.EvaluateMM(instruction.GetOpRegister(1))).As<ulong, float>(),
-                        _ => Vector64<float>.Zero
-                    };
+                    Vector64<float> inputVector = EvaluateMMOrMemoryAsVector64(in instruction, 1);
                     Vector64<float> destVector = Vector64.Create(this.ProcessorRegisters.EvaluateMM(instruction.GetOpRegister(0))).As<ulong, float>();
                     Vector64<float> result = inputVector | destVector;
                     this.ProcessorRegisters.SetMM(instruction.GetOpRegister(0), result.As<float, ulong>().ToScalar());
@@ -26,12 +21,7 @@ public partial class CpuRuntime
 
             case Code.Por_xmm_xmmm128:
                 {
-                    Vector128<float> inputVector = instruction.GetOpKind(1) switch
-                    {
-                        OpKind.Memory => this.Memory.ReadBinaryVector128(GetMemOperand64(instruction)).As<float, float>(),
-                        OpKind.Register => this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).As<float, float>(),
-                        _ => Vector128<float>.Zero
-                    };
+                    Vector128<float> inputVector = EvaluateXmmFromInstruction(in instruction, 1);
                     Vector128<float> destVector = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(0)).As<float, float>();
                     Vector128<float> result = inputVector | destVector;
                     this.ProcessorRegisters.SetXmm(instruction.GetOpRegister(0), result.As<float, float>());

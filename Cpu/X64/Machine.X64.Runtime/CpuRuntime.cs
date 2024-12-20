@@ -733,4 +733,15 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
 
         return address;
     }
+
+    private Vector64<float> EvaluateMMOrMemoryAsVector64(in Instruction instruction, int operand)
+    {
+        OpKind kind = instruction.GetOpKind(operand);
+        return kind switch
+        {
+            OpKind.Memory => this.Memory.ReadBinaryVector64(GetMemOperand64(instruction)),
+            OpKind.Register => Vector64.Create(this.ProcessorRegisters.EvaluateMM(instruction.GetOpRegister(operand))).AsSingle(),
+            _ => Vector64<float>.Zero
+        };
+    }
 }
