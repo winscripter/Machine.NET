@@ -10,7 +10,7 @@ public partial class CpuRuntime
     {
         switch (instruction.Code)
         {
-            case Code.Psubb_mm_mmm64:
+            case Code.Psubd_mm_mmm64:
                 {
                     Vector64<uint> inputVector = instruction.GetOpKind(1) switch
                     {
@@ -24,7 +24,7 @@ public partial class CpuRuntime
                     break;
                 }
 
-            case Code.Psubb_xmm_xmmm128:
+            case Code.Psubd_xmm_xmmm128:
                 {
                     Vector128<uint> inputVector = instruction.GetOpKind(1) switch
                     {
