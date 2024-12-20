@@ -1,4 +1,7 @@
 # Machine.NET
+
+<img align="right" width="160" height="160" src="Images/Icon/MachineDotNetImage.Black.png">
+
 Welcome to the Machine.NET repository! This is an experimental project to allow
 you to run unmanaged code in a managed environment. This project is still in its early stages, so there may
 be more bugs than unfinished features. If you find any bugs, please report them in the issues tab - this project
