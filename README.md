@@ -9,8 +9,8 @@ will be botched without your help.
 
 An example where this might actually be useful is Blazor WebAssembly. It's quite limiting but
 for a reason. It's impossible to run unmanaged apps or operating systems (like apps written in C/C++) in a
-client-side browser environment. This project aims to solve that problem, by straight up emulating
-the CPU and devices - X64, ARM, RISC-V, etc.
+client-side browser environment. This project aims to solve that problem, by emulating
+the CPU and devices - X64, ARM, RISC-V, etc. However, note that only X64 is supported right now - see the paragraph below.
 
 Right now, only X64 is supported, as well as the Intel 8253, 8259 chipset and HPET. Currently I'm focusing on solving
 existing problems with the X64 emulator rather than adding more possibilities. New features will be added once the X64 emulator begins to show success
