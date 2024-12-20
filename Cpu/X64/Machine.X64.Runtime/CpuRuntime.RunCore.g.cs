@@ -12,6 +12,7 @@ public partial class CpuRuntime
             case Mnemonic.Ud0: ud0(in instruction); break;
             case Mnemonic.Ud1: ud1(in instruction); break;
             case Mnemonic.Ud2: ud2(in instruction); break;
+            case Mnemonic.Nop: nop(in instruction); break;
             case Mnemonic.Aaa: aaa(in instruction); break;
             case Mnemonic.Aad: aad(in instruction); break;
             case Mnemonic.Aam: aam(in instruction); break;
