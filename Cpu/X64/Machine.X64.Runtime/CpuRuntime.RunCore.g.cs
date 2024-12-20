@@ -9,6 +9,9 @@ public partial class CpuRuntime
     {
         switch (instruction.Mnemonic)
         {
+            case Mnemonic.Ud0: ud0(in instruction); break;
+            case Mnemonic.Ud1: ud1(in instruction); break;
+            case Mnemonic.Ud2: ud2(in instruction); break;
             case Mnemonic.Aaa: aaa(in instruction); break;
             case Mnemonic.Aad: aad(in instruction); break;
             case Mnemonic.Aam: aam(in instruction); break;
