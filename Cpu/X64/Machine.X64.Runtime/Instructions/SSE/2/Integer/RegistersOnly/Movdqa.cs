@@ -27,6 +27,7 @@ public partial class CpuRuntime
                             if (address % 16 == 0)
                             {
                                 RaiseException(StaticErrors.GeneralProtectionFault);
+                                break;
                             }
 
                             this.Memory.WriteBinaryVector128(address, inputXmm);
@@ -49,6 +50,7 @@ public partial class CpuRuntime
                             if (address % 16 == 0)
                             {
                                 RaiseException(StaticErrors.GeneralProtectionFault);
+                                break;
                             }
 
                             this.ProcessorRegisters.SetXmm(instruction.GetOpRegister(0), this.Memory.ReadBinaryVector128(address));
