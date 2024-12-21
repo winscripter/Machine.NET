@@ -105,6 +105,36 @@ Console.WriteLine(runtime.ProcessorRegisters.Rax);
 ```
 This results in 600, which is correct.
 
+To attach external devices, you can make your own I/O port and put whatever you want in READ/WRITE operations (yes, even creating a new
+window and displaying it, if you want).
+```cs
+var cpu = new CpuRuntime(ioPortCount: 8);
+ulong x = 42uL;
+cpu.IOPorts[1] = new InputOutputPort(
+    read: () =>
+    {
+        return 1234uL;
+    },
+    write: (value) =>
+    {
+        x = value;
+    });
+```
+For example, if we execute the following code on the emulated CPU:
+```asm
+mov eax, 7777
+out 1, eax
+in eax, 1
+```
+Then, you can see that the CPU sent 7777 to I/O port indexed 1 (I/O ports are indexed starting from 0),
+and EAX is equal to 1234 (check out [this unit test, it's pretty cool](UnitTests/X64Tests/IOPortTests.cs)):
+```cs
+Assert.Equal(7777uL, x);
+Assert.Equal(1234uL, cpu.ProcessorRegisters.Eax);
+
+// No failures
+```
+
 # Building
 To build Machine.NET, you need to have .NET 8.0 installed. You can download it from the official .NET website.
 

@@ -13,7 +13,7 @@ public partial class CpuRuntime
                 break;
 
             case Code.In_AL_imm8:
-                this.ProcessorRegisters.Al = (byte)instruction.GetImmediate(1);
+                this.ProcessorRegisters.Al = this.ReadIOPort((byte)instruction.GetImmediate(1));
                 break;
 
             case Code.In_AX_DX:
@@ -21,7 +21,7 @@ public partial class CpuRuntime
                 break;
 
             case Code.In_AX_imm8:
-                this.ProcessorRegisters.Ax = (ushort)instruction.GetImmediate(1);
+                this.ProcessorRegisters.Ax = this.ReadIOPort((ushort)instruction.GetImmediate(1));
                 break;
 
             case Code.In_EAX_DX:
@@ -29,7 +29,7 @@ public partial class CpuRuntime
                 break;
 
             case Code.In_EAX_imm8:
-                this.ProcessorRegisters.Eax = (byte)instruction.GetImmediate(1);
+                this.ProcessorRegisters.Eax = this.ReadIOPort((uint)instruction.GetImmediate(1));
                 break;
 
             default:
