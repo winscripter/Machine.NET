@@ -20,7 +20,7 @@ public partial class CpuRuntime
                             AlterScalarOfXmm(
                                 instruction.GetOpRegister(0),
                                 Round.Single(
-                                    this.Memory.ReadSingle(GetMemOperand64(instruction)),
+                                    this.Memory.ReadSingle(GetMemOperand64(in instruction)),
                                     (byte)instruction.GetImmediate(2)
                                 )
                             );

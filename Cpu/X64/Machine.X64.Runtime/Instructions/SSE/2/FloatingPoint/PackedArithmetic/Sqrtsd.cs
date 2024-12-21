@@ -15,7 +15,7 @@ public partial class CpuRuntime
                     Vector128<double> dest = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(0)).As<float, double>();
                     double parameter2 = instruction.GetOpKind(1) switch
                     {
-                        OpKind.Memory => this.Memory.ReadDouble(GetMemOperand64(instruction)),
+                        OpKind.Memory => this.Memory.ReadDouble(GetMemOperand64(in instruction)),
                         OpKind.Register => this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).As<float, double>().ToScalar(),
                         _ => double.NaN
                     };

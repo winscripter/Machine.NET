@@ -13,7 +13,7 @@ public partial class CpuRuntime
                 {
                     this.ProcessorRegisters.SetXmm(
                         instruction.GetOpRegister(0),
-                        this.Memory.ReadBinaryVector128(GetMemOperand64(instruction))
+                        this.Memory.ReadBinaryVector128(GetMemOperand64(in instruction))
                     );
                     break;
                 }

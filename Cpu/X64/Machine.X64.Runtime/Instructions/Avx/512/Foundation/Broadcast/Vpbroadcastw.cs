@@ -20,7 +20,7 @@ public partial class CpuRuntime
 
             case Code.EVEX_Vpbroadcastw_xmm_k1z_xmmm16:
                 {
-                    ushort value = instruction.GetOpKind(1) == OpKind.Memory ? Memory[GetMemOperand16(instruction)] : ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).As<float, ushort>()[0];
+                    ushort value = instruction.GetOpKind(1) == OpKind.Memory ? Memory[GetMemOperand16(in instruction)] : ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).As<float, ushort>()[0];
                     Vector128<ushort> vec = Vector128.Create<ushort>(value);
                     ProcessorRegisters.SetXmm(instruction.GetOpRegister(0), vec.As<ushort, float>());
                     break;
@@ -36,7 +36,7 @@ public partial class CpuRuntime
 
             case Code.EVEX_Vpbroadcastw_ymm_k1z_xmmm16:
                 {
-                    ushort value = instruction.GetOpKind(1) == OpKind.Memory ? Memory[GetMemOperand16(instruction)] : ProcessorRegisters.EvaluateYmm(instruction.GetOpRegister(1)).As<float, ushort>()[0];
+                    ushort value = instruction.GetOpKind(1) == OpKind.Memory ? Memory[GetMemOperand16(in instruction)] : ProcessorRegisters.EvaluateYmm(instruction.GetOpRegister(1)).As<float, ushort>()[0];
                     Vector256<ushort> vec = Vector256.Create<ushort>(value);
                     ProcessorRegisters.SetYmm(instruction.GetOpRegister(0), vec.As<ushort, float>());
                     break;
@@ -52,7 +52,7 @@ public partial class CpuRuntime
 
             case Code.EVEX_Vpbroadcastw_zmm_k1z_xmmm16:
                 {
-                    ushort value = instruction.GetOpKind(1) == OpKind.Memory ? Memory[GetMemOperand16(instruction)] : ProcessorRegisters.EvaluateZmm(instruction.GetOpRegister(1)).As<float, ushort>()[0];
+                    ushort value = instruction.GetOpKind(1) == OpKind.Memory ? Memory[GetMemOperand16(in instruction)] : ProcessorRegisters.EvaluateZmm(instruction.GetOpRegister(1)).As<float, ushort>()[0];
                     Vector512<ushort> vec = Vector512.Create<ushort>(value);
                     ProcessorRegisters.SetZmm(instruction.GetOpRegister(0), vec.As<ushort, float>());
                     break;

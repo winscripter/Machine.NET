@@ -20,7 +20,7 @@ public partial class CpuRuntime
                     {
                         if (op0Kind == OpKind.Memory)
                         {
-                            this.Memory.WriteBinaryVector128(GetMemOperand64(instruction), ymm.GetLower());
+                            this.Memory.WriteBinaryVector128(GetMemOperand64(in instruction), ymm.GetLower());
                         }
                         else
                         {
@@ -31,7 +31,7 @@ public partial class CpuRuntime
                     {
                         if (op0Kind == OpKind.Memory)
                         {
-                            this.Memory.WriteBinaryVector128(GetMemOperand64(instruction), ymm.GetUpper());
+                            this.Memory.WriteBinaryVector128(GetMemOperand64(in instruction), ymm.GetUpper());
                         }
                         else
                         {

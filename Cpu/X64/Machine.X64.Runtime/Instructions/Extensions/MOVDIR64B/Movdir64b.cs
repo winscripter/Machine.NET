@@ -13,7 +13,7 @@ public partial class CpuRuntime
             case Code.Movdir64b_r16_m512:
                 {
                     ulong targetAddress = (ulong)(this.ProcessorRegisters.Es << 4) + this.ProcessorRegisters.EvaluateRegisterValue16(instruction.GetOpRegister(0));
-                    Vector512<float> vector = this.Memory.ReadBinaryVector512(GetMemOperand64(instruction));
+                    Vector512<float> vector = this.Memory.ReadBinaryVector512(GetMemOperand64(in instruction));
                     this.Memory.WriteBinaryVector512(targetAddress, vector);
                     break;
                 }
@@ -21,7 +21,7 @@ public partial class CpuRuntime
             case Code.Movdir64b_r32_m512:
                 {
                     ulong targetAddress = (ulong)(this.ProcessorRegisters.Es << 4) + this.ProcessorRegisters.EvaluateRegisterValue32(instruction.GetOpRegister(0));
-                    Vector512<float> vector = this.Memory.ReadBinaryVector512(GetMemOperand64(instruction));
+                    Vector512<float> vector = this.Memory.ReadBinaryVector512(GetMemOperand64(in instruction));
                     this.Memory.WriteBinaryVector512(targetAddress, vector);
                     break;
                 }
@@ -29,7 +29,7 @@ public partial class CpuRuntime
             case Code.Movdir64b_r64_m512:
                 {
                     ulong targetAddress = (ulong)(this.ProcessorRegisters.Es << 4) + this.ProcessorRegisters.EvaluateRegisterValue64(instruction.GetOpRegister(0));
-                    Vector512<float> vector = this.Memory.ReadBinaryVector512(GetMemOperand64(instruction));
+                    Vector512<float> vector = this.Memory.ReadBinaryVector512(GetMemOperand64(in instruction));
                     this.Memory.WriteBinaryVector512(targetAddress, vector);
                     break;
                 }

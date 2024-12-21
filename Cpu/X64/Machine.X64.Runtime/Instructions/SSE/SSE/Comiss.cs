@@ -15,7 +15,7 @@ public partial class CpuRuntime
                     float valueToCompareFrom = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(0)).ToScalar();
                     float valueToCompareWith = instruction.GetOpKind(1) switch
                     {
-                        OpKind.Memory => this.Memory.ReadSingle(GetMemOperand32(instruction)),
+                        OpKind.Memory => this.Memory.ReadSingle(GetMemOperand32(in instruction)),
                         OpKind.Register => this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).ToScalar(),
                         _ => 0
                     };

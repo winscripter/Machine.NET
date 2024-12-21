@@ -14,7 +14,7 @@ public partial class CpuRuntime
                 {
                     Vector64<float> inputVector = instruction.GetOpKind(1) switch
                     {
-                        OpKind.Memory => Vector64.Create(this.Memory.ReadUInt64(GetMemOperand64(instruction))).As<ulong, float>(),
+                        OpKind.Memory => Vector64.Create(this.Memory.ReadUInt64(GetMemOperand64(in instruction))).As<ulong, float>(),
                         OpKind.Register => Vector64.Create(this.ProcessorRegisters.EvaluateMM(instruction.GetOpRegister(1))).As<ulong, float>(),
                         _ => Vector64<float>.Zero
                     };
@@ -28,7 +28,7 @@ public partial class CpuRuntime
                 {
                     Vector128<float> inputVector = instruction.GetOpKind(1) switch
                     {
-                        OpKind.Memory => this.Memory.ReadBinaryVector128(GetMemOperand64(instruction)).As<float, float>(),
+                        OpKind.Memory => this.Memory.ReadBinaryVector128(GetMemOperand64(in instruction)).As<float, float>(),
                         OpKind.Register => this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).As<float, float>(),
                         _ => Vector128<float>.Zero
                     };

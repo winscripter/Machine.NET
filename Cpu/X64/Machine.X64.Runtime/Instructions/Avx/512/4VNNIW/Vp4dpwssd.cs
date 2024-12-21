@@ -12,7 +12,7 @@ public partial class CpuRuntime
             case Code.EVEX_Vp4dpwssd_zmm_k1z_zmmp3_m128:
                 {
                     Vector512<short> a = EvaluateZmmFromInstruction(in instruction, 1).As<float, short>();
-                    Vector512<short> b = this.Memory.ReadBinaryVector512(GetMemOperand64(instruction)).As<float, short>();
+                    Vector512<short> b = this.Memory.ReadBinaryVector512(GetMemOperand64(in instruction)).As<float, short>();
 
                     int result = 0;
                     for (int i = 0; i < Vector512<short>.Count; i++)

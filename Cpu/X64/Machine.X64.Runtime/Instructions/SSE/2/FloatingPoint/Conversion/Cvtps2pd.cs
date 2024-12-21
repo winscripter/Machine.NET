@@ -18,7 +18,7 @@ public partial class CpuRuntime
                     switch (kind)
                     {
                         case OpKind.Memory:
-                            ulong memOperand = GetMemOperand64(instruction);
+                            ulong memOperand = GetMemOperand64(in instruction);
                             (a, b) = (this.Memory.ReadSingle(memOperand), this.Memory.ReadSingle(memOperand + 4));
                             break;
 

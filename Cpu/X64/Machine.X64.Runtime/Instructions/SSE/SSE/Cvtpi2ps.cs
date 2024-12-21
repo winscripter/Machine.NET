@@ -15,7 +15,7 @@ public partial class CpuRuntime
                 {
                     ulong value = instruction.GetOpKind(1) switch
                     {
-                        OpKind.Memory => Memory.ReadUInt64(GetMemOperand64(instruction)),
+                        OpKind.Memory => Memory.ReadUInt64(GetMemOperand64(in instruction)),
                         OpKind.Register => ProcessorRegisters.EvaluateMM(instruction.GetOpRegister(1)),
                         _ => 0uL
                     };

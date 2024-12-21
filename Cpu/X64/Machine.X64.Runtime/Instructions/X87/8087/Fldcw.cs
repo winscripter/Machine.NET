@@ -10,7 +10,7 @@ public partial class CpuRuntime
         {
             case Code.Fldcw_m2byte:
                 {
-                    ushort controlWord = this.Memory.ReadUInt16(GetMemOperand64(instruction));
+                    ushort controlWord = this.Memory.ReadUInt16(GetMemOperand64(in instruction));
                     this.Fpu.ControlWord = controlWord;
                     break;
                 }

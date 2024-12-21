@@ -10,8 +10,8 @@ public partial class CpuRuntime
         {
             case Code.Jmp_m1616:
                 {
-                    ushort segmentSelector = this.Memory.ReadUInt16(GetMemOperand16(instruction));
-                    ushort offset = this.Memory.ReadUInt16(GetMemOperand16(instruction) + 2);
+                    ushort segmentSelector = this.Memory.ReadUInt16(GetMemOperand16(in instruction));
+                    ushort offset = this.Memory.ReadUInt16(GetMemOperand16(in instruction) + 2);
                     this.ProcessorRegisters.Cs = segmentSelector;
                     this.ProcessorRegisters.Ip = offset;
                     break;
@@ -19,8 +19,8 @@ public partial class CpuRuntime
 
             case Code.Jmp_m1632:
                 {
-                    ushort segmentSelector = this.Memory.ReadUInt16(GetMemOperand16(instruction));
-                    uint offset = this.Memory.ReadUInt32(GetMemOperand16(instruction) + 2);
+                    ushort segmentSelector = this.Memory.ReadUInt16(GetMemOperand16(in instruction));
+                    uint offset = this.Memory.ReadUInt32(GetMemOperand16(in instruction) + 2);
                     this.ProcessorRegisters.Cs = segmentSelector;
                     this.ProcessorRegisters.Eip = offset;
                     break;
@@ -28,8 +28,8 @@ public partial class CpuRuntime
 
             case Code.Jmp_m1664:
                 {
-                    ushort segmentSelector = this.Memory.ReadUInt16(GetMemOperand16(instruction));
-                    ulong offset = this.Memory.ReadUInt64(GetMemOperand16(instruction) + 2);
+                    ushort segmentSelector = this.Memory.ReadUInt16(GetMemOperand16(in instruction));
+                    ulong offset = this.Memory.ReadUInt64(GetMemOperand16(in instruction) + 2);
                     this.ProcessorRegisters.Cs = segmentSelector;
                     this.ProcessorRegisters.Rip = offset;
                     break;

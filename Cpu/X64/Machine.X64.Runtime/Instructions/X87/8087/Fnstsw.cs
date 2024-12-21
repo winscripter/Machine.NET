@@ -16,7 +16,7 @@ public partial class CpuRuntime
 
             case Code.Fnstsw_m2byte:
                 {
-                    this.Memory.WriteUInt16(GetMemOperand16(instruction), this.Fpu.StatusWord);
+                    this.Memory.WriteUInt16(GetMemOperand16(in instruction), this.Fpu.StatusWord);
                     break;
                 }
 

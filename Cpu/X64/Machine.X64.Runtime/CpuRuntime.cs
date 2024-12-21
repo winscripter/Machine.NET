@@ -196,7 +196,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
         return instruction.GetOpRegister(0) == Register.None;
     }
 
-    private ulong GetMemOperand8(Instruction instruction)
+    private ulong GetMemOperand8(in Instruction instruction)
     {
         if (instruction.MemoryBase != Register.None && instruction.MemoryIndex != Register.None)
         {
@@ -211,7 +211,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
         }
     }
 
-    private ulong GetMemOperand16(Instruction instruction)
+    private ulong GetMemOperand16(in Instruction instruction)
     {
         if (instruction.MemoryBase != Register.None && instruction.MemoryIndex != Register.None)
         {
@@ -226,7 +226,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
         }
     }
 
-    private ulong GetMemOperand32(Instruction instruction)
+    private ulong GetMemOperand32(in Instruction instruction)
     {
         if (instruction.MemoryBase != Register.None && instruction.MemoryIndex != Register.None)
         {
@@ -241,7 +241,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
         }
     }
 
-    private ulong GetMemOperand64(Instruction instruction)
+    private ulong GetMemOperand64(in Instruction instruction)
     {
         if (instruction.MemoryBase != Register.None && instruction.MemoryIndex != Register.None)
         {
@@ -259,7 +259,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     private void RMSet8(in Instruction instruction, byte value, int registerPositionCase = 0)
     {
         if (IsRMMemory(in instruction))
-            AlterObjectAtMemory(GetMemOperand8(instruction), value);
+            AlterObjectAtMemory(GetMemOperand8(in instruction), value);
         else
             ProcessorRegisters.WriteToRegister8(instruction.GetOpRegister(registerPositionCase), value);
     }
@@ -267,7 +267,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     private void RMSet16(in Instruction instruction, ushort value, int registerPositionCase = 0)
     {
         if (IsRMMemory(in instruction))
-            AlterObjectAtMemory(GetMemOperand16(instruction), value);
+            AlterObjectAtMemory(GetMemOperand16(in instruction), value);
         else
             ProcessorRegisters.WriteToRegister16(instruction.GetOpRegister(registerPositionCase), value);
     }
@@ -275,7 +275,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     private void RMSet32(in Instruction instruction, uint value, int registerPositionCase = 0)
     {
         if (IsRMMemory(in instruction))
-            AlterObjectAtMemory(GetMemOperand32(instruction), value);
+            AlterObjectAtMemory(GetMemOperand32(in instruction), value);
         else
             ProcessorRegisters.WriteToRegister32(instruction.GetOpRegister(registerPositionCase), value);
     }
@@ -283,7 +283,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     private void RMSet64(in Instruction instruction, ulong value, int registerPositionCase = 0)
     {
         if (IsRMMemory(in instruction))
-            AlterObjectAtMemory(GetMemOperand64(instruction), value);
+            AlterObjectAtMemory(GetMemOperand64(in instruction), value);
         else
             ProcessorRegisters.WriteToRegister64(instruction.GetOpRegister(registerPositionCase), value);
     }
@@ -291,7 +291,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     private byte RMEvaluate8(in Instruction instruction, int registerPositionCase = 0)
     {
         if (IsRMMemory(in instruction))
-            return QueryObjectAtMemory8(GetMemOperand8(instruction));
+            return QueryObjectAtMemory8(GetMemOperand8(in instruction));
         else
             return ProcessorRegisters.EvaluateRegisterValue8(instruction.GetOpRegister(registerPositionCase));
     }
@@ -299,7 +299,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     private ushort RMEvaluate16(in Instruction instruction, int registerPositionCase = 0)
     {
         if (IsRMMemory(in instruction))
-            return QueryObjectAtMemory16(GetMemOperand16(instruction));
+            return QueryObjectAtMemory16(GetMemOperand16(in instruction));
         else
             return ProcessorRegisters.EvaluateRegisterValue16(instruction.GetOpRegister(registerPositionCase));
     }
@@ -307,7 +307,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     private uint RMEvaluate32(in Instruction instruction, int registerPositionCase = 0)
     {
         if (IsRMMemory(in instruction))
-            return QueryObjectAtMemory32(GetMemOperand32(instruction));
+            return QueryObjectAtMemory32(GetMemOperand32(in instruction));
         else
             return ProcessorRegisters.EvaluateRegisterValue32(instruction.GetOpRegister(registerPositionCase));
     }
@@ -315,7 +315,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     private ulong RMEvaluate64(in Instruction instruction, int registerPositionCase = 0)
     {
         if (IsRMMemory(in instruction))
-            return QueryObjectAtMemory64(GetMemOperand64(instruction));
+            return QueryObjectAtMemory64(GetMemOperand64(in instruction));
         else
             return ProcessorRegisters.EvaluateRegisterValue64(instruction.GetOpRegister(registerPositionCase));
     }
@@ -386,7 +386,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
         Vector128<float> value2;
         if (instruction.GetOpKind(operand) == OpKind.Memory)
         {
-            value2 = this.Memory.ReadBinaryVector128(GetMemOperand64(instruction));
+            value2 = this.Memory.ReadBinaryVector128(GetMemOperand64(in instruction));
         }
         else
         {
@@ -400,7 +400,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
         Vector256<float> value2;
         if (instruction.GetOpKind(operand) == OpKind.Memory)
         {
-            value2 = this.Memory.ReadBinaryVector256(GetMemOperand64(instruction));
+            value2 = this.Memory.ReadBinaryVector256(GetMemOperand64(in instruction));
         }
         else
         {
@@ -414,7 +414,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
         Vector512<float> value2;
         if (instruction.GetOpKind(operand) == OpKind.Memory)
         {
-            value2 = this.Memory.ReadBinaryVector512(GetMemOperand64(instruction));
+            value2 = this.Memory.ReadBinaryVector512(GetMemOperand64(in instruction));
         }
         else
         {
@@ -555,7 +555,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     {
         return instruction.GetOpKind(operand) switch
         {
-            OpKind.Memory => this.Memory.ReadBinaryVector64(GetMemOperand64(instruction)).As<float, ulong>(),
+            OpKind.Memory => this.Memory.ReadBinaryVector64(GetMemOperand64(in instruction)).As<float, ulong>(),
             OpKind.Register => Vector64.Create(this.ProcessorRegisters.EvaluateMM(instruction.GetOpRegister(operand))),
             _ => Vector64<ulong>.Zero
         };
@@ -618,7 +618,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     {
         return instruction.GetOpKind(operand) switch
         {
-            OpKind.Memory => this.Memory.ReadDouble(GetMemOperand64(instruction)),
+            OpKind.Memory => this.Memory.ReadDouble(GetMemOperand64(in instruction)),
             OpKind.Register => this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(operand)).AsDouble().ToScalar(),
             _ => 0d
         };
@@ -628,7 +628,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     {
         return instruction.GetOpKind(operand) switch
         {
-            OpKind.Memory => this.Memory.ReadSingle(GetMemOperand64(instruction)),
+            OpKind.Memory => this.Memory.ReadSingle(GetMemOperand64(in instruction)),
             OpKind.Register => this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(operand)).ToScalar(),
             _ => 0f
         };
@@ -638,7 +638,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     {
         return instruction.GetOpKind(operand) switch
         {
-            OpKind.Memory => this.Memory.ReadUInt64(GetMemOperand64(instruction)),
+            OpKind.Memory => this.Memory.ReadUInt64(GetMemOperand64(in instruction)),
             OpKind.Register => this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(operand)).AsUInt64().ToScalar(),
             _ => 0uL
         };
@@ -739,7 +739,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
         OpKind kind = instruction.GetOpKind(operand);
         return kind switch
         {
-            OpKind.Memory => this.Memory.ReadBinaryVector64(GetMemOperand64(instruction)),
+            OpKind.Memory => this.Memory.ReadBinaryVector64(GetMemOperand64(in instruction)),
             OpKind.Register => Vector64.Create(this.ProcessorRegisters.EvaluateMM(instruction.GetOpRegister(operand))).AsSingle(),
             _ => Vector64<float>.Zero
         };

@@ -29,7 +29,7 @@ public partial class CpuRuntime
                             break;
 
                         case OpKind.Memory:
-                            valueToInsert = this.Memory.ReadUInt16(GetMemOperand16(instruction));
+                            valueToInsert = this.Memory.ReadUInt16(GetMemOperand16(in instruction));
                             break;
                     }
 
@@ -58,7 +58,7 @@ public partial class CpuRuntime
                             break;
 
                         case OpKind.Memory:
-                            valueToInsert = this.Memory.ReadUInt16(GetMemOperand16(instruction));
+                            valueToInsert = this.Memory.ReadUInt16(GetMemOperand16(in instruction));
                             break;
                     }
 
@@ -87,7 +87,7 @@ public partial class CpuRuntime
                             break;
 
                         case OpKind.Memory:
-                            valueToInsert = this.Memory.ReadUInt16(GetMemOperand16(instruction));
+                            valueToInsert = this.Memory.ReadUInt16(GetMemOperand16(in instruction));
                             break;
                     }
 
@@ -116,7 +116,7 @@ public partial class CpuRuntime
                             break;
 
                         case OpKind.Memory:
-                            valueToInsert = this.Memory.ReadUInt16(GetMemOperand16(instruction));
+                            valueToInsert = this.Memory.ReadUInt16(GetMemOperand16(in instruction));
                             break;
                     }
 

@@ -14,10 +14,10 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        ulong value1 = Memory.ReadUInt64(GetMemOperand64(instruction));
-                        ulong value2 = Memory.ReadUInt64(GetMemOperand64(instruction) + 8);
-                        ulong value3 = Memory.ReadUInt64(GetMemOperand64(instruction) + 16);
-                        ulong value4 = Memory.ReadUInt64(GetMemOperand64(instruction) + 24);
+                        ulong value1 = Memory.ReadUInt64(GetMemOperand64(in instruction));
+                        ulong value2 = Memory.ReadUInt64(GetMemOperand64(in instruction) + 8);
+                        ulong value3 = Memory.ReadUInt64(GetMemOperand64(in instruction) + 16);
+                        ulong value4 = Memory.ReadUInt64(GetMemOperand64(in instruction) + 24);
 
                         ProcessorRegisters.SetZmm(
                             instruction.GetOpRegister(0),

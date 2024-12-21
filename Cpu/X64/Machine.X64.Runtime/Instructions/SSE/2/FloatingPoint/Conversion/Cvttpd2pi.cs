@@ -15,7 +15,7 @@ public partial class CpuRuntime
                 {
                     Vector128<double> dpVector = instruction.GetOpKind(0) switch
                     {
-                        OpKind.Memory => this.Memory.ReadBinaryVector128(GetMemOperand64(instruction)).As<float, double>(),
+                        OpKind.Memory => this.Memory.ReadBinaryVector128(GetMemOperand64(in instruction)).As<float, double>(),
                         OpKind.Register => this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).As<float, double>(),
                         _ => Vector128<double>.Zero
                     };

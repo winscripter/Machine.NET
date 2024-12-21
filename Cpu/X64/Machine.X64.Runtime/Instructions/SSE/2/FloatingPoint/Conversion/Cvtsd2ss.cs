@@ -19,7 +19,7 @@ public partial class CpuRuntime
                     {
                         case OpKind.Memory:
                             {
-                                scalarDoublePrecision = this.Memory.ReadDouble(GetMemOperand64(instruction));
+                                scalarDoublePrecision = this.Memory.ReadDouble(GetMemOperand64(in instruction));
                                 break;
                             }
 

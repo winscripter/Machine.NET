@@ -32,7 +32,7 @@ public partial class CpuRuntime
 
                         case OpKind.Memory:
                             {
-                                this.Memory[GetMemOperand8(instruction)] = src[index];
+                                this.Memory[GetMemOperand8(in instruction)] = src[index];
                                 break;
                             }
                     }
@@ -61,7 +61,7 @@ public partial class CpuRuntime
 
                         case OpKind.Memory:
                             {
-                                this.Memory[GetMemOperand8(instruction)] = src[index];
+                                this.Memory[GetMemOperand8(in instruction)] = src[index];
                                 break;
                             }
                     }

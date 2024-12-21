@@ -15,7 +15,7 @@ public partial class CpuRuntime
                     double scalar = ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).As<float, double>().ToScalar();
                     if (instruction.GetOpKind(0) == OpKind.Memory)
                     {
-                        Memory.WriteDouble(GetMemOperand64(instruction), scalar);
+                        Memory.WriteDouble(GetMemOperand64(in instruction), scalar);
                     }
                     else
                     {
@@ -30,7 +30,7 @@ public partial class CpuRuntime
                 {
                     double scalar = instruction.GetOpKind(1) switch
                     {
-                        OpKind.Memory => Memory.ReadBinaryVector128(GetMemOperand64(instruction)).As<float, double>().ToScalar(),
+                        OpKind.Memory => Memory.ReadBinaryVector128(GetMemOperand64(in instruction)).As<float, double>().ToScalar(),
                         OpKind.Register => ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).As<float, double>().ToScalar(),
                         _ => double.NaN
                     };

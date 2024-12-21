@@ -11,7 +11,7 @@ public partial class CpuRuntime
         {
             case Code.Bound_r16_m1616:
                 {
-                    ulong operand = GetMemOperand64(instruction);
+                    ulong operand = GetMemOperand64(in instruction);
                     ushort lowerBound = this.Memory.ReadUInt16(operand);
                     ushort upperBound = this.Memory.ReadUInt16(operand + 2);
                     ushort indexRegister = this.ProcessorRegisters.EvaluateRegisterValue16(instruction.GetOpRegister(0));
@@ -24,7 +24,7 @@ public partial class CpuRuntime
 
             case Code.Bound_r32_m3232:
                 {
-                    ulong operand = GetMemOperand64(instruction);
+                    ulong operand = GetMemOperand64(in instruction);
                     uint lowerBound = this.Memory.ReadUInt32(operand);
                     uint upperBound = this.Memory.ReadUInt32(operand + 2);
                     uint indexRegister = this.ProcessorRegisters.EvaluateRegisterValue32(instruction.GetOpRegister(0));

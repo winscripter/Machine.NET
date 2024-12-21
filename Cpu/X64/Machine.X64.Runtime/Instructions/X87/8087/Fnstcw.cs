@@ -10,7 +10,7 @@ public partial class CpuRuntime
         {
             case Code.Fnstcw_m2byte:
                 {
-                    this.Memory.WriteUInt16(GetMemOperand64(instruction), this.Fpu.ControlWord);
+                    this.Memory.WriteUInt16(GetMemOperand64(in instruction), this.Fpu.ControlWord);
                     break;
                 }
 

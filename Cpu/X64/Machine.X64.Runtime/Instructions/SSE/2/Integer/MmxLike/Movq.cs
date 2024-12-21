@@ -16,7 +16,7 @@ public partial class CpuRuntime
                     switch (instruction.GetOpKind(1))
                     {
                         case OpKind.Memory:
-                            this.Memory.WriteUInt64(GetMemOperand64(instruction), mm);
+                            this.Memory.WriteUInt64(GetMemOperand64(in instruction), mm);
                             break;
 
                         case OpKind.Register:
@@ -30,7 +30,7 @@ public partial class CpuRuntime
                 {
                     ulong mmm64 = instruction.GetOpKind(1) switch
                     {
-                        OpKind.Memory => this.Memory.ReadUInt64(GetMemOperand64(instruction)),
+                        OpKind.Memory => this.Memory.ReadUInt64(GetMemOperand64(in instruction)),
                         OpKind.Register => this.ProcessorRegisters.EvaluateMM(instruction.GetOpRegister(1)),
                         _ => 0uL
                     };
@@ -68,7 +68,7 @@ public partial class CpuRuntime
                     {
                         case OpKind.Memory:
                             {
-                                this.Memory.WriteUInt64(GetMemOperand64(instruction), xmmAsQword.ToScalar());
+                                this.Memory.WriteUInt64(GetMemOperand64(in instruction), xmmAsQword.ToScalar());
                                 break;
                             }
 
@@ -97,7 +97,7 @@ public partial class CpuRuntime
                 {
                     ulong rm64 = instruction.GetOpKind(1) switch
                     {
-                        OpKind.Memory => this.Memory.ReadUInt64(GetMemOperand64(instruction)),
+                        OpKind.Memory => this.Memory.ReadUInt64(GetMemOperand64(in instruction)),
                         OpKind.Register => this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).As<float, ulong>().ToScalar(),
                         _ => 0uL
                     };

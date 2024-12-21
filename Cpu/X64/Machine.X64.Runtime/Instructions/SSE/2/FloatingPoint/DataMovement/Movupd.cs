@@ -13,7 +13,7 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(0) == OpKind.Memory)
                     {
-                        ulong operand = GetMemOperand64(instruction);
+                        ulong operand = GetMemOperand64(in instruction);
                         Memory.WriteBinaryVector128(operand, ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)));
                     }
                     else
@@ -32,7 +32,7 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        ulong operand = GetMemOperand64(instruction);
+                        ulong operand = GetMemOperand64(in instruction);
                         ProcessorRegisters.SetXmm(
                             instruction.GetOpRegister(0),
                             Memory.ReadBinaryVector128(operand));

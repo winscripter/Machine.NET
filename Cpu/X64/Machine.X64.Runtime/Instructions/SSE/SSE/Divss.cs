@@ -14,7 +14,7 @@ public partial class CpuRuntime
                 {
                     float scalar2 = instruction.GetOpKind(1) switch
                     {
-                        OpKind.Memory => this.Memory.ReadSingle(GetMemOperand64(instruction)),
+                        OpKind.Memory => this.Memory.ReadSingle(GetMemOperand64(in instruction)),
                         OpKind.Register => this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).ToScalar(),
                         _ => float.NaN
                     };

@@ -23,7 +23,7 @@ public partial class CpuRuntime
                             break;
 
                         case OpKind.Memory:
-                            ulong address = GetMemOperand64(instruction);
+                            ulong address = GetMemOperand64(in instruction);
                             this.Memory.WriteBinaryVector128(address, inputXmm);
                             break;
                     }
@@ -40,7 +40,7 @@ public partial class CpuRuntime
                             break;
 
                         case OpKind.Memory:
-                            ulong address = GetMemOperand64(instruction);
+                            ulong address = GetMemOperand64(in instruction);
                             this.ProcessorRegisters.SetXmm(instruction.GetOpRegister(0), this.Memory.ReadBinaryVector128(address));
                             break;
                     }

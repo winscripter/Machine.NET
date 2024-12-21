@@ -10,7 +10,7 @@ public partial class CpuRuntime
         {
             case Code.Stmxcsr_m32:
                 {
-                    uint mxcsr = this.Memory.ReadUInt32(GetMemOperand64(instruction));
+                    uint mxcsr = this.Memory.ReadUInt32(GetMemOperand64(in instruction));
                     // Seriously, C#??? I can't do "this.Mxcsr.Value = mxcsr"???
                     var actualMXCSR = this.Mxcsr;
                     actualMXCSR.Value = mxcsr;

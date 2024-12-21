@@ -11,7 +11,7 @@ public partial class CpuRuntime
             case Code.Ldmxcsr_m32:
                 {
                     uint mxcsr = (uint)this.Mxcsr.Value;
-                    this.Memory.WriteUInt32(GetMemOperand64(instruction), mxcsr);
+                    this.Memory.WriteUInt32(GetMemOperand64(in instruction), mxcsr);
                     break;
                 }
 

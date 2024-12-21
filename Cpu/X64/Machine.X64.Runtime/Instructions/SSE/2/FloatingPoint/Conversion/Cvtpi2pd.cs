@@ -25,7 +25,7 @@ public partial class CpuRuntime
 
                         case OpKind.Memory:
                             {
-                                ulong memoryValue = this.Memory.ReadUInt64(GetMemOperand64(instruction));
+                                ulong memoryValue = this.Memory.ReadUInt64(GetMemOperand64(in instruction));
                                 (a, b) = (BitUtilities.GetLower32Bits(memoryValue), BitUtilities.GetUpper32Bits(memoryValue));
                                 break;
                             }

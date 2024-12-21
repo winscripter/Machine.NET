@@ -13,7 +13,7 @@ public partial class CpuRuntime
             case Code.Movbe_m16_r16:
                 {
                     this.Memory.WriteUInt16(
-                        GetMemOperand16(instruction), 
+                        GetMemOperand16(in instruction), 
                         BitUtilities.ByteOrderSwap(
                             this.ProcessorRegisters.EvaluateRegisterValue16(
                                 instruction.GetOpRegister(1)
@@ -26,9 +26,9 @@ public partial class CpuRuntime
             case Code.Movbe_r16_m16:
                 {
                     this.Memory.WriteUInt16(
-                        GetMemOperand16(instruction),
+                        GetMemOperand16(in instruction),
                         BitUtilities.ByteOrderSwap(
-                            this.Memory.ReadUInt16(GetMemOperand64(instruction))
+                            this.Memory.ReadUInt16(GetMemOperand64(in instruction))
                         )
                     );
                     break;
@@ -37,7 +37,7 @@ public partial class CpuRuntime
             case Code.Movbe_m32_r32:
                 {
                     this.Memory.WriteUInt32(
-                        GetMemOperand32(instruction),
+                        GetMemOperand32(in instruction),
                         BitUtilities.ByteOrderSwap(
                             this.ProcessorRegisters.EvaluateRegisterValue32(
                                 instruction.GetOpRegister(1)
@@ -50,9 +50,9 @@ public partial class CpuRuntime
             case Code.Movbe_r32_m32:
                 {
                     this.Memory.WriteUInt32(
-                        GetMemOperand32(instruction),
+                        GetMemOperand32(in instruction),
                         BitUtilities.ByteOrderSwap(
-                            this.Memory.ReadUInt32(GetMemOperand64(instruction))
+                            this.Memory.ReadUInt32(GetMemOperand64(in instruction))
                         )
                     );
                     break;
@@ -61,7 +61,7 @@ public partial class CpuRuntime
             case Code.Movbe_m64_r64:
                 {
                     this.Memory.WriteUInt64(
-                        GetMemOperand64(instruction),
+                        GetMemOperand64(in instruction),
                         BitUtilities.ByteOrderSwap(
                             this.ProcessorRegisters.EvaluateRegisterValue64(
                                 instruction.GetOpRegister(1)
@@ -74,9 +74,9 @@ public partial class CpuRuntime
             case Code.Movbe_r64_m64:
                 {
                     this.Memory.WriteUInt64(
-                        GetMemOperand64(instruction),
+                        GetMemOperand64(in instruction),
                         BitUtilities.ByteOrderSwap(
-                            this.Memory.ReadUInt64(GetMemOperand64(instruction))
+                            this.Memory.ReadUInt64(GetMemOperand64(in instruction))
                         )
                     );
                     break;
