@@ -1,5 +1,8 @@
-﻿using Iced.Intel;
-using System.Runtime.CompilerServices;
+﻿// Some code was copied from here:
+// https://github.com/gregdivis/Aeon/blob/master/src/Aeon.Emulator/Processor/FPU.cs
+
+using Iced.Intel;
+using System.Net.NetworkInformation;
 
 namespace Machine.X64.Component;
 
@@ -141,6 +144,20 @@ public sealed class Fpu
             RoundingMode = (RoundingControl)((value >> 10) & 0x3u);
             InterruptEnableMask = (value & (1u << 7)) != 0;
             InfinityControl = (value & (1u << 12)) != 0;
+        }
+    }
+
+    public ushort StatusWord
+    {
+        get
+        {
+            uint value = (uint)this.StatusFlags | ((uint)_ptr << 11);
+            return (ushort)value;
+        }
+        set
+        {
+            this.StatusFlags = (FpuStatus)(value & 0xC7FF);
+            this._ptr = (uint)((value >> 11) & 7);
         }
     }
 
