@@ -33,7 +33,7 @@ public partial class CpuRuntime
 
                         case OpKind.Memory:
                             this.Memory.WriteUInt32(
-                                GetMemOperand64(in instruction),
+                                GetMemOperand(in instruction),
                                 BitConverter.SingleToUInt32Bits(xmm[immediate])
                             );
                             break;

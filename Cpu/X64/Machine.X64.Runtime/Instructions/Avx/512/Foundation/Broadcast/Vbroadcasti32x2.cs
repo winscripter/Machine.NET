@@ -14,8 +14,8 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        uint value1 = Memory.ReadUInt32(GetMemOperand64(in instruction));
-                        uint value2 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 4);
+                        uint value1 = Memory.ReadUInt32(GetMemOperand(in instruction));
+                        uint value2 = Memory.ReadUInt32(GetMemOperand(in instruction) + 4);
                         ProcessorRegisters.SetXmm(
                             instruction.GetOpRegister(0),
                             Vector128.Create(
@@ -54,8 +54,8 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        uint value1 = Memory.ReadUInt32(GetMemOperand64(in instruction));
-                        uint value2 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 4);
+                        uint value1 = Memory.ReadUInt32(GetMemOperand(in instruction));
+                        uint value2 = Memory.ReadUInt32(GetMemOperand(in instruction) + 4);
                         ProcessorRegisters.SetYmm(
                             instruction.GetOpRegister(0),
                             Vector256.Create(
@@ -102,8 +102,8 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        uint value1 = Memory.ReadUInt32(GetMemOperand64(in instruction));
-                        uint value2 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 4);
+                        uint value1 = Memory.ReadUInt32(GetMemOperand(in instruction));
+                        uint value2 = Memory.ReadUInt32(GetMemOperand(in instruction) + 4);
                         ProcessorRegisters.SetZmm(
                             instruction.GetOpRegister(0),
                             Vector512.Create(

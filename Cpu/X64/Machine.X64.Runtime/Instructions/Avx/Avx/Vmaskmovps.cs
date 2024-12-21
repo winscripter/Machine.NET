@@ -15,7 +15,7 @@ public partial class CpuRuntime
                     Vector128<float> xmm1 = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1));
                     Vector128<float> xmm2 = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(2));
 
-                    ulong baseAddress = GetMemOperand64(in instruction);
+                    ulong baseAddress = GetMemOperand(in instruction);
 
                     for (int i = 0; i < Vector128<float>.Count; i++)
                     {
@@ -38,7 +38,7 @@ public partial class CpuRuntime
                     Vector256<float> xmm1 = this.ProcessorRegisters.EvaluateYmm(instruction.GetOpRegister(1));
                     Vector256<float> xmm2 = this.ProcessorRegisters.EvaluateYmm(instruction.GetOpRegister(2));
 
-                    ulong baseAddress = GetMemOperand64(in instruction);
+                    ulong baseAddress = GetMemOperand(in instruction);
 
                     for (int i = 0; i < Vector256<float>.Count; i++)
                     {
@@ -59,7 +59,7 @@ public partial class CpuRuntime
             case Code.VEX_Vmaskmovps_xmm_xmm_m128:
                 {
                     Vector128<float> xmm1 = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1));
-                    Vector128<float> xmm2 = this.Memory.ReadBinaryVector128(GetMemOperand64(in instruction));
+                    Vector128<float> xmm2 = this.Memory.ReadBinaryVector128(GetMemOperand(in instruction));
                     Vector128<float> result = Vector128<float>.Zero;
 
                     for (int i = 0; i < Vector128<float>.Count; i++)
@@ -80,7 +80,7 @@ public partial class CpuRuntime
             case Code.VEX_Vmaskmovps_ymm_ymm_m256:
                 {
                     Vector256<float> xmm1 = this.ProcessorRegisters.EvaluateYmm(instruction.GetOpRegister(1));
-                    Vector256<float> xmm2 = this.Memory.ReadBinaryVector256(GetMemOperand64(in instruction));
+                    Vector256<float> xmm2 = this.Memory.ReadBinaryVector256(GetMemOperand(in instruction));
                     Vector256<float> result = Vector256<float>.Zero;
 
                     for (int i = 0; i < Vector256<float>.Count; i++)

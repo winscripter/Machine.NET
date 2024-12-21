@@ -13,14 +13,14 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        uint value1 = Memory.ReadUInt32(GetMemOperand64(in instruction));
-                        uint value2 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 4);
-                        uint value3 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 8);
-                        uint value4 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 12);
-                        uint value5 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 16);
-                        uint value6 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 20);
-                        uint value7 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 24);
-                        uint value8 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 28);
+                        uint value1 = Memory.ReadUInt32(GetMemOperand(in instruction));
+                        uint value2 = Memory.ReadUInt32(GetMemOperand(in instruction) + 4);
+                        uint value3 = Memory.ReadUInt32(GetMemOperand(in instruction) + 8);
+                        uint value4 = Memory.ReadUInt32(GetMemOperand(in instruction) + 12);
+                        uint value5 = Memory.ReadUInt32(GetMemOperand(in instruction) + 16);
+                        uint value6 = Memory.ReadUInt32(GetMemOperand(in instruction) + 20);
+                        uint value7 = Memory.ReadUInt32(GetMemOperand(in instruction) + 24);
+                        uint value8 = Memory.ReadUInt32(GetMemOperand(in instruction) + 28);
 
                         ProcessorRegisters.SetZmm(
                             instruction.GetOpRegister(0),

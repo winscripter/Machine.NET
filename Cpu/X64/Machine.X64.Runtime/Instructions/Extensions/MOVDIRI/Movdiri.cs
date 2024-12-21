@@ -11,13 +11,13 @@ public partial class CpuRuntime
         {
             case Code.Movdiri_m32_r32:
                 {
-                    this.Memory.WriteUInt32(GetMemOperand32(in instruction), this.ProcessorRegisters.EvaluateRegisterValue32(instruction.GetOpRegister(0)));
+                    this.Memory.WriteUInt32(GetMemOperand(in instruction), this.ProcessorRegisters.EvaluateRegisterValue32(instruction.GetOpRegister(0)));
                     break;
                 }
 
             case Code.Movdiri_m64_r64:
                 {
-                    this.Memory.WriteUInt64(GetMemOperand64(in instruction), this.ProcessorRegisters.EvaluateRegisterValue64(instruction.GetOpRegister(0)));
+                    this.Memory.WriteUInt64(GetMemOperand(in instruction), this.ProcessorRegisters.EvaluateRegisterValue64(instruction.GetOpRegister(0)));
                     break;
                 }
 

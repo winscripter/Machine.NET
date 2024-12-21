@@ -13,7 +13,7 @@ public partial class CpuRuntime
                 {
                     this.ProcessorRegisters.SetXmm(
                         instruction.GetOpRegister(0),
-                        this.Memory.ReadBinaryVector128(GetMemOperand64(in instruction))
+                        this.Memory.ReadBinaryVector128(GetMemOperand(in instruction))
                     );
                     break;
                 }
@@ -22,7 +22,7 @@ public partial class CpuRuntime
                 {
                     this.ProcessorRegisters.SetYmm(
                         instruction.GetOpRegister(0),
-                        this.Memory.ReadBinaryVector256(GetMemOperand64(in instruction))
+                        this.Memory.ReadBinaryVector256(GetMemOperand(in instruction))
                     );
                     break;
                 }
@@ -31,7 +31,7 @@ public partial class CpuRuntime
                 {
                     this.ProcessorRegisters.SetZmm(
                         instruction.GetOpRegister(0),
-                        this.Memory.ReadBinaryVector512(GetMemOperand64(in instruction))
+                        this.Memory.ReadBinaryVector512(GetMemOperand(in instruction))
                     );
                     break;
                 }

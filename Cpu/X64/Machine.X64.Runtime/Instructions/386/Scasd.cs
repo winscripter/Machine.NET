@@ -10,7 +10,7 @@ public partial class CpuRuntime
         {
             case Code.Scasd_EAX_m32:
                 {
-                    uint temp = this.Memory.ReadUInt32((ulong)(this.ProcessorRegisters.Es << 4) + GetMemOperand32(in instruction));
+                    uint temp = this.Memory.ReadUInt32((ulong)(this.ProcessorRegisters.Es << 4) + GetMemOperand(in instruction));
                     ulong result = (ulong)((ulong)ProcessorRegisters.Eax - temp);
                     ProcessFlags(result);
                     break;

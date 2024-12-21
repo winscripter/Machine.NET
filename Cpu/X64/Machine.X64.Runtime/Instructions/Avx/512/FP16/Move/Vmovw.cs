@@ -27,7 +27,7 @@ public partial class CpuRuntime
                         case OpKind.Memory:
                             {
                                 Half scalar = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).AsHalf().ToScalar();
-                                this.Memory.WriteHalf(GetMemOperand64(in instruction), scalar);
+                                this.Memory.WriteHalf(GetMemOperand(in instruction), scalar);
                                 break;
                             }
                     }
@@ -50,7 +50,7 @@ public partial class CpuRuntime
                         case OpKind.Memory:
                             {
                                 Half scalar = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).AsHalf().ToScalar();
-                                this.Memory.WriteHalf(GetMemOperand64(in instruction), scalar);
+                                this.Memory.WriteHalf(GetMemOperand(in instruction), scalar);
                                 break;
                             }
                     }
@@ -74,7 +74,7 @@ public partial class CpuRuntime
                             {
                                 AlterScalarOfXmm(
                                     instruction.GetOpRegister(0),
-                                    this.Memory.ReadHalf(GetMemOperand64(in instruction))
+                                    this.Memory.ReadHalf(GetMemOperand(in instruction))
                                 );
                                 break;
                             }
@@ -99,7 +99,7 @@ public partial class CpuRuntime
                             {
                                 AlterScalarOfXmm(
                                     instruction.GetOpRegister(0),
-                                    this.Memory.ReadHalf(GetMemOperand64(in instruction))
+                                    this.Memory.ReadHalf(GetMemOperand(in instruction))
                                 );
                                 break;
                             }

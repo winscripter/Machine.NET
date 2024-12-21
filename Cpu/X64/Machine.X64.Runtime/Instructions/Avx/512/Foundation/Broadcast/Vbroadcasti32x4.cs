@@ -13,10 +13,10 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        uint value1 = Memory.ReadUInt32(GetMemOperand64(in instruction));
-                        uint value2 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 4);
-                        uint value3 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 8);
-                        uint value4 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 12);
+                        uint value1 = Memory.ReadUInt32(GetMemOperand(in instruction));
+                        uint value2 = Memory.ReadUInt32(GetMemOperand(in instruction) + 4);
+                        uint value3 = Memory.ReadUInt32(GetMemOperand(in instruction) + 8);
+                        uint value4 = Memory.ReadUInt32(GetMemOperand(in instruction) + 12);
 
                         ProcessorRegisters.SetYmm(
                             instruction.GetOpRegister(0),
@@ -66,10 +66,10 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        uint value1 = Memory.ReadUInt32(GetMemOperand64(in instruction));
-                        uint value2 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 4);
-                        uint value3 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 8);
-                        uint value4 = Memory.ReadUInt32(GetMemOperand64(in instruction) + 12);
+                        uint value1 = Memory.ReadUInt32(GetMemOperand(in instruction));
+                        uint value2 = Memory.ReadUInt32(GetMemOperand(in instruction) + 4);
+                        uint value3 = Memory.ReadUInt32(GetMemOperand(in instruction) + 8);
+                        uint value4 = Memory.ReadUInt32(GetMemOperand(in instruction) + 12);
 
                         ProcessorRegisters.SetZmm(
                             instruction.GetOpRegister(0),

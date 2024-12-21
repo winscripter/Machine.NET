@@ -29,7 +29,7 @@ public partial class CpuRuntime
                             break;
 
                         case OpKind.Memory:
-                            valueToInsert = this.Memory[GetMemOperand16(in instruction)];
+                            valueToInsert = this.Memory[GetMemOperand(in instruction)];
                             break;
                     }
 
@@ -58,7 +58,7 @@ public partial class CpuRuntime
                             break;
 
                         case OpKind.Memory:
-                            valueToInsert = this.Memory[GetMemOperand16(in instruction)];
+                            valueToInsert = this.Memory[GetMemOperand(in instruction)];
                             break;
                     }
 

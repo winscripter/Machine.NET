@@ -11,13 +11,13 @@ public partial class CpuRuntime
         {
             case Code.Cmpxchg8b_m64:
                 {
-                    ulong m64 = this.Memory.ReadUInt64(GetMemOperand64(in instruction));
+                    ulong m64 = this.Memory.ReadUInt64(GetMemOperand(in instruction));
 
                     if (BitUtilities.CreateUInt64(this.ProcessorRegisters.Edx, this.ProcessorRegisters.Eax) == m64)
                     {
                         this.ProcessorRegisters.RFlagsZF = true;
                         ulong writebackM64 = BitUtilities.CreateUInt64(this.ProcessorRegisters.Ecx, this.ProcessorRegisters.Ebx);
-                        this.Memory.WriteUInt64(GetMemOperand64(in instruction), writebackM64);
+                        this.Memory.WriteUInt64(GetMemOperand(in instruction), writebackM64);
                     }
                     else
                     {

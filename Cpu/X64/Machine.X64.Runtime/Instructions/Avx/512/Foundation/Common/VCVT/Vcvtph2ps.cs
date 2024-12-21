@@ -15,7 +15,7 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        Vector64<Half> vec = this.Memory.ReadBinaryVector64(GetMemOperand64(in instruction)).AsHalf();
+                        Vector64<Half> vec = this.Memory.ReadBinaryVector64(GetMemOperand(in instruction)).AsHalf();
                         Vector128<float> result = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(0));
 
                         for (int i = 0; i < Vector64<Half>.Count; i++)
@@ -64,7 +64,7 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        Vector128<Half> vec = this.Memory.ReadBinaryVector128(GetMemOperand64(in instruction)).AsHalf();
+                        Vector128<Half> vec = this.Memory.ReadBinaryVector128(GetMemOperand(in instruction)).AsHalf();
                         Vector256<float> result = this.ProcessorRegisters.EvaluateYmm(instruction.GetOpRegister(0));
 
                         for (int i = 0; i < Vector256<float>.Count; i++)
@@ -113,7 +113,7 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        Vector256<Half> vec = this.Memory.ReadBinaryVector256(GetMemOperand64(in instruction)).AsHalf();
+                        Vector256<Half> vec = this.Memory.ReadBinaryVector256(GetMemOperand(in instruction)).AsHalf();
                         Vector512<float> result = this.ProcessorRegisters.EvaluateZmm(instruction.GetOpRegister(0));
 
                         for (int i = 0; i < Vector512<float>.Count; i++)

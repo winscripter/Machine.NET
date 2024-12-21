@@ -20,7 +20,7 @@ public partial class CpuRuntime
 
             case Code.EVEX_Vpbroadcastd_xmm_k1z_xmmm32:
                 {
-                    uint value = instruction.GetOpKind(1) == OpKind.Memory ? Memory[GetMemOperand32(in instruction)] : ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).As<float, uint>()[0];
+                    uint value = instruction.GetOpKind(1) == OpKind.Memory ? Memory[GetMemOperand(in instruction)] : ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).As<float, uint>()[0];
                     Vector128<uint> vec = Vector128.Create<uint>(value);
                     ProcessorRegisters.SetXmm(instruction.GetOpRegister(0), vec.As<uint, float>());
                     break;
@@ -36,7 +36,7 @@ public partial class CpuRuntime
 
             case Code.EVEX_Vpbroadcastd_ymm_k1z_xmmm32:
                 {
-                    uint value = instruction.GetOpKind(1) == OpKind.Memory ? Memory[GetMemOperand32(in instruction)] : ProcessorRegisters.EvaluateYmm(instruction.GetOpRegister(1)).As<float, uint>()[0];
+                    uint value = instruction.GetOpKind(1) == OpKind.Memory ? Memory[GetMemOperand(in instruction)] : ProcessorRegisters.EvaluateYmm(instruction.GetOpRegister(1)).As<float, uint>()[0];
                     Vector256<uint> vec = Vector256.Create<uint>(value);
                     ProcessorRegisters.SetYmm(instruction.GetOpRegister(0), vec.As<uint, float>());
                     break;
@@ -52,7 +52,7 @@ public partial class CpuRuntime
 
             case Code.EVEX_Vpbroadcastd_zmm_k1z_xmmm32:
                 {
-                    uint value = instruction.GetOpKind(1) == OpKind.Memory ? Memory[GetMemOperand32(in instruction)] : ProcessorRegisters.EvaluateZmm(instruction.GetOpRegister(1)).As<float, uint>()[0];
+                    uint value = instruction.GetOpKind(1) == OpKind.Memory ? Memory[GetMemOperand(in instruction)] : ProcessorRegisters.EvaluateZmm(instruction.GetOpRegister(1)).As<float, uint>()[0];
                     Vector512<uint> vec = Vector512.Create<uint>(value);
                     ProcessorRegisters.SetZmm(instruction.GetOpRegister(0), vec.As<uint, float>());
                     break;

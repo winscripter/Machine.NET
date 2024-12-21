@@ -13,7 +13,7 @@ public partial class CpuRuntime
             case Code.Movntpd_m128_xmm:
                 {
                     Vector128<float> xmm = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1));
-                    this.Memory.WriteBinaryVector128(GetMemOperand64(in instruction), xmm);
+                    this.Memory.WriteBinaryVector128(GetMemOperand(in instruction), xmm);
                     break;
                 }
 

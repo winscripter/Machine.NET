@@ -14,7 +14,7 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(0) == OpKind.Memory)
                     {
-                        ulong operand = GetMemOperand64(in instruction);
+                        ulong operand = GetMemOperand(in instruction);
                         if (operand % 16 != 0)
                         {
                             RaiseException(StaticErrors.GeneralProtectionFault);
@@ -38,7 +38,7 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        ulong operand = GetMemOperand64(in instruction);
+                        ulong operand = GetMemOperand(in instruction);
                         if (operand % 16 != 0)
                         {
                             RaiseException(StaticErrors.GeneralProtectionFault);

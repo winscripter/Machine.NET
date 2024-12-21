@@ -29,7 +29,7 @@ public partial class CpuRuntime
                             break;
 
                         case OpKind.Memory:
-                            this.Memory.WriteUInt16(GetMemOperand64(in instruction), value);
+                            this.Memory.WriteUInt16(GetMemOperand(in instruction), value);
                             break;
                     }
 
@@ -85,7 +85,7 @@ public partial class CpuRuntime
                             break;
 
                         case OpKind.Memory:
-                            this.Memory.WriteUInt16(GetMemOperand64(in instruction), value);
+                            this.Memory.WriteUInt16(GetMemOperand(in instruction), value);
                             break;
                     }
 

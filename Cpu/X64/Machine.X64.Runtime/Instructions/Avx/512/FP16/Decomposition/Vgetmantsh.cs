@@ -16,7 +16,7 @@ public partial class CpuRuntime
                     Vector128<Half> vec = EvaluateXmmFromInstruction(in instruction, 1).AsHalf();
                     Half scalar = instruction.GetOpKind(2) switch
                     {
-                        OpKind.Memory => this.Memory.ReadHalf(GetMemOperand64(in instruction)),
+                        OpKind.Memory => this.Memory.ReadHalf(GetMemOperand(in instruction)),
                         OpKind.Register => this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(2)).AsHalf().ToScalar(),
                         _ => Half.Zero
                     };

@@ -14,7 +14,7 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        float value = Memory.ReadSingle(GetMemOperand32(in instruction));
+                        float value = Memory.ReadSingle(GetMemOperand(in instruction));
                         ProcessorRegisters.SetXmm(instruction.GetOpRegister(0), Vector128.Create<float>(value));
                     }
                     else
@@ -30,7 +30,7 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        float value = Memory.ReadSingle(GetMemOperand32(in instruction));
+                        float value = Memory.ReadSingle(GetMemOperand(in instruction));
                         ProcessorRegisters.SetYmm(instruction.GetOpRegister(0), Vector256.Create<float>(value));
                     }
                     else
@@ -46,7 +46,7 @@ public partial class CpuRuntime
                 {
                     if (instruction.GetOpKind(1) == OpKind.Memory)
                     {
-                        float value = Memory.ReadSingle(GetMemOperand32(in instruction));
+                        float value = Memory.ReadSingle(GetMemOperand(in instruction));
                         ProcessorRegisters.SetZmm(instruction.GetOpRegister(0), Vector512.Create<float>(value));
                     }
                     else

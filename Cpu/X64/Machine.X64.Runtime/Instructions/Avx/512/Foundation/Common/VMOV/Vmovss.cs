@@ -13,13 +13,13 @@ public partial class CpuRuntime
             case Code.EVEX_Vmovss_m32_k1_xmm:
                 {
                     float scalar = ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).ToScalar();
-                    this.Memory.WriteSingle(GetMemOperand32(in instruction), scalar);
+                    this.Memory.WriteSingle(GetMemOperand(in instruction), scalar);
                     break;
                 }
 
             case Code.EVEX_Vmovss_xmm_k1z_m32:
                 {
-                    AlterScalarOfXmm(instruction.GetOpRegister(0), Memory.ReadSingle(GetMemOperand32(in instruction)));
+                    AlterScalarOfXmm(instruction.GetOpRegister(0), Memory.ReadSingle(GetMemOperand(in instruction)));
                     break;
                 }
 

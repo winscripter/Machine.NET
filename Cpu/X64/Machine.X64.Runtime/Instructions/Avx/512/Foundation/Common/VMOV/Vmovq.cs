@@ -24,7 +24,7 @@ public partial class CpuRuntime
                     switch (kind)
                     {
                         case OpKind.Memory:
-                            this.Memory.WriteUInt64(GetMemOperand64(in instruction), vec.ToScalar());
+                            this.Memory.WriteUInt64(GetMemOperand(in instruction), vec.ToScalar());
                             break;
 
                         case OpKind.Register:

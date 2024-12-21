@@ -15,7 +15,7 @@ public partial class CpuRuntime
                     Vector128<double> xmm1 = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).As<float, double>();
                     Vector128<double> xmm2 = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(2)).As<float, double>();
 
-                    ulong baseAddress = GetMemOperand64(in instruction);
+                    ulong baseAddress = GetMemOperand(in instruction);
 
                     for (int i = 0; i < Vector128<double>.Count; i++)
                     {
@@ -38,7 +38,7 @@ public partial class CpuRuntime
                     Vector256<double> xmm1 = this.ProcessorRegisters.EvaluateYmm(instruction.GetOpRegister(1)).As<float, double>();
                     Vector256<double> xmm2 = this.ProcessorRegisters.EvaluateYmm(instruction.GetOpRegister(2)).As<float, double>();
 
-                    ulong baseAddress = GetMemOperand64(in instruction);
+                    ulong baseAddress = GetMemOperand(in instruction);
 
                     for (int i = 0; i < Vector256<double>.Count; i++)
                     {
@@ -59,7 +59,7 @@ public partial class CpuRuntime
             case Code.VEX_Vmaskmovpd_xmm_xmm_m128:
                 {
                     Vector128<double> xmm1 = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).As<float, double>();
-                    Vector128<double> xmm2 = this.Memory.ReadBinaryVector128(GetMemOperand64(in instruction)).As<float, double>();
+                    Vector128<double> xmm2 = this.Memory.ReadBinaryVector128(GetMemOperand(in instruction)).As<float, double>();
                     Vector128<double> result = Vector128<double>.Zero;
 
                     for (int i = 0; i < Vector128<double>.Count; i++)
@@ -80,7 +80,7 @@ public partial class CpuRuntime
             case Code.VEX_Vmaskmovpd_ymm_ymm_m256:
                 {
                     Vector256<double> xmm1 = this.ProcessorRegisters.EvaluateYmm(instruction.GetOpRegister(1)).As<float, double>();
-                    Vector256<double> xmm2 = this.Memory.ReadBinaryVector256(GetMemOperand64(in instruction)).As<float, double>();
+                    Vector256<double> xmm2 = this.Memory.ReadBinaryVector256(GetMemOperand(in instruction)).As<float, double>();
                     Vector256<double> result = Vector256<double>.Zero;
 
                     for (int i = 0; i < Vector256<double>.Count; i++)

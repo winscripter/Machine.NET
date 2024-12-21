@@ -11,7 +11,7 @@ public partial class CpuRuntime
         {
             case Code.Lddqu_xmm_m128:
                 {
-                    this.ProcessorRegisters.SetXmm(instruction.GetOpRegister(0), this.Memory.ReadBinaryVector128(GetMemOperand64(in instruction)));
+                    this.ProcessorRegisters.SetXmm(instruction.GetOpRegister(0), this.Memory.ReadBinaryVector128(GetMemOperand(in instruction)));
                     break;
                 }
 

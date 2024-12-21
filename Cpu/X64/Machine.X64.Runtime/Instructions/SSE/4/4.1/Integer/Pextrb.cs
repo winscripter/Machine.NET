@@ -28,7 +28,7 @@ public partial class CpuRuntime
                             break;
 
                         case OpKind.Memory:
-                            this.Memory[GetMemOperand8(in instruction)] = xmm[imm8];
+                            this.Memory[GetMemOperand(in instruction)] = xmm[imm8];
                             break;
                     }
 
@@ -52,7 +52,7 @@ public partial class CpuRuntime
                             break;
 
                         case OpKind.Memory:
-                            this.Memory[GetMemOperand8(in instruction)] = xmm[imm8];
+                            this.Memory[GetMemOperand(in instruction)] = xmm[imm8];
                             break;
                     }
 

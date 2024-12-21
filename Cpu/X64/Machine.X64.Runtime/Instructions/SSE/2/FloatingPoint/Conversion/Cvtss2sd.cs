@@ -14,7 +14,7 @@ public partial class CpuRuntime
                 {
                     float scalarSinglePrecision = instruction.GetOpKind(1) switch
                     {
-                        OpKind.Memory => this.Memory.ReadSingle(GetMemOperand64(in instruction)),
+                        OpKind.Memory => this.Memory.ReadSingle(GetMemOperand(in instruction)),
                         OpKind.Register => this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(0)).ToScalar(),
                         _ => 0F
                     };

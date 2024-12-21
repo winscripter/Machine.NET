@@ -11,13 +11,13 @@ public partial class CpuRuntime
         {
             case Code.Mov_AL_moffs8:
                 {
-                    this.ProcessorRegisters.Al = this.Memory[GetMemOperand8(in instruction)];
+                    this.ProcessorRegisters.Al = this.Memory[GetMemOperand(in instruction)];
                     break;
                 }
 
             case Code.Mov_AX_moffs16:
                 {
-                    this.ProcessorRegisters.Ax = this.Memory.ReadUInt16(GetMemOperand16(in instruction));
+                    this.ProcessorRegisters.Ax = this.Memory.ReadUInt16(GetMemOperand(in instruction));
                     break;
                 }
 
@@ -67,31 +67,31 @@ public partial class CpuRuntime
 
             case Code.Mov_EAX_moffs32:
                 {
-                    this.ProcessorRegisters.Eax = this.Memory.ReadUInt32(GetMemOperand64(in instruction));
+                    this.ProcessorRegisters.Eax = this.Memory.ReadUInt32(GetMemOperand(in instruction));
                     break;
                 }
 
             case Code.Mov_moffs16_AX:
                 {
-                    this.Memory.WriteUInt16(GetMemOperand16(in instruction), this.ProcessorRegisters.Ax);
+                    this.Memory.WriteUInt16(GetMemOperand(in instruction), this.ProcessorRegisters.Ax);
                     break;
                 }
 
             case Code.Mov_moffs32_EAX:
                 {
-                    this.Memory.WriteUInt32(GetMemOperand32(in instruction), this.ProcessorRegisters.Eax);
+                    this.Memory.WriteUInt32(GetMemOperand(in instruction), this.ProcessorRegisters.Eax);
                     break;
                 }
 
             case Code.Mov_moffs64_RAX:
                 {
-                    this.Memory.WriteUInt64(GetMemOperand64(in instruction), this.ProcessorRegisters.Rax);
+                    this.Memory.WriteUInt64(GetMemOperand(in instruction), this.ProcessorRegisters.Rax);
                     break;
                 }
 
             case Code.Mov_moffs8_AL:
                 {
-                    this.Memory[GetMemOperand64(in instruction)] = this.ProcessorRegisters.Al;
+                    this.Memory[GetMemOperand(in instruction)] = this.ProcessorRegisters.Al;
                     break;
                 }
 
@@ -116,7 +116,7 @@ public partial class CpuRuntime
                     }
                     else
                     {
-                        this.Memory.WriteUInt16(GetMemOperand64(in instruction), (ushort)this.ProcessorRegisters.EvaluateSReg(instruction.GetOpRegister(1)));
+                        this.Memory.WriteUInt16(GetMemOperand(in instruction), (ushort)this.ProcessorRegisters.EvaluateSReg(instruction.GetOpRegister(1)));
                     }
                     break;
                 }
@@ -175,7 +175,7 @@ public partial class CpuRuntime
                     }
                     else
                     {
-                        this.Memory.WriteUInt16(GetMemOperand64(in instruction), (ushort)this.ProcessorRegisters.EvaluateSReg(instruction.GetOpRegister(1)));
+                        this.Memory.WriteUInt16(GetMemOperand(in instruction), (ushort)this.ProcessorRegisters.EvaluateSReg(instruction.GetOpRegister(1)));
                     }
                     break;
                 }
@@ -228,7 +228,7 @@ public partial class CpuRuntime
 
             case Code.Mov_RAX_moffs64:
                 {
-                    this.ProcessorRegisters.Rax = GetMemOperand64(in instruction);
+                    this.ProcessorRegisters.Rax = GetMemOperand(in instruction);
                     break;
                 }
 
@@ -292,7 +292,7 @@ public partial class CpuRuntime
                         instruction.GetOpRegister(0),
                         instruction.GetOpKind(1) == OpKind.Register
                             ? this.ProcessorRegisters.EvaluateRegisterValue32(instruction.GetOpRegister(1))
-                            : this.Memory.ReadUInt16(GetMemOperand64(in instruction))
+                            : this.Memory.ReadUInt16(GetMemOperand(in instruction))
                     );
                     break;
                 }
@@ -303,7 +303,7 @@ public partial class CpuRuntime
                         instruction.GetOpRegister(0),
                         instruction.GetOpKind(1) == OpKind.Register
                             ? this.ProcessorRegisters.EvaluateRegisterValue64(instruction.GetOpRegister(1))
-                            : this.Memory.ReadUInt16(GetMemOperand64(in instruction))
+                            : this.Memory.ReadUInt16(GetMemOperand(in instruction))
                     );
                     break;
                 }

@@ -17,7 +17,7 @@ public partial class CpuRuntime
                     OpKind opKind = instruction.GetOpKind(1);
                     if (opKind == OpKind.Memory)
                     {
-                        ulong u64AtOffset = this.Memory.ReadUInt64(GetMemOperand64(in instruction));
+                        ulong u64AtOffset = this.Memory.ReadUInt64(GetMemOperand(in instruction));
                         (upper, lower) = (BitUtilities.GetLower32Bits(u64AtOffset), BitUtilities.GetUpper32Bits(u64AtOffset));
                     }
                     else if (opKind == OpKind.Register)

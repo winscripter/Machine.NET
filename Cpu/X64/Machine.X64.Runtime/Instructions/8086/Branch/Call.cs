@@ -10,8 +10,8 @@ public partial class CpuRuntime
         {
             case Code.Call_m1616:
                 {
-                    ushort segmentSelector = this.Memory.ReadUInt16(GetMemOperand16(in instruction));
-                    ushort offset = this.Memory.ReadUInt16(GetMemOperand16(in instruction) + 2);
+                    ushort segmentSelector = this.Memory.ReadUInt16(GetMemOperand(in instruction));
+                    ushort offset = this.Memory.ReadUInt16(GetMemOperand(in instruction) + 2);
                     StackPush(this.ProcessorRegisters.Cs);
                     StackPush(this.ProcessorRegisters.Ip);
                     this.ProcessorRegisters.Cs = segmentSelector;
@@ -21,8 +21,8 @@ public partial class CpuRuntime
 
             case Code.Call_m1632:
                 {
-                    ushort segmentSelector = this.Memory.ReadUInt16(GetMemOperand16(in instruction));
-                    uint offset = this.Memory.ReadUInt32(GetMemOperand16(in instruction) + 2);
+                    ushort segmentSelector = this.Memory.ReadUInt16(GetMemOperand(in instruction));
+                    uint offset = this.Memory.ReadUInt32(GetMemOperand(in instruction) + 2);
                     StackPush(this.ProcessorRegisters.Cs);
                     StackPush(this.ProcessorRegisters.Eip);
                     this.ProcessorRegisters.Cs = segmentSelector;
@@ -32,8 +32,8 @@ public partial class CpuRuntime
 
             case Code.Call_m1664:
                 {
-                    ushort segmentSelector = this.Memory.ReadUInt16(GetMemOperand16(in instruction));
-                    ulong offset = this.Memory.ReadUInt64(GetMemOperand16(in instruction) + 2);
+                    ushort segmentSelector = this.Memory.ReadUInt16(GetMemOperand(in instruction));
+                    ulong offset = this.Memory.ReadUInt64(GetMemOperand(in instruction) + 2);
                     StackPush(this.ProcessorRegisters.Cs);
                     StackPush(this.ProcessorRegisters.Rip);
                     this.ProcessorRegisters.Cs = segmentSelector;

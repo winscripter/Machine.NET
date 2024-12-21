@@ -32,7 +32,7 @@ public partial class CpuRuntime
 
                         case OpKind.Memory:
                             {
-                                this.Memory.WriteUInt16(GetMemOperand16(in instruction), src[index]);
+                                this.Memory.WriteUInt16(GetMemOperand(in instruction), src[index]);
                                 break;
                             }
                     }

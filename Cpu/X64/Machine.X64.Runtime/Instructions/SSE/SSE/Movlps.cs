@@ -14,13 +14,13 @@ public partial class CpuRuntime
                 {
                     Vector128<float> xmm = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1));
                     Vector64<float> low = xmm.GetLower();
-                    this.Memory.WriteBinaryVector64(GetMemOperand64(in instruction), low);
+                    this.Memory.WriteBinaryVector64(GetMemOperand(in instruction), low);
                     break;
                 }
 
             case Code.Movlps_xmm_m64:
                 {
-                    Vector64<float> vec = this.Memory.ReadBinaryVector64(GetMemOperand64(in instruction));
+                    Vector64<float> vec = this.Memory.ReadBinaryVector64(GetMemOperand(in instruction));
                     Vector128<float> fetchedXmm = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(0));
                     fetchedXmm = fetchedXmm.WithLower(vec);
                     this.ProcessorRegisters.SetXmm(instruction.GetOpRegister(0), fetchedXmm);

@@ -23,7 +23,7 @@ public partial class CpuRuntime
                             break;
 
                         case OpKind.Memory:
-                            ulong address = GetMemOperand64(in instruction);
+                            ulong address = GetMemOperand(in instruction);
                             if (address % 16 == 0)
                             {
                                 RaiseException(StaticErrors.GeneralProtectionFault);
@@ -46,7 +46,7 @@ public partial class CpuRuntime
                             break;
 
                         case OpKind.Memory:
-                            ulong address = GetMemOperand64(in instruction);
+                            ulong address = GetMemOperand(in instruction);
                             if (address % 16 == 0)
                             {
                                 RaiseException(StaticErrors.GeneralProtectionFault);

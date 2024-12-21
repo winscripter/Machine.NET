@@ -14,14 +14,14 @@ public partial class CpuRuntime
                 {
                     Vector128<double> xmm = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).AsDouble();
                     double scalar = xmm.GetElement(0);
-                    this.Memory.WriteDouble(GetMemOperand64(in instruction), scalar);
+                    this.Memory.WriteDouble(GetMemOperand(in instruction), scalar);
                     break;
                 }
 
             case Code.EVEX_Vmovsd_xmm_k1z_m64:
                 {
                     Vector128<double> xmm = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(0)).AsDouble();
-                    double scalar = this.Memory.ReadDouble(GetMemOperand64(in instruction));
+                    double scalar = this.Memory.ReadDouble(GetMemOperand(in instruction));
                     for (int i = 0; i < Vector128<double>.Count; i++)
                     {
                         if (this.HasBitSetInK1(i) && instruction.OpMask != Register.None)

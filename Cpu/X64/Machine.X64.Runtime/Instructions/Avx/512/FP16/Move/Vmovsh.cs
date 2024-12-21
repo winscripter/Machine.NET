@@ -15,7 +15,7 @@ public partial class CpuRuntime
             case Code.EVEX_Vmovsh_m16_k1_xmm:
                 {
                     this.Memory.WriteHalf(
-                        GetMemOperand64(in instruction),
+                        GetMemOperand(in instruction),
                         this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(0)).AsHalf().ToScalar()
                     );
                     break;

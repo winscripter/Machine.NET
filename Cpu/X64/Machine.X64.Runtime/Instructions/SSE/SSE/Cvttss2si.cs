@@ -14,7 +14,7 @@ public partial class CpuRuntime
                 {
                     float valueToConvert = instruction.GetOpKind(1) switch
                     {
-                        OpKind.Memory => this.Memory.ReadSingle(GetMemOperand32(in instruction)),
+                        OpKind.Memory => this.Memory.ReadSingle(GetMemOperand(in instruction)),
                         OpKind.Register => this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).ToScalar(),
                         _ => 0
                     };
@@ -26,7 +26,7 @@ public partial class CpuRuntime
                 {
                     float valueToConvert = instruction.GetOpKind(1) switch
                     {
-                        OpKind.Memory => this.Memory.ReadSingle(GetMemOperand32(in instruction)),
+                        OpKind.Memory => this.Memory.ReadSingle(GetMemOperand(in instruction)),
                         OpKind.Register => this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1)).ToScalar(),
                         _ => 0
                     };
