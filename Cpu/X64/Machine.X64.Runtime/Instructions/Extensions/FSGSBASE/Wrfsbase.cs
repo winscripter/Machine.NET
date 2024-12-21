@@ -8,7 +8,11 @@ public partial class CpuRuntime
 {
     private void wrfsbase(in Instruction instruction)
     {
-        this.EnsureFsGsBaseIsAllowed();
+        if (this.EnsureFsGsBaseIsAllowed())
+        {
+            return;
+        }
+
         switch (instruction.Code)
         {
             case Code.Wrfsbase_r32:

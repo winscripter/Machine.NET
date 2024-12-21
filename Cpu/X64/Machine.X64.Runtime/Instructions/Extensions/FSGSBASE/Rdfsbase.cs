@@ -7,7 +7,11 @@ public partial class CpuRuntime
 {
     private void rdfsbase(in Instruction instruction)
     {
-        this.EnsureFsGsBaseIsAllowed();
+        if (this.EnsureFsGsBaseIsAllowed())
+        {
+            return;
+        }
+
         switch (instruction.Code)
         {
             case Code.Rdfsbase_r32:
