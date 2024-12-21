@@ -37,6 +37,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		README.md = README.md
+		x64.slnf = x64.slnf
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{6D144C6D-BA6D-4259-BAB0-EA68095B0928}"
@@ -62,11 +63,6 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Images", "Images\Images.shproj", "{CF7E95DA-D369-4F39-AC5C-CB7781EF1990}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandLineDecompiler", "CommandLineDecompiler\CommandLineDecompiler.csproj", "{94111252-C15C-40F8-9608-774E4A79AC1C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Filters", "Filters", "{914BAD4C-0C6D-450F-BCD3-DDC2E83AB03B}"
-	ProjectSection(SolutionItems) = preProject
-		Filters\x64.slnf = Filters\x64.slnf
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{D23030FC-BDA6-423B-976B-B97CD1CA6C2B}"
 EndProject
