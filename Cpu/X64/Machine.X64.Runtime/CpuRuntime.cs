@@ -75,6 +75,11 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     /// </summary>
     public ulong Tsc { get; set; }
 
+    /// <summary>
+    /// The CPL (Current Privilege Level) in CS.
+    /// </summary>
+    public byte Cpl => this.ProcessorRegisters.GetCpl();
+
     private ulong ControlMaskM
     {
         get => ProcessorRegisters.K0;
