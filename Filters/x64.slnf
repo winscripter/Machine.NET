@@ -1,0 +1,12 @@
+{
+  "solution": {
+    "path": "Machine.NET.sln",
+    "projects": [
+      "Cpu\\X64\\Component\\Machine.X64.Component.FloatingPoint\\Machine.X64.Component.FloatingPoint.csproj",
+      "Cpu\\X64\\Component\\Machine.X64.Component.Memory\\Machine.X64.Component.Memory.csproj",
+      "Cpu\\X64\\Component\\Machine.X64.Component.Registers.Iced\\Machine.X64.Component.Registers.Iced.csproj",
+      "Cpu\\X64\\Component\\Machine.X64.Component.Registers\\Machine.X64.Component.Registers.csproj",
+      "Cpu\\X64\\Machine.X64.Runtime\\Machine.X64.Runtime.csproj"
+    ]
+  }
+}

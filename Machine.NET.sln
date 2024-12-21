@@ -63,6 +63,11 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Images", "Images\Images.shp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandLineDecompiler", "CommandLineDecompiler\CommandLineDecompiler.csproj", "{94111252-C15C-40F8-9608-774E4A79AC1C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Filters", "Filters", "{914BAD4C-0C6D-450F-BCD3-DDC2E83AB03B}"
+	ProjectSection(SolutionItems) = preProject
+		Filters\x64.slnf = Filters\x64.slnf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
