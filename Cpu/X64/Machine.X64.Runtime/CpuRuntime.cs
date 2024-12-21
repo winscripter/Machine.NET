@@ -95,15 +95,15 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
         set => ProcessorRegisters.CR0PE = value;
     }
 
-    private ReadOnlySpan<bool> GetControlMaskMData4()
-    {
-        return new ReadOnlySpan<bool>([
-            BitUtilities.IsBitSet(ControlMaskM, 0),
-            BitUtilities.IsBitSet(ControlMaskM, 1),
-            BitUtilities.IsBitSet(ControlMaskM, 2),
-            BitUtilities.IsBitSet(ControlMaskM, 3),
-        ]);
-    }
+    //private ReadOnlySpan<bool> GetControlMaskMData4()
+    //{
+    //    return new ReadOnlySpan<bool>([
+    //        BitUtilities.IsBitSet(ControlMaskM, 0),
+    //        BitUtilities.IsBitSet(ControlMaskM, 1),
+    //        BitUtilities.IsBitSet(ControlMaskM, 2),
+    //        BitUtilities.IsBitSet(ControlMaskM, 3),
+    //    ]);
+    //}
 
     private void ProcessFlags(Int128 result)
     {
