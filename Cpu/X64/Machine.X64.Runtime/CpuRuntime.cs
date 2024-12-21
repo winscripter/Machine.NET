@@ -753,11 +753,13 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
         this.RaiseException(StaticErrors.UndefinedOpCode);
     }
 
-    private void EnsureFsGsBaseIsAllowed()
+    private bool EnsureFsGsBaseIsAllowed()
     {
         if (!this.ProcessorRegisters.CR4FSGSBASE)
         {
             this.RaiseUndefinedOpCode();
+            return true;
         }
+        return false;
     }
 }
