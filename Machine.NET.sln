@@ -61,12 +61,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Machine.Device.Chipsets", "
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Images", "Images\Images.shproj", "{CF7E95DA-D369-4F39-AC5C-CB7781EF1990}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandLineDecompiler", "CommandLineDecompiler\CommandLineDecompiler.csproj", "{94111252-C15C-40F8-9608-774E4A79AC1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandLineDecompiler", "CommandLineDecompiler\CommandLineDecompiler.csproj", "{94111252-C15C-40F8-9608-774E4A79AC1C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Filters", "Filters", "{914BAD4C-0C6D-450F-BCD3-DDC2E83AB03B}"
 	ProjectSection(SolutionItems) = preProject
 		Filters\x64.slnf = Filters\x64.slnf
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{D23030FC-BDA6-423B-976B-B97CD1CA6C2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X64Tests", "UnitTests\X64Tests\X64Tests.csproj", "{CE9A96F9-9B95-46EF-9C65-810AC92555E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -130,6 +134,10 @@ Global
 		{94111252-C15C-40F8-9608-774E4A79AC1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94111252-C15C-40F8-9608-774E4A79AC1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94111252-C15C-40F8-9608-774E4A79AC1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE9A96F9-9B95-46EF-9C65-810AC92555E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE9A96F9-9B95-46EF-9C65-810AC92555E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE9A96F9-9B95-46EF-9C65-810AC92555E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE9A96F9-9B95-46EF-9C65-810AC92555E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -155,6 +163,7 @@ Global
 		{6FDEFD65-9016-4514-9A75-57D0C39B55DD} = {40DC6C3F-D835-4F2B-85BC-9B565E624AE8}
 		{43B80014-EF9B-4050-AC71-B2B5B92452A0} = {0B95E63C-2BD2-4AA7-B850-B063E9963BE8}
 		{2DA11EE3-11D4-4EEB-AACA-16AC8B8A9AA8} = {35288494-BFCF-421A-922D-0126B709A52F}
+		{CE9A96F9-9B95-46EF-9C65-810AC92555E4} = {D23030FC-BDA6-423B-976B-B97CD1CA6C2B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {05F3C161-AA03-43F5-997C-491754D6F437}

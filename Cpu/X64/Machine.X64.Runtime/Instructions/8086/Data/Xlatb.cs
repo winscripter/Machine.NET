@@ -4,7 +4,7 @@ namespace Machine.X64.Runtime;
 
 public partial class CpuRuntime
 {
-    private void xlat(in Instruction instruction)
+    private void xlatb(in Instruction instruction)
     {
         switch (instruction.Code)
         {

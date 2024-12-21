@@ -112,12 +112,18 @@ public partial class CpuRuntime
             case Mnemonic.Dpps: dpps(in instruction); break;
             case Mnemonic.Enter: enter(in instruction); break;
             case Mnemonic.Extractps: extractps(in instruction); break;
+            case Mnemonic.Fldcw: fldcw(in instruction); break;
+            case Mnemonic.Fnclex: fnclex(in instruction); break;
+            case Mnemonic.Fninit: fninit(in instruction); break;
+            case Mnemonic.Fnstcw: fnstcw(in instruction); break;
+            case Mnemonic.Fnstsw: fnstsw(in instruction); break;
             case Mnemonic.Haddpd: haddpd(in instruction); break;
             case Mnemonic.Haddps: haddps(in instruction); break;
             case Mnemonic.Hlt: hlt(in instruction); break;
             case Mnemonic.Hsubpd: hsubpd(in instruction); break;
             case Mnemonic.Hsubps: hsubps(in instruction); break;
             case Mnemonic.Idiv: idiv(in instruction); break;
+            case Mnemonic.In: @in(in instruction); break;
             case Mnemonic.Inc: inc(in instruction); break;
             case Mnemonic.Insb: insb(in instruction); break;
             case Mnemonic.Insd: insd(in instruction); break;
@@ -179,6 +185,7 @@ public partial class CpuRuntime
             case Mnemonic.Ldmxcsr: ldmxcsr(in instruction); break;
             case Mnemonic.Leave: leave(in instruction); break;
             case Mnemonic.Lodsd: lodsd(in instruction); break;
+            case Mnemonic.Lsl: lsl(in instruction); break;
             case Mnemonic.Lzcnt: lzcnt(in instruction); break;
             case Mnemonic.Maskmovdqu: maskmovdqu(in instruction); break;
             case Mnemonic.Maxpd: maxpd(in instruction); break;
@@ -232,6 +239,7 @@ public partial class CpuRuntime
             case Mnemonic.Or: or(in instruction); break;
             case Mnemonic.Orpd: orpd(in instruction); break;
             case Mnemonic.Orps: orps(in instruction); break;
+            case Mnemonic.Out: @out(in instruction); break;
             case Mnemonic.Outsb: outsb(in instruction); break;
             case Mnemonic.Outsd: outsd(in instruction); break;
             case Mnemonic.Outsw: outsw(in instruction); break;
@@ -386,6 +394,7 @@ public partial class CpuRuntime
             case Mnemonic.Sti: sti(in instruction); break;
             case Mnemonic.Stmxcsr: stmxcsr(in instruction); break;
             case Mnemonic.Stosd: stosd(in instruction); break;
+            case Mnemonic.Str: str(in instruction); break;
             case Mnemonic.Sub: sub(in instruction); break;
             case Mnemonic.Subpd: subpd(in instruction); break;
             case Mnemonic.Subps: subps(in instruction); break;
@@ -724,10 +733,9 @@ public partial class CpuRuntime
             case Mnemonic.Wrpkru: wrpkru(in instruction); break;
             case Mnemonic.Xadd: xadd(in instruction); break;
             case Mnemonic.Xchg: xchg(in instruction); break;
-            case Mnemonic.Xlatb: xlat(in instruction); break;
+            case Mnemonic.Xlatb: xlatb(in instruction); break;
             case Mnemonic.Xor: xor(in instruction); break;
             case Mnemonic.Xorps: xorps(in instruction); break;
-
         }
     }
 }
