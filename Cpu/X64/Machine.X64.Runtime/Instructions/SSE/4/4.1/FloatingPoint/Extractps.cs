@@ -17,6 +17,7 @@ public partial class CpuRuntime
                     if (immediate > 7)
                     {
                         RaiseException(StaticErrors.GeneralProtectionFault);
+                        break;
                     }
 
                     Vector128<float> xmm = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1));
@@ -47,6 +48,7 @@ public partial class CpuRuntime
                     if (immediate > 7)
                     {
                         RaiseException(StaticErrors.GeneralProtectionFault);
+                        break;
                     }
 
                     Vector128<float> xmm = this.ProcessorRegisters.EvaluateXmm(instruction.GetOpRegister(1));
