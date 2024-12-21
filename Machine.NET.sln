@@ -61,6 +61,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Machine.Device.Chipsets", "
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Images", "Images\Images.shproj", "{CF7E95DA-D369-4F39-AC5C-CB7781EF1990}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandLineDecompiler", "CommandLineDecompiler\CommandLineDecompiler.csproj", "{94111252-C15C-40F8-9608-774E4A79AC1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -119,6 +121,10 @@ Global
 		{2DA11EE3-11D4-4EEB-AACA-16AC8B8A9AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DA11EE3-11D4-4EEB-AACA-16AC8B8A9AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DA11EE3-11D4-4EEB-AACA-16AC8B8A9AA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94111252-C15C-40F8-9608-774E4A79AC1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94111252-C15C-40F8-9608-774E4A79AC1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94111252-C15C-40F8-9608-774E4A79AC1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94111252-C15C-40F8-9608-774E4A79AC1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
