@@ -479,6 +479,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     {
         this.ProcessorRegisters.Rsp -= 8;
         this.Memory.WriteUInt64(this.ProcessorRegisters.Rsp, value);
+
     }
 
     /// <summary>
@@ -772,4 +773,15 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
         }
         return false;
     }
+
+    /// <summary>
+    /// Tells Machine.NET to use 8086 compatibility mode.
+    /// </summary>
+    public void Use8086Compatibility() => Use8086Compatibility(true);
+
+    /// <summary>
+    /// Tells Machine.NET to use 8086 compatibility mode.
+    /// </summary>
+    /// <param name="use8086Compatibility"></param>
+    public void Use8086Compatibility(bool use8086Compatibility) => this.ProcessorRegisters.RFlagsVM = use8086Compatibility;
 }
