@@ -20,7 +20,7 @@ not to use it to create a virtual machine or emulator.
 
 # Supported features
 ### X64
-- 720 instructions are supported, as of December 20, 2024.
+- 729 instructions are supported, as of December 20, 2024.
 - 64-bit mode
 - Many 8086, 80186, 80386 and 80486 instructions
 - Partially working protected mode
