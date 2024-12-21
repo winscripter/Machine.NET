@@ -15,6 +15,9 @@ the CPU and devices - X64, ARM, RISC-V, etc. However, note that only X64 is supp
 Right now, only X64 is supported, as well as the Intel 8253, 8259 chipset and HPET. Currently I'm focusing on solving
 existing problems with the X64 emulator rather than adding more possibilities. New features will be added once the X64 emulator begins to show success
 
+While this project is primarily focused on allowing unmanaged code to run in managed platforms, there's no reason
+not to use it to create a virtual machine or emulator.
+
 # Supported features
 ### X64
 - 720 instructions are supported, as of December 20, 2024.
