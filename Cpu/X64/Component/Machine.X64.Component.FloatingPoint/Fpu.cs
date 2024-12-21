@@ -147,6 +147,46 @@ public sealed class Fpu
         }
     }
 
+    public ushort TagWord
+    {
+        get
+        {
+            unsafe
+            {
+                uint tag = 0;
+
+                for (int i = 0; i < 8; i++)
+                {
+                    uint currentValue = 3;
+                    if (this._used[i] != 0)
+                    {
+                        if (this._st[i] == 0)
+                            currentValue = 1;
+                        else if (double.IsNaN(this._st[i]) || double.IsInfinity(this._st[i]))
+                            currentValue = 2;
+                        else
+                            currentValue = 0;
+                    }
+
+                    tag |= currentValue << (i * 2);
+                }
+
+                return (ushort)tag;
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    uint currentValue = (uint)(value >> (i * 2)) & 3;
+                    this._used[i] = (currentValue != 3) ? (byte)1 : (byte)0;
+                }
+            }
+        }
+    }
+
     public ushort StatusWord
     {
         get
