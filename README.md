@@ -4,7 +4,7 @@
 
 This is an experimental project to make running unmanaged code in managed environments possible. This project is still
 in its early stages, so there may be more bugs than unfinished features. If you find any bugs, please report them in the
-issues tab - this project will be botched without your help.
+issues page.
 
 An example is Blazor WebAssembly. It is quite limiting, but
 for a reason. It is NOT possible to run unmanaged apps or operating systems (like apps written in C/C++) in a
@@ -229,6 +229,11 @@ If you prefer with .NET CLI:
 1. Clone this repository. You can do this via git or by downloading the ZIP file via GitHub (in the root of the repo, click Code -&gt; Download ZIP).
 2. Open a terminal in the cloned repository.
 3. Type `dotnet build`. Or type `dotnet build -c Release` to build in release mode (e.g. if you want to use Machine.NET in real world apps).
+
+# Packages
+| Library name | NuGet URL | Source code on this repo |
+| ------------ | --------- | ------------------------ |
+| Machine.X64.Component.Registers | [![version](https://img.shields.io/badge/Package-1.0.1-blue)](https://nuget.org/packages/Machine.X64.Component.Registers) | [Click to redirect to source](https://github.com/winscripter/Machine.NET/tree/master/Cpu/X64/Component/Machine.X64.Component.Registers)
 
 # License
 MIT License. Copyright (c) winscripter, 2023-2024.
