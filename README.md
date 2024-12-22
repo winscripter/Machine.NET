@@ -17,11 +17,11 @@ This is an experimental project to make running unmanaged code in managed enviro
 in its early stages, so there may be more bugs than unfinished features. If you find any bugs, please report them in the
 issues page.
 
-An example is Blazor WebAssembly. It is quite limiting, but
-for a reason. It is NOT possible to run unmanaged apps or operating systems (like apps written in C/C++) in a
-client-side browser environment. Compiling to WebAssembly is possible, however, if there's only the x86 or x64 release
-without the source code, this would be a problem. This project aims to solve that problem, by emulating
-the CPU and devices - X64, ARM, RISC-V, etc. However, note that only X64 is supported right now - see the paragraph below.
+The problem is that in some environments, such as Blazor WebAssembly, it's impossible to run a program that was compiled against
+x86, x64, or ARM, and is not open source, preventing us from compiling the program to WebAssembly. Blazor WebAssembly runs on the client,
+which introduces limitations related to process and thread management. Machine.NET is the solution against this problem - it emulates
+the PC hardware, allowing such programs to run on every environment you can think of. At the end of the day, refer Machine.NET
+as a virtual machine/PC emulator - it really is.
 
 Right now, only X64 is supported, as well as the Intel 8253, 8259 chipset and HPET. Currently I'm focusing on solving
 existing problems with the X64 emulator rather than adding more possibilities. New features will be added once the X64 emulator begins to show success, **however**,
