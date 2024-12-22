@@ -13,7 +13,7 @@ namespace Machine.X64.Runtime;
 /// The emulation of the Central Processing Unit (CPU), mimicking features from both Intel 64 and
 /// AMD 64 processors.
 /// </summary>
-public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount = 256)
+public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount = 256, int bitness = 64)
 {
     /// <summary>
     /// The floating-point unit.
@@ -789,7 +789,7 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
             ms.WriteByte(this.Memory[physicalAddress + i]);
         }
         ms.Position = 0;
-        var decoder = Decoder.Create(64, new StreamCodeReader(ms));
+        var decoder = Decoder.Create(bitness, new StreamCodeReader(ms));
         decoder.IP = 0;
         decoder.Decode(out Instruction instruction);
         
