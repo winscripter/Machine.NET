@@ -819,6 +819,20 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
         }
     }
 
+    public void RunUntilNotBusyOrTrue(Func<bool> until)
+    {
+        if (Busy)
+        {
+            return;
+        }
+        Busy = true;
+
+        while (Busy && !until())
+        {
+            RunInMemory((ulong)(this.ProcessorRegisters.Cs << 4) + this.ProcessorRegisters.Rip);
+        }
+    }
+
     public void RunUntilNotBusy()
     {
         if (Busy)

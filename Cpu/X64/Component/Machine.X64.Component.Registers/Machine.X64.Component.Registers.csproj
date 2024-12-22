@@ -7,7 +7,7 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <AssemblyTitle>Machine.X64.Component.Registers.dll</AssemblyTitle>
     <Company>winscripter</Company>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
     <Copyright>Copyright (c) winscripter, 2023-2024</Copyright>
     <Title>Machine.X64.Component.Registers</Title>
     <Authors>winscripter</Authors>
@@ -18,10 +18,24 @@
     <PackageTags>c#;.net;cpu;x64;emulator;avx512;sse;sse2;sse3;ssse3;sse4.1;sse4.2;fma3;code;debugger;opensource</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>Fixed evaluating flags</PackageReleaseNotes>
+    <PackageReadmeFile>PkgReadme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\..\..\Images\Icon\MachineDotNetImage.Black.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Generated\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="PkgReadme.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

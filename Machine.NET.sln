@@ -66,7 +66,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandLineDecompiler", "Co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{D23030FC-BDA6-423B-976B-B97CD1CA6C2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "X64Tests", "UnitTests\X64Tests\X64Tests.csproj", "{CE9A96F9-9B95-46EF-9C65-810AC92555E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "X64Tests", "UnitTests\X64Tests\X64Tests.csproj", "{CE9A96F9-9B95-46EF-9C65-810AC92555E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
