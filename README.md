@@ -1,5 +1,16 @@
 # Machine.NET
 
+Table of contents:
+1. [Machine.NET](https://github.com/winscripter/Machine.NET?tab=readme-ov-file#machinenet)
+2. [Supported features](https://github.com/winscripter/Machine.NET?tab=readme-ov-file#supported-features)
+   - [x64](https://github.com/winscripter/Machine.NET?tab=readme-ov-file#x64)
+3. [&#91;!&#93; Limitations &#91;!&#93;](https://github.com/winscripter/Machine.NET?tab=readme-ov-file#-limitations-)
+   - [x64](https://github.com/winscripter/Machine.NET?tab=readme-ov-file#x64-1)
+4. [Usage](https://github.com/winscripter/Machine.NET?tab=readme-ov-file#usage)
+5. [Building](https://github.com/winscripter/Machine.NET?tab=readme-ov-file#building)
+6. [Packages](https://github.com/winscripter/Machine.NET?tab=readme-ov-file#packages)
+7. [License](https://github.com/winscripter/Machine.NET?tab=readme-ov-file#license)
+
 <img align="right" width="160" height="160" src="Images/Icon/MachineDotNetImage.Black.png">
 
 This is an experimental project to make running unmanaged code in managed environments possible. This project is still
