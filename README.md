@@ -98,6 +98,79 @@ foreach (var instr in instrs)
     runtime.Run(in instr);
 }
 ```
+
+The `.Run` method can be slightly limiting in case you want to support jump and branch instructions. In that case, it's possible to load direct bytecode
+into RAM and load it from there:
+```cs
+var cpu = new CpuRuntime(ioPortCount: 8);
+ulong x = 0uL;
+cpu.IOPorts[1] = new InputOutputPort(
+    read: () =>
+    {
+        return 1234uL;
+    },
+    write: (value) =>
+    {
+        x = value;
+    });
+byte[] code = CodeGen.MakeBranchTestCode_1();
+
+cpu.LoadProgram(code, 0uL);
+cpu.ProcessorRegisters.Cs = 0;
+cpu.ProcessorRegisters.Rip = 0;
+cpu.Use8086Compatibility();
+cpu.SetRsp(0x400uL);
+
+try
+{
+    cpu.RunUntilNotBusy(35);
+}
+catch (ArithmeticException)
+{
+    throw new InvalidOperationException(cpu.LastOrExecutingInstruction.Code.ToString());
+}
+
+Assert.Equal(42uL, x);
+
+static class CodeGen
+{
+    public static byte[] MakeBranchTestCode_1()
+    {
+        var assembler = new Assembler(64);
+        Label lblA = assembler.CreateLabel("A");
+        Label lblC = assembler.CreateLabel("C");
+        Label lblB = assembler.CreateLabel("B");
+
+        assembler.Label(ref lblA);
+        assembler.mov(ax, 42);
+        assembler.@out(1, ax);
+        assembler.call(lblB);
+
+        assembler.Label(ref lblC);
+        assembler.mov(ax, bx);
+        assembler.@out(1, ax);
+        assembler.hlt();
+
+        assembler.Label(ref lblB);
+        assembler.mov(bx, ax);
+        assembler.call(lblC);
+
+        return Assemble(assembler);
+    }
+
+    private static byte[] Assemble(Assembler assembler)
+    {
+        using var memoryStream = new MemoryStream();
+        assembler.Assemble(new StreamCodeWriter(memoryStream), 0uL);
+        return memoryStream.ToArray();
+    }
+}
+```
+Indeed, x is 42. The .RunUntilNotBusy method begins running instructions from memory at CS:RIP or
+just RIP by default. It has two overloads: one that takes int and one that doesn't. The one that does
+represents the maximum amount of instructions it should run, which is safer to use if you're worrying in the
+case of infinite loop. The one that doesn't take any parameters will keep running until the HLT instruction.
+
 You can also access the `.ProcessorRegisters` property of the `CpuRuntime` class to inspect CPU registers and flags and even modify them at any time.
 To see the result, we'll view the `rax` register:
 ```csharp
