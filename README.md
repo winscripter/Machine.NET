@@ -30,6 +30,8 @@ you can still suggest new features if you'd like.
 While this project is primarily focused on allowing unmanaged code to run in managed platforms, there's no reason
 not to use it to create a virtual machine or emulator.
 
+Please support the project by placing a star on this repository.
+
 # Supported features
 ### X64
 - 729 instructions are supported, as of December 20, 2024.
