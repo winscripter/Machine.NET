@@ -12,8 +12,16 @@ public partial class CpuRuntime
                 {
                     if (this.ProcessorRegisters.Cx == 0)
                     {
-                        byte displacement = (byte)instruction.GetImmediate(0);
-                        this.ProcessorRegisters.Ip += displacement;
+                        sbyte displacement = (sbyte)instruction.GetImmediate(0);
+                        if (displacement < 0)
+                        {
+                            this.ProcessorRegisters.Ip -= (ushort)Math.Abs(displacement);
+                        }
+                        else
+                        {
+                            this.ProcessorRegisters.Ip += (ushort)displacement;
+                        }
+                        break;
                     }
                     break;
                 }
@@ -22,8 +30,16 @@ public partial class CpuRuntime
                 {
                     if (this.ProcessorRegisters.Cx == 0)
                     {
-                        byte displacement = (byte)instruction.GetImmediate(0);
-                        this.ProcessorRegisters.Eip += displacement;
+                        sbyte displacement = (sbyte)instruction.GetImmediate(0);
+                        if (displacement < 0)
+                        {
+                            this.ProcessorRegisters.Eip -= (uint)Math.Abs(displacement);
+                        }
+                        else
+                        {
+                            this.ProcessorRegisters.Eip += (uint)displacement;
+                        }
+                        break;
                     }
                     break;
                 }

@@ -10,60 +10,108 @@ public partial class CpuRuntime
         {
             case Code.Jb_rel16:
                 {
-                    ushort displacement = (ushort)instruction.GetImmediate(0);
                     if (this.ProcessorRegisters.RFlagsCF == true)
                     {
-                        this.ProcessorRegisters.Ip += displacement;
+                        short displacement = (short)instruction.NearBranch16;
+                        if (displacement < 0)
+                        {
+                            this.ProcessorRegisters.Ip -= (ushort)Math.Abs(displacement);
+                        }
+                        else
+                        {
+                            this.ProcessorRegisters.Ip += (ushort)displacement;
+                        }
+                        break;
                     }
                     break;
                 }
 
             case Code.Jb_rel32_32:
                 {
-                    uint displacement = (uint)instruction.GetImmediate(0);
                     if (this.ProcessorRegisters.RFlagsCF == true)
                     {
-                        this.ProcessorRegisters.Eip += displacement;
+                        int displacement = (int)instruction.NearBranch32;
+                        if (displacement < 0)
+                        {
+                            this.ProcessorRegisters.Eip -= (uint)Math.Abs(displacement);
+                        }
+                        else
+                        {
+                            this.ProcessorRegisters.Eip += (uint)displacement;
+                        }
+                        break;
                     }
                     break;
                 }
 
             case Code.Jb_rel32_64:
                 {
-                    uint displacement = (uint)instruction.GetImmediate(0);
                     if (this.ProcessorRegisters.RFlagsCF == true)
                     {
-                        this.ProcessorRegisters.Rip += displacement;
+                        long displacement = (long)instruction.NearBranch64;
+                        if (displacement < 0L)
+                        {
+                            this.ProcessorRegisters.Rip -= (ulong)Math.Abs(displacement);
+                        }
+                        else
+                        {
+                            this.ProcessorRegisters.Rip += (ulong)displacement;
+                        }
+                        break;
                     }
                     break;
                 }
 
             case Code.Jb_rel8_16:
                 {
-                    byte displacement = (byte)instruction.GetImmediate(0);
                     if (this.ProcessorRegisters.RFlagsCF == true)
                     {
-                        this.ProcessorRegisters.Ip += (ushort)displacement;
+                        sbyte displacement = (sbyte)instruction.GetImmediate(0);
+                        if (displacement < 0)
+                        {
+                            this.ProcessorRegisters.Ip -= (ushort)Math.Abs(displacement);
+                        }
+                        else
+                        {
+                            this.ProcessorRegisters.Ip += (ushort)displacement;
+                        }
+                        break;
                     }
                     break;
                 }
 
             case Code.Jb_rel8_32:
                 {
-                    byte displacement = (byte)instruction.GetImmediate(0);
                     if (this.ProcessorRegisters.RFlagsCF == true)
                     {
-                        this.ProcessorRegisters.Eip += (uint)displacement;
+                        sbyte displacement = (sbyte)instruction.GetImmediate(0);
+                        if (displacement < 0)
+                        {
+                            this.ProcessorRegisters.Eip -= (uint)Math.Abs(displacement);
+                        }
+                        else
+                        {
+                            this.ProcessorRegisters.Eip += (uint)displacement;
+                        }
+                        break;
                     }
                     break;
                 }
 
             case Code.Jb_rel8_64:
                 {
-                    byte displacement = (byte)instruction.GetImmediate(0);
                     if (this.ProcessorRegisters.RFlagsCF == true)
                     {
-                        this.ProcessorRegisters.Rip += (ulong)displacement;
+                        sbyte displacement = (sbyte)instruction.GetImmediate(0);
+                        if (displacement < 0)
+                        {
+                            this.ProcessorRegisters.Rip -= (ulong)Math.Abs(displacement);
+                        }
+                        else
+                        {
+                            this.ProcessorRegisters.Rip += (ulong)displacement;
+                        }
+                        break;
                     }
                     break;
                 }
