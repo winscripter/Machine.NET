@@ -20,10 +20,7 @@
 
   <ItemGroup>
     <PackageReference Include="Iced" Version="1.21.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Machine.X64.Component.Registers\Machine.X64.Component.Registers.csproj" />
+    <PackageReference Include="Machine.X64.Component.Registers" Version="1.0.1" />
   </ItemGroup>
 
   <ItemGroup>
