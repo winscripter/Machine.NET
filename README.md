@@ -240,7 +240,7 @@ If you prefer with .NET CLI:
     
 1. Clone this repository. You can do this via git or by downloading the ZIP file via GitHub (in the root of the repo, click Code -&gt; Download ZIP).
 2. Open a terminal in the cloned repository.
-3. Type `dotnet build`. Or type `dotnet build -c Release` to build in release mode (e.g. if you want to use Machine.NET in real world apps).
+3. Type `dotnet build`. Or type `dotnet build -c Release` to build in release mode (e.g. if you want to use Machine.NET in real world apps with optimization enabled).
 
 # Packages
 | Library name | NuGet URL | Source code on this repo |
