@@ -775,6 +775,107 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
     }
 
     /// <summary>
+    /// Runs instruction in memory.
+    /// </summary>
+    /// <param name="physicalAddress">Address.</param>
+    public void RunInMemory(ulong physicalAddress)
+    {
+        // WARNING: This is definitely not efficient and I'm looking for a better solution.
+        // https://github.com/icedland/iced/discussions/649
+
+        using var ms = new MemoryStream();
+        for (ulong i = 0; i < 15; i++) // Just to be safe
+        {
+            ms.WriteByte(this.Memory[physicalAddress + i]);
+        }
+        ms.Position = 0;
+        var decoder = Decoder.Create(64, new StreamCodeReader(ms));
+        decoder.IP = 0;
+        decoder.Decode(out Instruction instruction);
+        
+        if (decoder.LastError == DecoderError.InvalidInstruction)
+        {
+            throw new InvalidOperationException($"An invalid instruction has been detected. CS: {this.ProcessorRegisters.Cs} RIP: {this.ProcessorRegisters.Rip}");
+        }
+        Run(in instruction);
+
+        if (instruction.FlowControl == FlowControl.Next)
+            this.ProcessorRegisters.Rip += (ulong)instruction.Length;
+    }
+
+    public void Run(int numberOfTimes)
+    {
+        for (int i = 0; i < numberOfTimes; i++)
+        {
+            RunInMemory((ulong)(this.ProcessorRegisters.Cs << 4) + this.ProcessorRegisters.Rip);
+        }
+    }
+
+    public void RunUntilTrue(Func<bool> until)
+    {
+        while (!until())
+        {
+            RunInMemory((ulong)(this.ProcessorRegisters.Cs << 4) + this.ProcessorRegisters.Rip);
+        }
+    }
+
+    public void RunUntilNotBusy()
+    {
+        if (Busy)
+        {
+            return;
+        }
+        Busy = true;
+
+        while (Busy)
+        {
+            RunInMemory((ulong)(this.ProcessorRegisters.Cs << 4) + this.ProcessorRegisters.Rip);
+        }
+    }
+
+    public ulong VirtualAddress
+    {
+        get
+        {
+            if (this.ProcessorRegisters.RFlagsVM)
+                return (ulong)(this.ProcessorRegisters.Cs << 4) + this.ProcessorRegisters.Rip;
+            return this.ProcessorRegisters.Rip;
+        }
+    }
+
+    public bool RunUntilNotBusy(int maxLimit)
+    {
+        if (Busy)
+        {
+            return false;
+        }
+        Busy = true;
+
+        int count = 0;
+        while (Busy)
+        {
+            if (count > maxLimit)
+            {
+                Busy = false;
+                return false;
+            }
+            RunInMemory((ulong)(this.ProcessorRegisters.Cs << 4) + this.ProcessorRegisters.Rip);
+            count++;
+        }
+        return true;
+    }
+
+    public void LoadProgram(byte[] program, ulong at)
+    {
+        for (int i = 0; i < program.Length; i++)
+        {
+            this.Memory[at + (ulong)i] = program[i];
+        }
+    }
+
+    public void SetRsp(ulong rsp) => this.ProcessorRegisters.Rsp = rsp;
+
+    /// <summary>
     /// Tells Machine.NET to use 8086 compatibility mode.
     /// </summary>
     public void Use8086Compatibility() => Use8086Compatibility(true);

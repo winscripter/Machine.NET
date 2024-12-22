@@ -8,6 +8,11 @@ public partial class CpuRuntime
     {
         switch (instruction.Mnemonic)
         {
+            case Mnemonic.INVALID:
+                {
+                    throw new InvalidOperationException("Undefined opcode");
+                }
+
             case Mnemonic.Aaa: aaa(in instruction); break;
             case Mnemonic.Aad: aad(in instruction); break;
             case Mnemonic.Aam: aam(in instruction); break;

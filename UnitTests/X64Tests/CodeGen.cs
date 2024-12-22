@@ -15,6 +15,37 @@ internal static class CodeGen
         return Decompile(assembler);
     }
 
+    public static byte[] MakeBranchTestCode_1()
+    {
+        var assembler = new Assembler(64);
+        Label lblA = assembler.CreateLabel("A");
+        Label lblC = assembler.CreateLabel("C");
+        Label lblB = assembler.CreateLabel("B");
+
+        assembler.Label(ref lblA);
+        assembler.mov(ax, 42);
+        assembler.@out(1, ax);
+        assembler.call(lblB);
+
+        assembler.Label(ref lblC);
+        assembler.mov(ax, bx);
+        assembler.@out(1, ax);
+        assembler.hlt();
+
+        assembler.Label(ref lblB);
+        assembler.mov(bx, ax);
+        assembler.call(lblC);
+
+        return Assemble(assembler);
+    }
+
+    private static byte[] Assemble(Assembler assembler)
+    {
+        using var memoryStream = new MemoryStream();
+        assembler.Assemble(new StreamCodeWriter(memoryStream), 0uL);
+        return memoryStream.ToArray();
+    }
+
     private static List<Instruction> Decompile(Assembler assembler)
     {
         var stream = new MemoryStream();

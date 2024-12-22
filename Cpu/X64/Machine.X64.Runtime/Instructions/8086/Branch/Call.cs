@@ -43,25 +43,32 @@ public partial class CpuRuntime
 
             case Code.Call_rel16:
                 {
-                    ushort displacement = (ushort)instruction.GetImmediate(0);
+                    ushort displacement = instruction.IsCallFar ? instruction.FarBranch16 : instruction.NearBranch16;
                     StackPush(this.ProcessorRegisters.Ip);
-                    this.ProcessorRegisters.Ip += displacement;
+                    this.ProcessorRegisters.Ip = displacement;
                     break;
                 }
 
             case Code.Call_rel32_32:
                 {
-                    uint displacement = (uint)instruction.GetImmediate(0);
+                    uint displacement = instruction.IsCallFar ? instruction.FarBranch32 : instruction.NearBranch32;
                     StackPush(this.ProcessorRegisters.Eip);
-                    this.ProcessorRegisters.Eip += displacement;
+                    this.ProcessorRegisters.Eip = displacement;
                     break;
                 }
 
             case Code.Call_rel32_64:
                 {
-                    uint displacement = (uint)instruction.GetImmediate(0);
+                    long displacement = (long)instruction.NearBranch64;
                     StackPush(this.ProcessorRegisters.Rip);
-                    this.ProcessorRegisters.Rip += displacement;
+                    if (displacement < 0L)
+                    {
+                        this.ProcessorRegisters.Rip -= (ulong)Math.Abs(displacement);
+                    }
+                    else
+                    {
+                        this.ProcessorRegisters.Rip += (ulong)displacement;
+                    }
                     break;
                 }
 
