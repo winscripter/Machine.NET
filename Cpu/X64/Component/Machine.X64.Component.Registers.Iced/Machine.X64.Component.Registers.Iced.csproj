@@ -8,7 +8,7 @@
     <Company>winscripter</Company>
     <AssemblyVersion>1.0.1.0</AssemblyVersion>
     <Copyright>Copyright (c) winscripter, 2023-2024</Copyright>
-    <Title>Microsoft.X64.Component.Registers.Iced</Title>
+    <Title>Machine.X64.Component.Registers.Iced</Title>
     <Description>Extension to Machine.X64.Component.Register that evaluates registers based on the Iced.Intel.Register enum</Description>
     <PackageProjectUrl>https://github.com/winscripter/Machine.NET</PackageProjectUrl>
     <PackageIcon>MachineDotNetImage.Black.png</PackageIcon>
@@ -17,7 +17,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <RepositoryUrl>https://github.com/winscripter/Machine.NET</RepositoryUrl>
-    <PackageReleaseNotes>Documentation changes</PackageReleaseNotes>
+    <PackageReleaseNotes>Documentation changes, and fixed a very bad typo in the package title</PackageReleaseNotes>
     <Version>1.0.1</Version>
   </PropertyGroup>
 
