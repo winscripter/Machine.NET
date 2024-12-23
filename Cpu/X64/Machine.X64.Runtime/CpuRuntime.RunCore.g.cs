@@ -741,6 +741,10 @@ public partial class CpuRuntime
             case Mnemonic.Xlatb: xlatb(in instruction); break;
             case Mnemonic.Xor: xor(in instruction); break;
             case Mnemonic.Xorps: xorps(in instruction); break;
+
+            default:
+                ReportInvalidCodeUnderMnemonic(instruction.Code, instruction.Mnemonic);
+                break;
         }
     }
 }

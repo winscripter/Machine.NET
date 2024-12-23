@@ -13,15 +13,7 @@ Table of contents:
 
 <img align="right" width="160" height="160" src="Images/Icon/MachineDotNetImage.Black.png">
 
-This is an experimental project to make running unmanaged code in managed environments possible. This project is still
-in its early stages, so there may be more bugs than unfinished features. If you find any bugs, please report them in the
-issues page.
-
-The problem is that in some environments, such as Blazor WebAssembly, it's impossible to run a program that was compiled against
-x86, x64, or ARM, and is not open source, preventing us from compiling the program to WebAssembly. Blazor WebAssembly runs on the client,
-which introduces limitations related to process and thread management. Machine.NET is the solution against this problem - it emulates
-the PC hardware, allowing such programs to run on every environment you can think of. At the end of the day, refer Machine.NET
-as a virtual machine/PC emulator - it really is.
+Use Machine.NET if you'd like to create a platform-independent virtual machine with just C#.
 
 Right now, only X64 is supported, as well as the Intel 8253, 8259 chipset and HPET. Currently I'm focusing on solving
 existing problems with the X64 emulator rather than adding more possibilities. New features will be added once the X64 emulator begins to show success, **however**,
