@@ -19,9 +19,6 @@ Right now, only X64 is supported, as well as the Intel 8253, 8259 chipset and HP
 existing problems with the X64 emulator rather than adding more possibilities. New features will be added once the X64 emulator begins to show success, **however**,
 you can still suggest new features if you'd like.
 
-While this project is primarily focused on allowing unmanaged code to run in managed platforms, there's no reason
-not to use it to create a virtual machine or emulator.
-
 Please support the project by placing a star on this repository.
 
 # Supported features
