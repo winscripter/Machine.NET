@@ -1,5 +1,5 @@
 ﻿# Machine.X64.Components.Registers
-This simulates CPU registers and flags in pure managed C#. This project is used by Machine.NET (see https://github.com/winscripter/Machine.NET), an effort to make running unmanaged programs (and operating systems) possible in managed-only environments like Blazor WebAssembly.
+This simulates CPU registers and flags in pure managed C#.
 
 This package features two types, all under the namespace Machine.X64.Component:
 

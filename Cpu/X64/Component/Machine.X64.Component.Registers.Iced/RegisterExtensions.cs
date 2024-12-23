@@ -8,14 +8,14 @@ namespace Machine.X64.Component;
 public static partial class RegisterExtensions
 {
     /// <summary>
-    /// Writes to a 16-bit general-purpose or segment register.
+    /// Writes to a 16-bit general-purpose register.
     /// </summary>
     /// <param name="registers">All registers.</param>
     /// <param name="register">Register to write to (assuming that it's 16-bit).</param>
     /// <param name="value">The value that will be set.</param>
     /// <remarks>
     /// If <paramref name="register"/> contains a register which does not match any
-    /// 16-bit general-purpose or segment register, nothing will happen.
+    /// 16-bit general-purpose register, nothing will happen.
     /// </remarks>
     public static void WriteToRegister16(this ProcessorRegisters registers, Register register, ushort value)
     {
@@ -37,14 +37,14 @@ public static partial class RegisterExtensions
     }
 
     /// <summary>
-    /// Writes to a 32-bit general-purpose or segment register.
+    /// Writes to a 32-bit general-purpose register.
     /// </summary>
     /// <param name="registers">All registers.</param>
     /// <param name="register">Register to write to (assuming that it's 32-bit).</param>
     /// <param name="value">The value that will be set.</param>
     /// <remarks>
     /// If <paramref name="register"/> contains a register which does not match any
-    /// 32-bit general-purpose or segment register, nothing will happen.
+    /// 32-bit general-purpose register, nothing will happen.
     /// </remarks>
     public static void WriteToRegister32(this ProcessorRegisters registers, Register register, uint value)
     {
@@ -89,14 +89,14 @@ public static partial class RegisterExtensions
     }
 
     /// <summary>
-    /// Writes to an 8-bit general-purpose or segment register.
+    /// Writes to an 8-bit general-purpose register.
     /// </summary>
     /// <param name="registers">All registers.</param>
     /// <param name="register">Register to write to (assuming that it's 8-bit).</param>
     /// <param name="value">The value that will be set.</param>
     /// <remarks>
     /// If <paramref name="register"/> contains a register which does not match any
-    /// 8-bit general-purpose or segment register, nothing will happen.
+    /// 8-bit general-purpose register, nothing will happen.
     /// </remarks>
     public static void WriteToRegister8(this ProcessorRegisters registers, Register register, byte value)
     {
@@ -114,15 +114,15 @@ public static partial class RegisterExtensions
     }
 
     /// <summary>
-    /// Evaluates &amp; returns the value of an 8-bit general purpose or segment register.
+    /// Evaluates &amp; returns the value of an 8-bit general purpose register.
     /// </summary>
     /// <param name="registers">All registers.</param>
     /// <param name="register">Register to alter (assuming that it's 8-bit).</param>
     /// <remarks>
     /// This returns 0 if <paramref name="register"/> does not match any 8-bit general purpose
-    /// or segment register.
+    /// register.
     /// </remarks>
-    /// <returns>Value of an 8-bit general-purpose or segment register specified by the <paramref name="register"/> parameter.</returns>
+    /// <returns>Value of an 8-bit general-purpose register specified by the <paramref name="register"/> parameter.</returns>
     public static byte EvaluateRegisterValue8(this ProcessorRegisters registers, Register register)
     {
         return register switch
@@ -203,13 +203,13 @@ public static partial class RegisterExtensions
     }
 
     /// <summary>
-    /// Evaluates &amp; returns the value of an 32-bit general purpose or segment register.
+    /// Evaluates &amp; returns the value of an 32-bit general purpose register.
     /// </summary>
     /// <param name="registers">All registers.</param>
     /// <param name="register">Register to alter (assuming that it's 32-bit).</param>
     /// <remarks>
     /// This returns 0 if <paramref name="register"/> does not match any 32-bit general purpose
-    /// or segment register.
+    /// register.
     /// </remarks>
     /// <returns>Value of an 32-bit general-purpose or segment register specified by the <paramref name="register"/> parameter.</returns>
     public static uint EvaluateRegisterValue32(this ProcessorRegisters registers, Register register)

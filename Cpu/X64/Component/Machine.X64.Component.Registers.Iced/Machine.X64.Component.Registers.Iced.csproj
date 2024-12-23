@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <AssemblyTitle>Machine.X64.Component.Iced.dll</AssemblyTitle>
     <Company>winscripter</Company>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
     <Copyright>Copyright (c) winscripter, 2023-2024</Copyright>
     <Title>Microsoft.X64.Component.Registers.Iced</Title>
     <Description>Extension to Machine.X64.Component.Register that evaluates registers based on the Iced.Intel.Register enum</Description>
@@ -17,6 +17,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <RepositoryUrl>https://github.com/winscripter/Machine.NET</RepositoryUrl>
+    <PackageReleaseNotes>Documentation changes</PackageReleaseNotes>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
