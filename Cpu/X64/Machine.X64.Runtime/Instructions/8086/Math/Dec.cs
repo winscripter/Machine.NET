@@ -15,7 +15,7 @@ public partial class CpuRuntime
                         instruction.GetOpRegister(0),
                         (ushort)(this.ProcessorRegisters.EvaluateRegisterValue16(
                             instruction.GetOpRegister(0)
-                        ) - 1)
+                        ) - (ushort)1)
                     );
                     break;
                 }
@@ -33,25 +33,25 @@ public partial class CpuRuntime
 
             case Code.Dec_rm8:
                 {
-                    RMSet8(in instruction, (byte)(RMEvaluate8(in instruction, 0) - 1), 0);
+                    RMSet8(in instruction, (byte)(RMEvaluate8(in instruction, 0) - (byte)1), 0);
                     break;
                 }
 
             case Code.Dec_rm16:
                 {
-                    RMSet16(in instruction, (ushort)(RMEvaluate16(in instruction, 0) - 1), 0);
+                    RMSet16(in instruction, (ushort)(RMEvaluate16(in instruction, 0) - (ushort)1), 0);
                     break;
                 }
 
             case Code.Dec_rm32:
                 {
-                    RMSet32(in instruction, (uint)(RMEvaluate32(in instruction, 0) - 1), 0);
+                    RMSet32(in instruction, (uint)(RMEvaluate32(in instruction, 0) - (uint)1), 0);
                     break;
                 }
 
             case Code.Dec_rm64:
                 {
-                    RMSet64(in instruction, (ulong)(RMEvaluate64(in instruction, 0) - 1), 0);
+                    RMSet64(in instruction, (ulong)(RMEvaluate64(in instruction, 0) - (ulong)1), 0);
                     break;
                 }
 
