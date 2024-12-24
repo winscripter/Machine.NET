@@ -6,4 +6,7 @@ string? bytecodeFilePath = Console.ReadLine();
 Console.WriteLine("Bitness (64/32/16): ");
 string? bitness = Console.ReadLine();
 
-Debugger.Run(bytecodeFilePath, bitness);
+Console.WriteLine("Value of RSP (invalid value autodefaults to 0x100): ");
+ulong rsp = ulong.TryParse(Console.ReadLine(), out ulong result) ? result : 0x100uL;
+
+Debugger.Run(bytecodeFilePath, bitness, rsp);

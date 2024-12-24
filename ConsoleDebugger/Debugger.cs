@@ -17,7 +17,7 @@ public static class Debugger
     private static readonly MasmFormatter _masmFormatter = new();
     private static readonly FormatterOutputImpl _formatterOutputImpl = new();
 
-    public static void Run(string? bytecodeFilePath, string? bitness)
+    public static void Run(string? bytecodeFilePath, string? bitness, ulong rsp)
     {
         if (!File.Exists(bytecodeFilePath))
         {
@@ -31,10 +31,10 @@ public static class Debugger
             return;
         }
 
-        RunCore(bytecodeFilePath!, bitValue);
+        RunCore(bytecodeFilePath!, bitValue, rsp);
     }
 
-    private static void RunCore(string bytecodeFilePath, int bitness)
+    private static void RunCore(string bytecodeFilePath, int bitness, ulong rsp)
     {
         Console.Clear();
 
