@@ -46,8 +46,12 @@ public sealed class Pic8259
     /// <summary>
     /// Checks whether the specified port is a PIC port.
     /// </summary>
-    /// <param name="port"></param>
-    /// <returns></returns>
+    /// <param name="port">The port number</param>
+    /// <returns>
+    /// A boolean that indicates whether or not <paramref name="port"/> is equal to one of the preceding values:
+    /// <br/>
+    /// <code>0x20 0x21 0xA0 0xA1</code>
+    /// </returns>
     public static bool Listening(ushort port) => port is 0x20 or 0x21 or 0xA0 or 0xA1;
 
     /// <summary>
