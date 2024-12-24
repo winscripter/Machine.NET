@@ -237,6 +237,7 @@ If you prefer with .NET CLI:
 | Library name | NuGet URL | Source code on this repo |
 | ------------ | --------- | ------------------------ |
 | Machine.X64.Component.Registers | [![version](https://img.shields.io/badge/Package-1.0.1-blue)](https://nuget.org/packages/Machine.X64.Component.Registers) | [Click to redirect to source](https://github.com/winscripter/Machine.NET/tree/master/Cpu/X64/Component/Machine.X64.Component.Registers)
+| Machine.X64.Component.Registers.Iced | [![version](https://img.shields.io/badge/Package-1.0.1-blue)](https://nuget.org/packages/Machine.X64.Component.Registers.Iced) | [Click to redirect to source](https://github.com/winscripter/Machine.NET/tree/master/Cpu/X64/Component/Machine.X64.Component.Registers.Iced)
 
 # License
 MIT License. Copyright (c) winscripter, 2023-2024.
