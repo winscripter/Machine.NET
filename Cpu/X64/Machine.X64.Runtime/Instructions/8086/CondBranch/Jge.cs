@@ -78,7 +78,7 @@ public partial class CpuRuntime
                 {
                     if (this.ProcessorRegisters.RFlagsSF == this.ProcessorRegisters.RFlagsOF)
                     {
-                        sbyte displacement = (sbyte)instruction.GetImmediate(0);
+                        sbyte displacement = (sbyte)instruction.NearBranch16;
                         if (displacement < 0)
                         {
                             this.ProcessorRegisters.Ip -= (ushort)Math.Abs(displacement);
@@ -100,7 +100,7 @@ public partial class CpuRuntime
                 {
                     if (this.ProcessorRegisters.RFlagsSF == this.ProcessorRegisters.RFlagsOF)
                     {
-                        sbyte displacement = (sbyte)instruction.GetImmediate(0);
+                        sbyte displacement = (sbyte)instruction.NearBranch16;
                         if (displacement < 0)
                         {
                             this.ProcessorRegisters.Eip -= (uint)Math.Abs(displacement);
@@ -122,7 +122,7 @@ public partial class CpuRuntime
                 {
                     if (this.ProcessorRegisters.RFlagsSF == this.ProcessorRegisters.RFlagsOF)
                     {
-                        sbyte displacement = (sbyte)instruction.GetImmediate(0);
+                        sbyte displacement = (sbyte)instruction.NearBranch16;
                         if (displacement < 0)
                         {
                             this.ProcessorRegisters.Rip -= (ulong)Math.Abs(displacement);
