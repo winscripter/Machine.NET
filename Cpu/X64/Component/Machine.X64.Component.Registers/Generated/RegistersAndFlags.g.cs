@@ -2449,7 +2449,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsCF
     {
-        get => (byte)(RFlags & 0x1) == 0;
+        get => (byte)(RFlags & 0x1) != 0;
         set
         {
             if (value)
@@ -2467,7 +2467,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsPF
     {
-        get => (byte)(RFlags & 0x4) == 0;
+        get => (byte)(RFlags & 0x4) != 0;
         set
         {
             if (value)
@@ -2485,7 +2485,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsAF
     {
-        get => (byte)(RFlags & 0x10) == 0;
+        get => (byte)(RFlags & 0x10) != 0;
         set
         {
             if (value)
@@ -2503,7 +2503,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsZF
     {
-        get => (byte)(RFlags & 0x40) == 0;
+        get => (byte)(RFlags & 0x40) != 0;
         set
         {
             if (value)
@@ -2521,7 +2521,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsSF
     {
-        get => (byte)(RFlags & 0x80) == 0;
+        get => (byte)(RFlags & 0x80) != 0;
         set
         {
             if (value)
@@ -2539,7 +2539,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsTF
     {
-        get => (byte)(RFlags & 0x100) == 0;
+        get => (byte)(RFlags & 0x100) != 0;
         set
         {
             if (value)
@@ -2557,7 +2557,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsIF
     {
-        get => (byte)(RFlags & 0x200) == 0;
+        get => (byte)(RFlags & 0x200) != 0;
         set
         {
             if (value)
@@ -2575,7 +2575,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsDF
     {
-        get => (byte)(RFlags & 0x400) == 0;
+        get => (byte)(RFlags & 0x400) != 0;
         set
         {
             if (value)
@@ -2593,7 +2593,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsOF
     {
-        get => (byte)(RFlags & 0x800) == 0;
+        get => (byte)(RFlags & 0x800) != 0;
         set
         {
             if (value)
@@ -2611,7 +2611,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsIOPL
     {
-        get => (byte)(RFlags & 0x1000) == 0;
+        get => (byte)(RFlags & 0x1000) != 0;
         set
         {
             if (value)
@@ -2629,7 +2629,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsIOPL2
     {
-        get => (byte)(RFlags & 0x2000) == 0;
+        get => (byte)(RFlags & 0x2000) != 0;
         set
         {
             if (value)
@@ -2647,7 +2647,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsNT
     {
-        get => (byte)(RFlags & 0x4000) == 0;
+        get => (byte)(RFlags & 0x4000) != 0;
         set
         {
             if (value)
@@ -2665,7 +2665,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsRF
     {
-        get => (byte)(RFlags & 0x10000) == 0;
+        get => (byte)(RFlags & 0x10000) != 0;
         set
         {
             if (value)
@@ -2683,7 +2683,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsVM
     {
-        get => (byte)(RFlags & 0x20000) == 0;
+        get => (byte)(RFlags & 0x20000) != 0;
         set
         {
             if (value)
@@ -2701,7 +2701,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsAC
     {
-        get => (byte)(RFlags & 0x40000) == 0;
+        get => (byte)(RFlags & 0x40000) != 0;
         set
         {
             if (value)
@@ -2719,7 +2719,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsVIF
     {
-        get => (byte)(RFlags & 0x80000) == 0;
+        get => (byte)(RFlags & 0x80000) != 0;
         set
         {
             if (value)
@@ -2737,7 +2737,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsVIP
     {
-        get => (byte)(RFlags & 0x100000) == 0;
+        get => (byte)(RFlags & 0x100000) != 0;
         set
         {
             if (value)
@@ -2755,7 +2755,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool RFlagsID
     {
-        get => (byte)(RFlags & 0x200000) == 0;
+        get => (byte)(RFlags & 0x200000) != 0;
         set
         {
             if (value)
@@ -2773,7 +2773,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR0PE
     {
-        get => (byte)(CR0 & 0x1) == 0;
+        get => (byte)(CR0 & 0x1) != 0;
         set
         {
             if (value)
@@ -2791,7 +2791,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR0MP
     {
-        get => (byte)(CR0 & 0x2) == 0;
+        get => (byte)(CR0 & 0x2) != 0;
         set
         {
             if (value)
@@ -2809,7 +2809,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR0EM
     {
-        get => (byte)(CR0 & 0x4) == 0;
+        get => (byte)(CR0 & 0x4) != 0;
         set
         {
             if (value)
@@ -2827,7 +2827,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR0TS
     {
-        get => (byte)(CR0 & 0x8) == 0;
+        get => (byte)(CR0 & 0x8) != 0;
         set
         {
             if (value)
@@ -2845,7 +2845,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR0ET
     {
-        get => (byte)(CR0 & 0x10) == 0;
+        get => (byte)(CR0 & 0x10) != 0;
         set
         {
             if (value)
@@ -2863,7 +2863,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR0NE
     {
-        get => (byte)(CR0 & 0x20) == 0;
+        get => (byte)(CR0 & 0x20) != 0;
         set
         {
             if (value)
@@ -2881,7 +2881,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR0WP
     {
-        get => (byte)(CR0 & 0x10000) == 0;
+        get => (byte)(CR0 & 0x10000) != 0;
         set
         {
             if (value)
@@ -2899,7 +2899,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR0AM
     {
-        get => (byte)(CR0 & 0x40000) == 0;
+        get => (byte)(CR0 & 0x40000) != 0;
         set
         {
             if (value)
@@ -2917,7 +2917,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR0NW
     {
-        get => (byte)(CR0 & 0x20000000) == 0;
+        get => (byte)(CR0 & 0x20000000) != 0;
         set
         {
             if (value)
@@ -2935,7 +2935,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR0CD
     {
-        get => (byte)(CR0 & 0x40000000) == 0;
+        get => (byte)(CR0 & 0x40000000) != 0;
         set
         {
             if (value)
@@ -2953,7 +2953,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR0PG
     {
-        get => (byte)(CR0 & 0x80000000) == 0;
+        get => (byte)(CR0 & 0x80000000) != 0;
         set
         {
             if (value)
@@ -2971,7 +2971,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4VME
     {
-        get => (byte)(CR4 & 0x1) == 0;
+        get => (byte)(CR4 & 0x1) != 0;
         set
         {
             if (value)
@@ -2989,7 +2989,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4PVI
     {
-        get => (byte)(CR4 & 0x2) == 0;
+        get => (byte)(CR4 & 0x2) != 0;
         set
         {
             if (value)
@@ -3007,7 +3007,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4TSD
     {
-        get => (byte)(CR4 & 0x4) == 0;
+        get => (byte)(CR4 & 0x4) != 0;
         set
         {
             if (value)
@@ -3025,7 +3025,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4DE
     {
-        get => (byte)(CR4 & 0x8) == 0;
+        get => (byte)(CR4 & 0x8) != 0;
         set
         {
             if (value)
@@ -3043,7 +3043,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4PSE
     {
-        get => (byte)(CR4 & 0x10) == 0;
+        get => (byte)(CR4 & 0x10) != 0;
         set
         {
             if (value)
@@ -3061,7 +3061,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4PAE
     {
-        get => (byte)(CR4 & 0x20) == 0;
+        get => (byte)(CR4 & 0x20) != 0;
         set
         {
             if (value)
@@ -3079,7 +3079,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4MCE
     {
-        get => (byte)(CR4 & 0x40) == 0;
+        get => (byte)(CR4 & 0x40) != 0;
         set
         {
             if (value)
@@ -3097,7 +3097,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4PGE
     {
-        get => (byte)(CR4 & 0x80) == 0;
+        get => (byte)(CR4 & 0x80) != 0;
         set
         {
             if (value)
@@ -3115,7 +3115,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4PCE
     {
-        get => (byte)(CR4 & 0x100) == 0;
+        get => (byte)(CR4 & 0x100) != 0;
         set
         {
             if (value)
@@ -3133,7 +3133,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4OSFXSR
     {
-        get => (byte)(CR4 & 0x200) == 0;
+        get => (byte)(CR4 & 0x200) != 0;
         set
         {
             if (value)
@@ -3151,7 +3151,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4OSXMMEXCPT
     {
-        get => (byte)(CR4 & 0x400) == 0;
+        get => (byte)(CR4 & 0x400) != 0;
         set
         {
             if (value)
@@ -3169,7 +3169,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4UMIP
     {
-        get => (byte)(CR4 & 0x800) == 0;
+        get => (byte)(CR4 & 0x800) != 0;
         set
         {
             if (value)
@@ -3187,7 +3187,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4LA57
     {
-        get => (byte)(CR4 & 0x1000) == 0;
+        get => (byte)(CR4 & 0x1000) != 0;
         set
         {
             if (value)
@@ -3205,7 +3205,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4VMXE
     {
-        get => (byte)(CR4 & 0x2000) == 0;
+        get => (byte)(CR4 & 0x2000) != 0;
         set
         {
             if (value)
@@ -3223,7 +3223,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4SMXE
     {
-        get => (byte)(CR4 & 0x4000) == 0;
+        get => (byte)(CR4 & 0x4000) != 0;
         set
         {
             if (value)
@@ -3241,7 +3241,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4FSGSBASE
     {
-        get => (byte)(CR4 & 0x10000) == 0;
+        get => (byte)(CR4 & 0x10000) != 0;
         set
         {
             if (value)
@@ -3259,7 +3259,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4PCIDE
     {
-        get => (byte)(CR4 & 0x20000) == 0;
+        get => (byte)(CR4 & 0x20000) != 0;
         set
         {
             if (value)
@@ -3277,7 +3277,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4OSXSAVE
     {
-        get => (byte)(CR4 & 0x40000) == 0;
+        get => (byte)(CR4 & 0x40000) != 0;
         set
         {
             if (value)
@@ -3295,7 +3295,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4SMEP
     {
-        get => (byte)(CR4 & 0x100000) == 0;
+        get => (byte)(CR4 & 0x100000) != 0;
         set
         {
             if (value)
@@ -3313,7 +3313,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4SMAP
     {
-        get => (byte)(CR4 & 0x200000) == 0;
+        get => (byte)(CR4 & 0x200000) != 0;
         set
         {
             if (value)
@@ -3331,7 +3331,7 @@ public sealed class ProcessorRegisters  : IProcessorRegisters
     /// </summary>
     public bool CR4PKE
     {
-        get => (byte)(CR4 & 0x400000) == 0;
+        get => (byte)(CR4 & 0x400000) != 0;
         set
         {
             if (value)

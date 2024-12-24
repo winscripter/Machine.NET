@@ -56,6 +56,7 @@ public static class Debugger
             Console.WriteLine("\nHALTED: " + !runtime.Busy);
             Console.WriteLine("LAST LENGTH: " + lastOrExecutingInstruction.Length);
             Console.WriteLine("LAST RIP: " + runtime.CurrentRip);
+            DisplayFlags(runtime.ProcessorRegisters);
             Console.WriteLine();
             PrintRegisters(runtime.ProcessorRegisters, bitness);
             Console.WriteLine();
@@ -266,6 +267,24 @@ public static class Debugger
         Console.Write(' ');
 
         Console.WriteLine();
+    }
+
+    private static void DisplayFlags(ProcessorRegisters regs)
+    {
+        DisplayBooleanLike("C", regs.RFlagsCF);
+        DisplayBooleanLike("Z", regs.RFlagsZF);
+        DisplayBooleanLike("A", regs.RFlagsAF);
+        DisplayBooleanLike("P", regs.RFlagsPF);
+        DisplayBooleanLike("O", regs.RFlagsOF);
+        DisplayBooleanLike("S", regs.RFlagsSF);
+        DisplayBooleanLike("T", regs.RFlagsTF);
+        DisplayBooleanLike("I", regs.RFlagsIF);
+    }
+
+    private static void DisplayBooleanLike(string whatToDisplay, bool value)
+    {
+        ConsoleColor color = value ? ConsoleColor.Green : ConsoleColor.Red;
+        DisplayColored(whatToDisplay, color);
     }
 
     private static void DisplayNumber(byte value)

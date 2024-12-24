@@ -287,7 +287,7 @@ namespace {skeleton.Namespace}
                                 sb.AppendLine("    /// </summary>");
                                 sb.AppendLine($"    public bool {cr}{flag.Name}");
                                 sb.AppendLine("    {");
-                                sb.AppendLine($"        get => (byte)({cr} & 0x{1 << flag.Bit:X}) == 0;");
+                                sb.AppendLine($"        get => (byte)({cr} & 0x{1 << flag.Bit:X}) != 0;");
                                 sb.AppendLine($"        set");
                                 sb.AppendLine($"        {{");
                                 sb.AppendLine("            if (value)");
@@ -315,7 +315,7 @@ namespace {skeleton.Namespace}
                             sb.AppendLine("    /// </summary>");
                             sb.AppendLine($"    public bool RFlags{boundFlag.Name}");
                             sb.AppendLine("    {");
-                            sb.AppendLine($"        get => (byte)(RFlags & 0x{1 << boundFlag.Bit:X}) == 0;");
+                            sb.AppendLine($"        get => (byte)(RFlags & 0x{1 << boundFlag.Bit:X}) != 0;");
                             sb.AppendLine($"        set");
                             sb.AppendLine($"        {{");
                             sb.AppendLine("            if (value)");
