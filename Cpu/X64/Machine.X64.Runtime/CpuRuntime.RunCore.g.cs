@@ -13,6 +13,8 @@ public partial class CpuRuntime
                     throw new InvalidOperationException("Undefined opcode");
                 }
 
+            case Mnemonic.Ret: ret(in instruction); break;
+            case Mnemonic.Retf: retf(in instruction); break;
             case Mnemonic.Pop: pop(in instruction); break;
             case Mnemonic.Push: push(in instruction); break;
             case Mnemonic.Aaa: aaa(in instruction); break;

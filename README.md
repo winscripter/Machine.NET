@@ -23,7 +23,7 @@ Please support the project by placing a star on this repository.
 
 # Supported features
 ### X64
-- 731 instructions are supported, as of December 24, 2024.
+- 733 instructions are supported, as of December 24, 2024.
 - 64-bit mode
 - Many 8086, 80186, 80386 and 80486 instructions
 - Partially working protected mode
