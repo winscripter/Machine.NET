@@ -57,6 +57,9 @@ Please support the project by placing a star on this repository.
 When you use Machine.NET, the NuGet package called Iced is installed too.
 This is a popular package for decoding and encoding instructions, and it's used in Machine.NET to decode instructions.
 
+Right now, you have to compile Machine.NET yourself to use it. It's not published on NuGet yet because
+the emulator is a bit glitchy. It will, however, be published on NuGet for everyone once the emulator becomes stable.
+
 To begin, use Iced.Intel to assemble the instructions we need.
 In our case, it is:
 ```
@@ -236,7 +239,7 @@ If you prefer with .NET CLI:
 # Packages
 | Library name | NuGet URL | Source code on this repo |
 | ------------ | --------- | ------------------------ |
-| Machine.X64.Component.Registers | [![version](https://img.shields.io/badge/Package-1.0.2-blue)](https://nuget.org/packages/Machine.X64.Component.Registers) | [Click to redirect to source](https://github.com/winscripter/Machine.NET/tree/master/Cpu/X64/Component/Machine.X64.Component.Registers)
+| Machine.X64.Component.Registers | [![version](https://img.shields.io/badge/Package-1.0.3-blue)](https://nuget.org/packages/Machine.X64.Component.Registers) | [Click to redirect to source](https://github.com/winscripter/Machine.NET/tree/master/Cpu/X64/Component/Machine.X64.Component.Registers)
 | Machine.X64.Component.Registers.Iced | [![version](https://img.shields.io/badge/Package-1.0.1-blue)](https://nuget.org/packages/Machine.X64.Component.Registers.Iced) | [Click to redirect to source](https://github.com/winscripter/Machine.NET/tree/master/Cpu/X64/Component/Machine.X64.Component.Registers.Iced)
 
 # License
