@@ -789,15 +789,8 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
         }
         Run(in instruction);
 
-        if (!IsBranchFlowControl(instruction.FlowControl))
+        if (instruction.FlowControl == FlowControl.Next)
             this.ProcessorRegisters.Rip += (ulong)instruction.Length;
-    }
-
-    private static bool IsBranchFlowControl(FlowControl flowControl)
-    {
-        return flowControl is FlowControl.UnconditionalBranch or FlowControl.IndirectBranch or
-            FlowControl.ConditionalBranch or FlowControl.Return or FlowControl.Call or
-            FlowControl.IndirectCall or FlowControl.Interrupt;
     }
 
     public void Run(int numberOfTimes)
