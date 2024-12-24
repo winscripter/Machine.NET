@@ -53,6 +53,8 @@ public static class Debugger
             _masmFormatter.Format(in lastOrExecutingInstruction, _formatterOutputImpl);
 
             Console.WriteLine("\nHALTED: " + !runtime.Busy);
+            Console.WriteLine("LAST LENGTH: " + lastOrExecutingInstruction.Length);
+            Console.WriteLine("LAST RIP: " + runtime.CurrentRip);
             Console.WriteLine();
             PrintRegisters(runtime.ProcessorRegisters, bitness);
             Console.WriteLine();
