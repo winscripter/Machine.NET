@@ -10,7 +10,7 @@ public static class Debugger
     {
         public override void Write(string text, FormatterTextKind kind)
         {
-            Console.Write(text + " ");
+            Console.Write($"{text} ");
         }
     }
 
