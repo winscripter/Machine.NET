@@ -23,6 +23,10 @@ public partial class CpuRuntime
                         }
                         break;
                     }
+                    else
+                    {
+                        this.ProcessorRegisters.Ip += (ushort)instruction.Length;
+                    }
                     break;
                 }
 
@@ -40,6 +44,10 @@ public partial class CpuRuntime
                             this.ProcessorRegisters.Eip += (uint)displacement;
                         }
                         break;
+                    }
+                    else
+                    {
+                        this.ProcessorRegisters.Eip += (ushort)instruction.Length;
                     }
                     break;
                 }
@@ -59,6 +67,10 @@ public partial class CpuRuntime
                         }
                         break;
                     }
+                    else
+                    {
+                        this.ProcessorRegisters.Rip += (ushort)instruction.Length;
+                    }
                     break;
                 }
 
@@ -76,6 +88,10 @@ public partial class CpuRuntime
                             this.ProcessorRegisters.Ip += (ushort)displacement;
                         }
                         break;
+                    }
+                    else
+                    {
+                        this.ProcessorRegisters.Ip += (ushort)instruction.Length;
                     }
                     break;
                 }
@@ -95,6 +111,10 @@ public partial class CpuRuntime
                         }
                         break;
                     }
+                    else
+                    {
+                        this.ProcessorRegisters.Eip += (ushort)instruction.Length;
+                    }
                     break;
                 }
 
@@ -112,6 +132,10 @@ public partial class CpuRuntime
                             this.ProcessorRegisters.Rip += (ulong)displacement;
                         }
                         break;
+                    }
+                    else
+                    {
+                        this.ProcessorRegisters.Rip += (ushort)instruction.Length;
                     }
                     break;
                 }
