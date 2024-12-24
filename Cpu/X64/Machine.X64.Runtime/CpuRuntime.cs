@@ -725,16 +725,6 @@ public sealed partial class CpuRuntime(int memorySize = 65536, int ioPortCount =
         this.IOPorts[port].Write(accumulator);
     }
 
-    /// <summary>
-    /// Writes to an I/O port.
-    /// </summary>
-    /// <param name="port">Index of the port.</param>
-    /// <param name="accumulator">Value to write to the port.</param>
-    private void WriteIOPort(uint port, ulong accumulator)
-    {
-        this.IOPorts[port].Write(accumulator);
-    }
-
     private ulong NormalizeAddress(ulong address)
     {
         // Back in the 8086 days, address was calculated using (DS<<4)+address due
