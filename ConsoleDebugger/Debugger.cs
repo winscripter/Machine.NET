@@ -42,6 +42,7 @@ public static class Debugger
         runtime.ProcessorRegisters.Cs = 0;
         runtime.ProcessorRegisters.Rip = 0;
         runtime.Use8086Compatibility();
+        runtime.SetRsp(rsp);
         runtime.LoadProgram(File.ReadAllBytes(bytecodeFilePath), 0uL);
 
         while (true)
