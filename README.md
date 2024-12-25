@@ -1,3 +1,6 @@
+# Deprecation
+This project never received attention or interest and is being deprecated.
+
 # Machine.NET
 
 Table of contents:
